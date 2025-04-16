@@ -1,0 +1,58 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.ViewModels.LevelTypeViewModel
+
+@{
+    int stt = 1;
+}
+
+<div class="table-container">
+    <div class="header-table">
+        <h1>Quản lý Kiểu Cấp Độ</h1>
+        <div class="search-bar">
+            <form method="get">
+                <input type="text" name="search" value="@Model.SearchTerm" placeholder="Tìm kiếm ...">
+                <button type="submit" class="btn"><span class="material-icons-sharp">search</span></button>
+            </form>
+            <a asp-action="Create" class="btn btn-create">Thêm mới</a>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên cấp độ</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.LevelTypes)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td class="max-text">@item.TypeName</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.LevelTypeId" class="btn btn-edit">Sửa</a>
+                        <a asp-action="Details" asp-route-id="@item.LevelTypeId" class="btn btn-details">Xem</a>
+                        <a asp-action="Delete" asp-route-id="@item.LevelTypeId" class="btn btn-delete">Xóa</a>
+                    </td>
+                </tr>
+                stt++;
+            }
+        </tbody>
+    </table>
+
+</div>
+<!-- Hiển thị phân trang -->
+<div class="d-flex justify-content-center mt-4">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            @for (int i = Model.Pagination.StartPage; i <= Model.Pagination.EndPage; i++)
+            {
+                <li class="page-item @(i == Model.Pagination.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { search = Model.SearchTerm, page = i })">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

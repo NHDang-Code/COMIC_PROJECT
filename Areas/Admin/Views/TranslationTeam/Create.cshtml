@@ -1,0 +1,36 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TranslationTeamModel
+
+<div class="create-comic">
+    <h2 class="title">Tạo Nhóm Dịch</h2>
+    <form asp-action="Create" method="post" class="comic-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="TeamName" for="comic-name">Tên Nhóm Dịch</label>
+            <input asp-for="TeamName" type="text" id="comic-name" placeholder="Nhập tên nhóm dịch...">
+            <span asp-validation-for="TeamName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" for="comic-name">Mô tả</label>
+            <textarea asp-for="Description" id="description" placeholder="Nhập mô tả nhóm dịch..." class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>       
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ảnh Nhóm Dịch</label>
+            <input type="file" name="TeamAvatar" class="form-control" onchange="previewImage(event, 'frameImagePreview')" />
+            <div>
+                <img id="frameImagePreview" style="height:80px;width:80px; margin-top: 10px;" />
+            </div>
+            <span asp-validation-for="TeamAvatar" class="text-danger"></span>
+        </div>
+       
+        <input asp-for="TotalEarnings" type="hidden" value="0" />
+
+        <input asp-for="CreatedAt" type="hidden" value="@DateTime.Now" />
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Tạo Nhóm Dịch</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

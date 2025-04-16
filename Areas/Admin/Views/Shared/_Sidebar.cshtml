@@ -1,0 +1,61 @@
+﻿<div class="top">
+    <div class="logo">
+        <img src="~/media/icons/logo_dragon.jpg" alt="">
+        <h2 class="text-muted">Dragon<span class="danger">Comic</span></h2>
+    </div>
+    <div class="close" id="close-btn">
+        <span class="material-icons-sharp">close</span>
+    </div>
+</div>
+<div class="sidebar-menu">
+    <a href="@Url.Action("Index", "Dashboard", new { area = "Admin" })" class="active">
+        <span class="material-icons-sharp">grid_view</span>
+        <h3>Dashboard</h3>
+    </a>
+    <a href="@Url.Action("Index", "Profile", new { area = "Admin" })">
+        <span class="material-icons-sharp">diversity_3</span>
+        <h3>Trang cá nhân</h3>
+    </a>
+    <a href="@Url.Action("Index", "Comic", new { area = "Admin" })">
+        <span class="material-icons-sharp">history_edu</span>
+        <h3>Quản lý truyện</h3>
+    </a>
+    <a href="@Url.Action("Index", "Genre", new { area = "Admin" })">
+        <span class="material-icons-sharp">category</span>
+        <h3>Quản lý thể loại</h3>
+    </a>
+    <a href="@Url.Action("Index", "TranslationTeam", new { area = "Admin" })">
+        <span class="material-icons-sharp">toggle_on</span>
+        <h3>Quản lý nhóm dịch</h3>
+    </a>
+    <a href="@Url.Action("Index", "Role", new { area = "Admin" })">
+        <span class="material-icons-sharp">verified_user</span>
+        <h3>Quản lý quyền</h3>
+    </a>
+    <a href="@Url.Action("Index", "User", new { area = "Admin" })">
+        <span class="material-icons-sharp">group</span>
+        <h3>Quản lý người dùng</h3>
+    </a>
+    <a href="#">
+        <span class="material-icons-sharp">comment</span>
+        <h3>Quản lý bình luận</h3>
+    </a>
+    
+    <a href="@Url.Action("Index", "Frame", new { area = "Admin" })">
+        <span class="material-icons-sharp">crop_free</span>
+        <h3>Quản lý khung</h3>
+    </a>
+    <a href="@Url.Action("Index", "LevelType", new { area = "Admin" })">
+        <span class="material-icons-sharp">insights</span>
+        <h3>Quản lý cấp độ</h3>
+    </a>
+    <form asp-area="Admin" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+        <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();">
+            <span class="material-icons-sharp">logout</span>
+            <h3>Đăng xuất</h3>
+        </a>
+    </form>
+
+
+
+</div>

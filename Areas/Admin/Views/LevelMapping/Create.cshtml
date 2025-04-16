@@ -1,0 +1,46 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LevelMappingModel
+
+<div class="create-comic">
+    <h2 class="title">Tạo Dạng Cấp</h2>
+    <form asp-action="Create" method="post" class="comic-form">
+        <div class="form-group">
+            <label asp-for="LevelTypeId" class="form-label font-weight-bold">Kiểu Cấp Độ</label>
+            <div class="d-flex justify-content-start">
+                @foreach (var levelType in ViewBag.LevelTypes as List<K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LevelTypeModel>)
+                {
+                    var isChecked = Model.LevelTypeId == levelType.LevelTypeId ? "checked" : "";
+                    <!-- Xử lý C# trong biến -->
+                    <div class="form-check form-check-inline mx-4 custom-radio">
+                        <input class="form-check-input custom-radio-input"
+                               type="radio"
+                               name="LevelTypeId"
+                               value="@levelType.LevelTypeId"
+                               id="levelType_@levelType.LevelTypeId"
+                        @Html.Raw(isChecked) /> <!-- Hiển thị bằng Html.Raw() -->
+                        <label class="form-check-label custom-radio-label" for="levelType_@levelType.LevelTypeId">
+                            @levelType.TypeName
+                        </label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="LevelTypeId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DisplayName" for="comic-name">Tên Dạng Cấp Độ</label>
+            <input asp-for="DisplayName" type="text" id="comic-name" placeholder="Nhập tên dạng cấp độ...">
+            <span asp-validation-for="DisplayName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PointsRequired" for="comic-name">Tên Dạng Cấp Độ</label>
+            <input asp-for="PointsRequired" type="text" id="comic-name" placeholder="Nhập điểm yêu cầu ...">
+            <span asp-validation-for="PointsRequired" class="text-danger"></span>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Tạo Dạng Cấp Độ</button>
+            <a href="@Url.Action("Details", "LevelTyPe", new { id = Model.LevelTypeId })" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

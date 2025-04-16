@@ -1,0 +1,25 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LevelMappingModel
+
+<div class="create-comic">
+    <h2 class="title">Xóa Loại Cấp Độ</h2>
+    <p class="fs-5">
+        Bạn có chắc chắn muốn xóa loại cấp độ <strong class="text-danger">"@Model.DisplayName"</strong> không?
+    </p>
+    <form asp-action="Delete" method="post" class="comic-form">
+        <input type="hidden" asp-for="LevelId" />
+        <div class="form-group">
+            <label asp-for="DisplayName" for="comic-name">Tên Loại Cấp Độ</label>
+            <input asp-for="DisplayName" type="text" id="comic-name" placeholder="Nhập tên loại cấp độ..." readonly>
+            <span asp-validation-for="DisplayName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PointsRequired" for="comic-name">Điểm Yêu Cầu</label>
+            <input asp-for="PointsRequired" type="text" id="comic-name" placeholder="Nhập..." readonly>
+            <span asp-validation-for="PointsRequired" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Xóa Loại Cấp Độ</button>
+            <a href="@Url.Action("Details", "LevelTyPe", new { id = Model.LevelTypeId })" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,134 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel
+
+<div class="create-comic">
+    <h2 class="title">Sửa Người Dùng</h2>
+    <form asp-action="Edit" method="post" class="comic-form" enctype="multipart/form-data">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+        <input type="hidden" asp-for="UserId" />
+
+        <div class="form-group">
+            <label asp-for="UserName" for="comic-name">Tên Người Dùng</label>
+            <input asp-for="UserName" type="text" id="comic-name" placeholder="Nhập tên người dùng...">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="UserEmail" for="comic-name">Email</label>
+            <input asp-for="UserEmail" type="text" id="comic-name" placeholder="Nhập email..." readonly>
+            <span asp-validation-for="UserEmail" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password" for="comic-name">Mật Khẩu</label>
+            <input asp-for="Password" type="text" id="comic-name" value="@Model.Password" readonly">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <!-- Vai Trò -->
+        <div class="form-group">
+            <label asp-for="RoleId" class="form-label">Vai trò</label>
+            <select asp-for="RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+
+
+        <!-- Ảnh Người Dùng -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ảnh Người Dùng</label>
+            <input type="file" class="form-control" name="UserImage" onchange="previewImage(event, 'userImagePreview')" />
+            <div>
+                @if (!string.IsNullOrEmpty(Model.UserImage))
+                {
+                    <img id="userImagePreview" style="height:80px; width:80px; margin-top:10px;" src="@Url.Content("~/" + Model.UserImage)" />
+                }
+                else
+                {
+                    <img id="userImagePreview" style="height:120px; width:120px; margin-top:10px;" />
+                }
+            </div>
+            @Html.ValidationMessageFor(model => model.UserImage, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Ảnh Bìa Người Dùng -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ảnh Bìa</label>
+            <input type="file" class="form-control" name="CoverUserImage" onchange="previewImage(event, 'coverImagePreview')" />
+            <div>
+                @if (!string.IsNullOrEmpty(Model.CoverUserImage))
+                {
+                    <img id="coverImagePreview" style="height:100px; width:200px; margin-top:10px;" src="@Url.Content("~/" + Model.CoverUserImage)" />
+                }
+                else
+                {
+                    <img id="coverImagePreview" style="height:100px; width:200px; margin-top:10px;" />
+                }
+            </div>
+            @Html.ValidationMessageFor(model => model.CoverUserImage, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Coin -->
+        <div class="mb-3">
+            <label asp-for="Coin" class="form-label fw-bold">Số Coin</label>
+            <input type="text" class="form-control" id="coinInput" value="@Model.Coin.ToString("N0")" oninput="formatCoinInput(this)" />
+            <input type="hidden" asp-for="Coin" id="coinHidden" /> <!-- Giá trị thực -->
+            <span asp-validation-for="Coin" class="text-danger"></span>
+        </div>
+
+        <!-- Điểm -->
+        <div class="mb-3">
+            <label asp-for="Points" class="form-label fw-bold">Điểm</label>
+            <input type="text" class="form-control" id="pointsInput" value="@Model.Points.ToString("N0")" oninput="formatPointsInput(this)" />
+            <input type="hidden" asp-for="Points" id="pointsHidden" /> <!-- Giá trị thực -->
+            <span asp-validation-for="Points" class="text-danger"></span>
+        </div>
+
+        @* <!-- Cấp độ -->
+        <div class="mb-3">
+            <label asp-for="LevelTypeId" class="form-label fw-bold">Cấp độ</label>
+            <input asp-for="LevelTypeId" class="form-control" type="number" readonly />
+            <span asp-validation-for="LevelTypeId" class="text-danger"></span>
+        </div> *@
+
+        <!-- Ngày Tạo -->
+        <div class="mb-3">
+            <label asp-for="CreatedAt" class="form-label fw-bold">Ngày Tạo</label>
+            <input asp-for="CreatedAt" class="form-control" value="@Model.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")" readonly />
+            <span asp-validation-for="CreatedAt" class="text-danger"></span>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Sửa Người Dùng</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    // Hàm xem trước ảnh khi chọn tệp
+    function previewImage(event, previewId) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById(previewId).src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+
+    function formatPointsInput(input) {
+        let value = input.value.replace(/\D/g, ""); // Loại bỏ ký tự không phải số
+        document.getElementById('pointsHidden').value = value; // Lưu giá trị thực
+        input.value = new Intl.NumberFormat('vi-VN').format(value); // Hiển thị có dấu ,
+    }
+    function formatCoinInput(input) {
+        let value = input.value.replace(/\D/g, ""); // Loại bỏ tất cả ký tự không phải số
+        document.getElementById('coinHidden').value = value; // Lưu giá trị số thực
+        input.value = new Intl.NumberFormat('vi-VN').format(value); // Hiển thị có dấu ,
+    }
+</script>

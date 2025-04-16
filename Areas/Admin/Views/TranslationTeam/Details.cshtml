@@ -1,0 +1,67 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TranslationTeamModel
+
+
+<div class="table-container">
+    <div class="header-table mb-3">
+        <h1><strong>Nhóm dịch:</strong> @Model.TeamName</h1>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body" style="background: var(--color-background)">
+            <div class="row align-items-start">
+                <!-- Cột bên trái: Ảnh nhóm -->
+                <div class="col-md-3 text-center mb-3 mb-md-0">
+                    <img src="~/@Model.TeamAvatar" alt="Ảnh nhóm dịch" class="img-fluid rounded" style="height:180px;width:140px;" />
+                </div>
+
+                <!-- Cột bên phải: Thông tin nhóm -->
+                <div class="col-md-9">                    
+                    <p style="color:var(--color-dark)"><strong>Tổng tiền :</strong> @Model.TotalEarnings.ToString("N0") đ</p>
+                    <p style="color:var(--color-dark)"><strong>Số thành viên :</strong> @Model.MemberCount</p>
+                    <p style="color:var(--color-dark)"><strong>Truyện đã đăng:</strong> @Model.Comics.Count</p>
+                    <p style="color:var(--color-dark)"><strong>Mô tả:</strong> @Model.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-table mb-3">
+        <h1>Thông Tin Thành Viên</h1>
+        <a href="@Url.Action("AddMember", "TranslationTeam", new { area = "Admin", teamId = Model.TeamId })" class="btn btn-success p-2">Thêm Thành Viên</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Họ Tên</th>
+                <th>Vai Trò</th>
+                <th>Ngày Tham Gia</th>
+                @* <th>Hành Động</th> *@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Members)
+            {
+                <tr>
+                    <td>@item.User.UserName</td>
+                    <td>
+                        @Html.Raw(item.IsLeader
+                                 ? "<span class=\"badge bg-success\">Trưởng nhóm👑</span>"
+                                 : "<span class=\"badge bg-primary\"> Thành viên👤")
+                    </td>
+
+
+                    <td>@item.JoinedAt.ToString("dd/MM/yyyy")</td>
+                    @* <td>
+                        @if (Model.Members.Any(m => m.UserId == ViewBag.CurrentUserId && m.IsLeader) && !item.IsLeader)
+                        {
+                            <form asp-action="DeleteMember" method="post" onsubmit="return confirm('Xác nhận xóa thành viên này?');">
+                                <input type="hidden" name="memberId" value="@item.MemberId" />
+                                <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                            </form>
+                        }
+                    </td> *@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

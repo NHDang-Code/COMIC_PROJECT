@@ -1,0 +1,17 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.RoleModel
+
+<div class="create-comic">
+    <h2 class="title">Sửa Quyền</h2>
+    <form asp-action="Edit" method="post" class="comic-form">
+        <input type="hidden" asp-for="RoleId" />
+        <div class="form-group">
+            <label asp-for="RoleName" for="comic-name">Tên Quyền</label>
+            <input asp-for="RoleName" type="text" id="comic-name" placeholder="Nhập tên quyền...">
+            <span asp-validation-for="RoleName" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Sửa Quyền</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

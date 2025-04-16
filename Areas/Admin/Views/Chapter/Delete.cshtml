@@ -1,0 +1,15 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel
+
+<div class="create-comic">
+    <h2 class="title">Xóa Chương</h2>
+    <p class="fs-5">
+        Bạn có chắc chắn muốn xóa chương thứ @Model.ChapterNumber của truyện: <strong class="text-danger">"@Model.Comic.ComicName"</strong> không?
+    </p>
+    <form asp-action="Delete" method="post" class="comic-form">
+        <input type="hidden" asp-for="ChapterId" />       
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Xóa Chương</button>
+            <a href="@Url.Action("Details", "Profile", new { id = @Model.ComicId})" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

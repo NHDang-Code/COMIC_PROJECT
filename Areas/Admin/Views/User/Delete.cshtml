@@ -1,0 +1,25 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel
+
+<div class="create-comic">
+    <h2 class="title">Xóa Người Dùng</h2>
+    <p class="fs-5">
+        Bạn có chắc chắn muốn xóa người dùng <strong class="text-danger">"@Model.UserName"</strong> không?
+    </p>
+    <form asp-action="Delete" method="post" class="comic-form">
+        <input type="hidden" asp-for="UserId" />
+        <div class="form-group">
+            <label asp-for="UserName" for="comic-name">Tên Người Dùng</label>
+            <input asp-for="UserName" type="text" id="comic-name" placeholder="Nhập tên quyền..." readonly>
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserEmail" for="comic-name">Email</label>
+            <input asp-for="UserEmail" type="text" id="comic-name" placeholder="Nhập tên quyền..." readonly>
+            <span asp-validation-for="UserEmail" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Xóa Người Dùng</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

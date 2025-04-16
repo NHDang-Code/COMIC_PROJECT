@@ -1,0 +1,20 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TranslationTeamModel
+
+<div class="create-comic">
+    <h2 class="title">Xóa Nhóm Dịch</h2>
+    <p class="fs-5">
+        Bạn có chắc chắn muốn xóa Nhóm Dịch <strong class="text-danger">"@Model.TeamName"</strong> không?
+    </p>
+    <form asp-action="Delete" method="post" class="comic-form">
+        <input type="hidden" asp-for="TeamId" />
+        <div class="form-group">
+            <label asp-for="TeamName" for="comic-name">Tên Nhóm Dịch</label>
+            <input asp-for="TeamName" type="text" id="comic-name" placeholder="Nhập tên nhóm dịch..." readonly>
+            <span asp-validation-for="TeamName" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Xóa Nhóm Dịch</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

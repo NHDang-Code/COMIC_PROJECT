@@ -1,0 +1,42 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FrameModel
+
+<div class="create-comic">
+    <h2 class="title">Tạo Khung Mới</h2>
+    <form asp-action="Create" method="post" class="comic-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="FrameName" for="comic-name">Tên khung</label>
+            <input asp-for="FrameName" type="text" id="comic-name" placeholder="Nhập tên khung...">
+            <span asp-validation-for="FrameName" class="text-danger"></span>
+        </div>
+
+        <!-- Is Free / Paid -->
+        <div class="mb-3">
+            <label asp-for="IsFree" class="form-label fw-bold">Loại Frame</label>
+            <select asp-for="IsFree" class="form-control">
+                <option value="true">Free</option>
+                <option value="false">Paid</option>
+            </select>
+            <span asp-validation-for="IsFree" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Coin" for="comic-name">Số Coin</label>
+            <input asp-for="Coin" type="text" id="comic-name" placeholder="Nhập số coin...">
+            <span asp-validation-for="Coin" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Hình ảnh Frame</label>
+            <input type="file" name="FrameImage" class="form-control" onchange="previewImage(event, 'frameImagePreview')" />
+            <div>
+                <img id="frameImagePreview" style="height:80px;width:80px; margin-top: 10px;" />
+            </div>
+            <span asp-validation-for="FrameImage" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Tạo Khung</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

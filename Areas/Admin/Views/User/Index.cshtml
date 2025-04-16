@@ -1,0 +1,141 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.ViewModels.UserViewModel
+
+@{
+    int stt = 1;
+}
+
+<div class="table-container">
+    <div class="header-table">
+        <h1>Quản lý người dùng</h1>
+        <div id="searchUserContainer" class="search-bar position-relative">
+            <form asp-action="Index" method="get">
+                <input type="text" id="searchUser" name="searchQuery" placeholder="Tìm kiếm ..." value="@Model.SearchQuery">
+                <button type="submit" class="btn"><span class="material-icons-sharp">search</span></button>
+            </form>
+            <a href="@Url.Action("Create", "User", new { area = "Admin" })" class="btn btn-create">Thêm mới</a>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Xu(Coin)</th>
+                <th>Điểm(Points)</th>
+                <th>Vai Trò</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Users)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td class="max-text">@item.UserName</td>
+                    <td class="max-text">@item.Coin.ToString("#,0")</td>
+                    <td class="max-text">@item.Points.ToString("#,0")</td>
+                    <td>@(item.Role != null ? item.Role.RoleName : "Không có")</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "User", new { id = item.UserId, area = "Admin" })" class="btn btn-edit">Sửa</a>
+                        <a href="@Url.Action("Delete", "User", new { id = item.UserId, area = "Admin" })" class="btn btn-delete">Xóa</a>
+                    </td>
+                   
+                </tr>
+                stt++;
+            }
+        </tbody>
+    </table>
+
+
+</div>
+<nav class="mt-4">
+    <ul class="pagination justify-content-center">
+        @if (Model.CurrentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)" asp-route-searchQuery="@Model.SearchQuery">«</a>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-searchQuery="@Model.SearchQuery">@i</a>
+            </li>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)" asp-route-searchQuery="@Model.SearchQuery">»</a>
+            </li>
+        }
+    </ul>
+</nav>
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+    <script>
+        $(document).ready(function () {
+            $("#searchUser").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Admin/User/SearchUsers",
+                        type: "GET",
+                        data: { term: request.term },
+                        success: function (data) {
+                            console.log("Gợi ý nhận được:", data); // Debug dữ liệu trả về
+
+                            // If no data found, show a "No results" message
+                            if (data.length === 0) {
+                                response([{ label: "Không tìm thấy người dùng", value: "" }]);
+                            } else {
+                                response($.map(data, function (item) {
+                                    return {
+                                        label: item.name + " (ID: " + item.id + ")",
+                                        value: item.name
+                                    };
+                                }));
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Lỗi API:", error);
+                        }
+                    });
+                },
+                minLength: 1, // Gợi ý xuất hiện ngay khi nhập ít nhất 1 ký tự
+                appendTo: "#searchUserContainer", // Đảm bảo danh sách hiển thị đúng vị trí
+                position: { my: "left top", at: "left bottom", of: "#searchUser" }, // Hiển thị ngay bên dưới input
+                select: function (event, ui) {
+                    // Check if a valid selection was made
+                    if (ui.item.value) {
+                        $("form").submit(); // Tự động submit form tìm kiếm
+                    }
+                }
+            });
+
+            // Khi chọn gợi ý, tự động điền vào ô tìm kiếm và submit form
+            $("#searchUser").on("autocompleteselect", function (event, ui) {
+                $(this).val(ui.item.value);
+                $("form").submit(); // Tự động submit form tìm kiếm
+            });
+
+            // Khi nhấn Enter, submit form
+            $("#searchUser").keypress(function (e) {
+                if (e.which === 13) {
+                    e.preventDefault();
+                    $("form").submit();
+                }
+            });
+        });
+
+
+    </script>
+}
+
+

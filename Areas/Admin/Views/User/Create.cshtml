@@ -1,0 +1,76 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel
+
+<div class="create-comic">
+    <h2 class="title">Tạo Người Dùng Mới</h2>
+    <form asp-action="Create" method="post" class="comic-form" enctype="multipart/form-data">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+        <div class="form-group">
+            <label asp-for="UserName" for="comic-name">Tên Người Dùng</label>
+            <input asp-for="UserName" type="text" id="comic-name" placeholder="Nhập tên người dùng...">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="UserEmail" for="comic-name">Email</label>
+            <input asp-for="UserEmail" type="text" id="comic-name" placeholder="Nhập email...">
+            <span asp-validation-for="UserEmail" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password" for="comic-name">Mật Khẩu</label>
+            <input asp-for="Password" type="password" id="comic-name" placeholder="Nhập mật khẩu...">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <!-- Vai Trò -->
+        <div class="form-group">
+            <label asp-for="RoleId" class="form-label">Vai trò</label>
+            <select asp-for="RoleId" class="form-control" asp-items="ViewBag.RoleId">
+                <option value="">--- Chọn Quyền ---</option>
+            </select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+
+
+        <!-- Ảnh Người Dùng -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ảnh Đại diện</label>
+            <input type="file" name="UserImage" class="form-control" onchange="previewImage(event, 'userImagePreview')" />
+            <div>
+                <img id="userImagePreview" style="height:80px;width:80px; margin-top: 10px;" />
+            </div>
+            <span asp-validation-for="UserImage" class="text-danger"></span>
+        </div>
+
+        <!-- Ảnh Bìa -->
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ảnh Bìa</label>
+            <input type="file" name="CoverUserImage" class="form-control" onchange="previewImage(event, 'coverImagePreview')" />
+            <div>
+                <img id="coverImagePreview" style="height:100px;width:200px; margin-top: 10px;" />
+            </div>
+            <span asp-validation-for="CoverUserImage" class="text-danger"></span>
+        </div>
+
+        <!-- Coin -->
+        <div class="mb-3">
+            <label asp-for="Coin" class="form-label fw-bold">Số Coin</label>
+            <input asp-for="Coin" class="form-control" value="0" readonly />
+            <span asp-validation-for="Coin" class="text-danger"></span>
+        </div>
+
+        <!-- Ngày Tạo -->
+        <div class="mb-3">
+            <label asp-for="CreatedAt" class="form-label fw-bold">Ngày Tạo</label>
+            <input asp-for="CreatedAt" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")" readonly />
+            <span asp-validation-for="CreatedAt" class="text-danger"></span>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Tạo Người Dùng</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TeamMemberModel
+
+<div class="create-comic">
+    <h2 class="title">Thêm Thành Viên</h2>
+    <form asp-action="AddMember" method="post" class="comic-form">
+        <div class="form-group">
+            <label asp-for="UserId"></label>
+            <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserList">
+                <option value="">-- Chọn người dùng --</option>
+            </select>
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" asp-for="IsLeader" class="form-check-input" id="isLeaderCheckbox" />
+            <label class="form-check-label" for="isLeaderCheckbox">Thiết lập làm trưởng nhóm</label>
+            <span asp-validation-for="IsLeader" class="text-danger"></span>
+        </div>
+        <input type="hidden" asp-for="TeamId" />
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Thêm Thành Viên</button>
+            <a asp-action="Details" asp-route-id="@Model.TeamId" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

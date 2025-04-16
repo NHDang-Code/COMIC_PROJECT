@@ -1,0 +1,116 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel
+
+<div class="create-comic">
+    <h2 class="title">Sửa Truyện</h2>
+    <form asp-action="Edit" method="post" class="comic-form" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="ComicId" />
+        <div class="form-group">
+            <label asp-for="ComicName" for="comic-name">Tên Truyện</label>
+            <input asp-for="ComicName" type="text" id="comic-name" placeholder="Nhập tên truyện...">
+            <span asp-validation-for="ComicName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Slug" for="slug">Slug</label>
+            <input asp-for="Slug" type="text" id="slug" placeholder="Nhập Slug...">
+            <span asp-validation-for="Slug" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ComicAuthor" for="comic-name">Tên Tác Giả</label>
+            <input asp-for="ComicAuthor" type="text" id="comic-author" placeholder="Nhập tên tác giả...">
+            <span asp-validation-for="ComicAuthor" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ComicDescription" class="form-label fw-bold">Giới thiệu</label>
+            <textarea asp-for="ComicDescription" class="form-control" rows="4" placeholder="Nhập giới thiệu..."></textarea>
+            <span asp-validation-for="ComicDescription" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ảnh Truyện</label>
+            <input type="file" name="ComicImage" class="form-control" onchange="previewImage(event, 'frameImagePreview')" />
+            <div style="width:80px; height:100px">
+                @if (!string.IsNullOrEmpty(Model.ComicImage))
+                {
+                    <img id="frameImagePreview" src="~/@Model.ComicImage" alt="Comic Image" width="80px" height="100px" class="mt-2" />
+                }
+            </div>
+            <span asp-validation-for="ComicImage" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Thể loại</label>
+            <div class="row">
+                @if (ViewBag.AvailableGenres != null)
+                {
+                    var genres = ViewBag.AvailableGenres as List<K21CNT2_NguyenHaiDang_2110900067_DATN.Models.GenreModel>;
+
+                    @for (int i = 0; i < genres.Count; i++)
+                    {
+                        var genre = genres[i];
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="SelectedGenreIds"
+                                       value="@genre.GenreId"
+                                       id="genre_@genre.GenreId"
+                                @(ViewBag.SelectedGenreIds != null && ViewBag.SelectedGenreIds.Contains(genre.GenreId) ? "checked" : "") />
+                                <label class="form-check-label" for="genre_@genre.GenreId">@genre.GenreName</label>
+                            </div>
+                        </div>
+
+                        @if ((i + 1) % 3 == 0)
+                        {
+                            <div class="w-100"></div> <!-- Xuống hàng sau mỗi 3 checkbox -->
+                        }
+                    }
+                }
+                else
+                {
+                    <p class="text-danger">Không có thể loại nào để hiển thị.</p>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TeamId" class="form-label">Nhóm Dịch</label>
+            <select asp-for="TeamId" class="form-control" asp-items="ViewBag.TeamId">
+                <option value="">--- Chọn Nhóm Dịch ---</option>
+            </select>
+            <span asp-validation-for="TeamId" class="text-danger"></span>
+        </div>
+
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Cập Nhật truyện</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function removeDiacritics(str) {
+            str = str.replace(/Đ/g, "D").replace(/đ/g, "d");
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function comicSlug(text) {
+            return removeDiacritics(text)
+                .toLowerCase()
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .replace(/\s/g, '-');
+        }
+
+        document.getElementById("comic-name").addEventListener("input", function () {
+            const comicName = this.value;
+            const slug = comicSlug(comicName);
+            document.getElementById("slug").value = slug;
+        });
+
+    </script>
+}

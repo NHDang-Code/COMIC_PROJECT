@@ -1,0 +1,413 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\K21CNT2_NguyenHaiDang_2110900067_DATN.bundle.scp.css",
+      "PackagePath": "staticwebassets\\K21CNT2_NguyenHaiDang_2110900067_DATN.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\css\\admin_css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin_css\\admin.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\admi_js\\admin.js",
+      "PackagePath": "staticwebassets\\js\\admi_js\\admin.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\ban-chat-cua-chuyen-sinh_1660188109.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\ban-chat-cua-chuyen-sinh_1660188109.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\chuyen-the-ma-than-ky_1735784958.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\chuyen-the-ma-than-ky_1735784958.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\danh-dau-chin-van-nam-tien-nhiem-dao-lu-muon-chem-chet-ta_1721469804.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\danh-dau-chin-van-nam-tien-nhiem-dao-lu-muon-chem-chet-ta_1721469804.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\daoquyditien_1741765330.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\daoquyditien_1741765330.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\dodetadeuladaiphanphai.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\dodetadeuladaiphanphai.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\langtienkydan.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\langtienkydan.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\ta-troi-sinh-da-la-nhan-vat-phan-dien_1639360399.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\ta-troi-sinh-da-la-nhan-vat-phan-dien_1639360399.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\talatade.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\talatade.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\thien-ha-de-nhat-lu-bo_1664885566.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\thien-ha-de-nhat-lu-bo_1664885566.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\tram-nguyet_1708404583.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\tram-nguyet_1708404583.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\vantotoicuongtong.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\vantotoicuongtong.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\2efe67de-7e2f-427a-ac62-5237c6acbc74.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\2efe67de-7e2f-427a-ac62-5237c6acbc74.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\3b58ff0d-c817-4b4c-a5a0-989a80575b2f.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\3b58ff0d-c817-4b4c-a5a0-989a80575b2f.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\40d5edf8-f5ce-4e91-a3bc-76f7aa90db34.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\40d5edf8-f5ce-4e91-a3bc-76f7aa90db34.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\46662b53-d7b0-42ca-a0e0-107e767a0938.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\46662b53-d7b0-42ca-a0e0-107e767a0938.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\65bd4552-ef87-4d63-a8e4-2c83c7ed4a7d.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\65bd4552-ef87-4d63-a8e4-2c83c7ed4a7d.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\68ca8e61-0f88-481e-8ea6-893a2518671a.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\68ca8e61-0f88-481e-8ea6-893a2518671a.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\8af96246-13cd-4d14-b0f3-810bfa2618b3.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\8af96246-13cd-4d14-b0f3-810bfa2618b3.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\b993a3a9-760a-4d06-a634-ad5a80b45b7c.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\b993a3a9-760a-4d06-a634-ad5a80b45b7c.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\bc022ade-286f-4b71-827f-579f1b1c9af1.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\bc022ade-286f-4b71-827f-579f1b1c9af1.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\cover_image.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\cover_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\cover_image\\ebb8e72b-d6fc-40df-8a59-52418034db84.jpg",
+      "PackagePath": "staticwebassets\\media\\cover_image\\ebb8e72b-d6fc-40df-8a59-52418034db84.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\icons\\avatar_thor_gift.gif",
+      "PackagePath": "staticwebassets\\media\\icons\\avatar_thor_gift.gif"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\icons\\logo_dragon.jpg",
+      "PackagePath": "staticwebassets\\media\\icons\\logo_dragon.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\team_image\\c4afea9f-0623-4933-891f-00a3ddc892a7.jpg",
+      "PackagePath": "staticwebassets\\media\\team_image\\c4afea9f-0623-4933-891f-00a3ddc892a7.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\team_image\\fe056841-1fe2-44af-8dd0-3011904707cd.jpg",
+      "PackagePath": "staticwebassets\\media\\team_image\\fe056841-1fe2-44af-8dd0-3011904707cd.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\team_image\\logo_dragon.jpg",
+      "PackagePath": "staticwebassets\\media\\team_image\\logo_dragon.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\0b61f0cc-7983-4dd2-aa50-f488218ac387.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\0b61f0cc-7983-4dd2-aa50-f488218ac387.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\2c46c9b8-2f18-4bf4-a2bb-2e3126a22cb7.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\2c46c9b8-2f18-4bf4-a2bb-2e3126a22cb7.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\7231b1dc-422b-4e94-aa20-30d01a33f05a.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\7231b1dc-422b-4e94-aa20-30d01a33f05a.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\78ffb887-9b83-4f14-aa7f-a5487847deb6.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\78ffb887-9b83-4f14-aa7f-a5487847deb6.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\7c85d85b-ac22-4757-81b5-4169ded66b90.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\7c85d85b-ac22-4757-81b5-4169ded66b90.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\96081ba9-4866-44b7-a889-8990715ba688.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\96081ba9-4866-44b7-a889-8990715ba688.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\b2350a92-695f-46b0-a7d8-65c6eebcf253.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\b2350a92-695f-46b0-a7d8-65c6eebcf253.jpg"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\user_image\\logo_dragon.jpg",
+      "PackagePath": "staticwebassets\\media\\user_image\\logo_dragon.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.K21CNT2_NguyenHaiDang_2110900067_DATN.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.K21CNT2_NguyenHaiDang_2110900067_DATN.props",
+      "PackagePath": "build\\K21CNT2_NguyenHaiDang_2110900067_DATN.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.K21CNT2_NguyenHaiDang_2110900067_DATN.props",
+      "PackagePath": "buildMultiTargeting\\K21CNT2_NguyenHaiDang_2110900067_DATN.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.K21CNT2_NguyenHaiDang_2110900067_DATN.props",
+      "PackagePath": "buildTransitive\\K21CNT2_NguyenHaiDang_2110900067_DATN.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

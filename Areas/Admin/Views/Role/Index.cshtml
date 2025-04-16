@@ -1,0 +1,69 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.ViewModels.RoleViewModel
+
+@{
+    int stt = 1;
+}
+
+<div class="table-container">
+    <div class="header-table">
+        <h1>Quản lý Quyền</h1>
+        <div class="search-bar">
+            <form method="get">
+                <input type="text" name="search" value="@Model.SearchTerm" placeholder="Tìm kiếm ...">
+                <button type="submit" class="btn"><span class="material-icons-sharp">search</span></button>
+            </form>
+            <a asp-action="Create" class="btn btn-create">Thêm mới</a>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên vai trò</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.Roles)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td class="max-text">@item.RoleName</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.RoleId" class="btn btn-edit">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@item.RoleId" class="btn btn-delete">Xóa</a>
+                    </td>
+                </tr>
+                stt++;
+            }
+        </tbody>
+    </table>
+
+</div>
+<!-- Hiển thị phân trang -->
+<nav class="mt-4">
+    <ul class="pagination justify-content-center">
+        @if (Model.Paginate.CurrentPage > 1)
+        {
+            <li class="page-item" style="z-index:1">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.Paginate.CurrentPage - 1)">«</a>
+            </li>
+        }
+
+        @for (int i = Model.Paginate.StartPage; i <= Model.Paginate.EndPage; i++)
+        {
+            <li class="page-item @(i == Model.Paginate.CurrentPage ? "active" : "")" style="z-index:1">
+                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+            </li>
+        }
+
+        @if (Model.Paginate.CurrentPage < Model.Paginate.TotalPages)
+        {
+            <li class="page-item" style="z-index:1">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.Paginate.CurrentPage + 1)">»</a>
+            </li>
+        }
+    </ul>
+</nav>

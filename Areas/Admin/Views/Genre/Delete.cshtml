@@ -1,0 +1,20 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.GenreModel
+
+<div class="create-comic">
+    <h2 class="title">Xóa Thể Loại</h2>
+    <p class="fs-5">
+        Bạn có chắc chắn muốn xóa thể loại <strong class="text-danger">"@Model.GenreName"</strong> không?
+    </p>
+    <form asp-action="Delete" method="post" class="comic-form">
+        <input type="hidden" asp-for="GenreId" />
+        <div class="form-group">
+            <label asp-for="GenreName" for="comic-name">Tên Thể Loại</label>
+            <input asp-for="GenreName" type="text" id="comic-name" placeholder="Nhập tên thể loại..." readonly>
+            <span asp-validation-for="GenreName" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Xóa Thể Loại</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

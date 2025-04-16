@@ -1,0 +1,1471 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap&subset=vietnamese');
+
+/*------------------------------------ROOT VARAIBLES---------------------------------*/
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-light: #dce1eb;
+    --color-info-dark: #363949;
+    --color-dark: black;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+/* ------------------------dark theme---------------------- */
+
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: white;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --color-info-dark: #edeffd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--color-dark);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+.text-min {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.max-text { /* Cột Tên truyện */
+    max-width: 50px; /* Giới hạn chiều rộng */
+    white-space: nowrap; /* Không cho xuống dòng */
+    overflow: hidden; /* Ẩn phần nội dung vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu "..." */
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-danger);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background: var(--color-background);
+    font-size: 0.88rem;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+    color: var(--color-dark);
+    overflow-x: hidden;
+}
+
+/* =========================== sidebar(định dạng sidebar) ========================== */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 3;
+    background: var(--color-background);
+    box-shadow: var(--box-shadow);
+}
+
+    #sidebar .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        margin-left: 1.5rem;
+    }
+
+
+    #sidebar .logo {
+        display: flex;
+        gap: 1rem;
+    }
+
+        #sidebar .logo img {
+            width: 2.3rem;
+            height: 2.3rem;
+        }
+
+    #sidebar .close {
+        display: none;
+    }
+
+    /* ================ sidebar-menu ============== */
+    #sidebar .sidebar-menu {
+        display: flex;
+        flex-direction: column;
+        height: 86vh;
+        position: relative;
+        top: 3rem;
+    }
+
+        #sidebar .sidebar-menu h3 {
+            color: var(--color-dark);
+            font-weight: 500;
+        }
+
+        #sidebar .sidebar-menu a {
+            display: flex;
+            color: var(--color-info-dark);
+            margin-left: 2rem;
+            gap: 1rem;
+            align-items: center;
+            position: relative;
+            height: 3.7rem;
+            text-decoration: none;
+            transition: all 300ms ease;
+        }
+
+
+            #sidebar .sidebar-menu a span {
+                color: var(--color-dark);
+                font-size: 1.6rem;
+                transition: all 300ms ease;
+            }
+
+            #sidebar .sidebar-menu a:last-child {
+                position: absolute;
+                bottom: 3rem;
+                width: 100%;
+            }
+
+            #sidebar .sidebar-menu a.active {
+                background: var(--color-light);
+                color: var(--color-primary);
+                margin-left: 0;
+            }
+
+                #sidebar .sidebar-menu a.active::before {
+                    content: '';
+                    width: 6px;
+                    height: 100%;
+                    background: var(--color-primary);
+                }
+
+                #sidebar .sidebar-menu a.active span {
+                    color: var(--color-primary);
+                    margin-left: calc(1rem - 3px);
+                }
+
+            #sidebar .sidebar-menu a:hover {
+                color: var(--color-primary);
+            }
+
+                #sidebar .sidebar-menu a:hover span {
+                    margin-left: 8px;
+                }
+
+        #sidebar .sidebar-menu .message-count {
+            background: var(--color-danger);
+            color: var(--color-white);
+            padding: 2px 10px;
+            font-size: 11px;
+            border-radius: var(--border-radius-1);
+        }
+
+/* ====================== header(định dạng header) ========================= */
+#header {
+    position: fixed;
+    top: 0;
+    left: 250px; /* Căn đúng với sidebar */
+    width: calc(100% - 250px); /* Chừa khoảng trống cho sidebar */
+    background: var(--color-background);
+    z-index: 2;
+}
+
+
+    #header .top {
+        display: flex;
+        justify-content: end;
+        gap: 2rem;
+        align-items: center;
+        height: 80px;
+    }
+
+        #header .top button {
+            display: none;
+        }
+
+    #header .theme-toggler {
+        background: var(--color-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 1.6rem;
+        width: 4.2rem;
+        cursor: pointer;
+        border-radius: var(--border-radius-2);
+    }
+
+        #header .theme-toggler span {
+            font-size: 1.2rem;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            #header .theme-toggler span.active {
+                background: var(--color-primary);
+                color: white;
+                border-radius: var(--border-radius-2);
+            }
+
+    #header .top .profile {
+        display: flex;
+        gap: 1.2rem;
+        text-align: right;
+        align-items: center;
+        position: relative; /* Giúp frame đặt đúng vị trí */
+        margin-right: 1.3rem;
+    }
+
+.profile-photo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1; /* Đảm bảo avatar nằm trên cùng */
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* Frame không bị cắt mất phần viền */
+/*.frame-info {
+    position: absolute;
+    top: 50%;
+    left: 86%;
+    width: 3rem;*/ /* Làm frame to hơn avatar */
+/*height: 3rem;
+    transform: translate(-50%, -50%);
+    z-index: 2;*/ /* Frame nằm dưới avatar */
+/*pointer-events: none;*/ /* Tránh ảnh hưởng thao tác */
+/*}
+
+    .frame-info img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;*/ /* Hiển thị đầy đủ frame mà không bị cắt */
+/*}*/
+
+
+/* ============================= main(định dạng content) ============================ */
+#main {
+    margin-top: 3.8rem;
+    position: relative;
+    background: var(--color-background);
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    padding: 20px;
+    min-height: 100vh;
+    color: var(--color-dark);
+}
+
+/* ================== table-container(table) ====================== */
+/* Định dạng container của bảng */
+.table-container {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 10px;
+    background: var(--color-white);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+}
+
+/* Định dạng tiêu đề */
+.header-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Định dạng bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+}
+
+/*================ Định dạng tiêu đề cột(table) ================*/
+thead {
+    background: black;
+    color: var(--color-info-light);
+}
+
+th {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Định dạng hàng và cột */
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+
+    td img {
+        width: 50px;
+        height: 60px;
+        border-radius: 5px;
+    }
+
+
+/* Định dạng nút */
+.btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-edit {
+    background: #111e88;
+    color: white;
+}
+
+.btn-delete {
+    background: #d32f2f;
+    color: white;
+}
+
+.btn-details {
+    background: #d7be00;
+    color: white;
+}
+
+
+/*============================= Thanh tìm kiếm(table) =================*/
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+    .search-bar input {
+        padding: 9px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .search-bar .btn {
+        background: var(--color-primary);
+        color: white;
+        border-radius: var(--border-radius-1);
+    }
+
+    .search-bar span {
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .search-bar .btn-create {
+        background: #388e3c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+/* ======================== Dashboard ============================= */
+.dashboard-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Chuyển từ hàng ngang sang cột */
+    gap: 1.5rem;
+}
+
+
+.dashboard-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start; /* Căn các phần tử về phía trên */
+}
+
+/* Cột bên trái (Insights + Biểu đồ) */
+.left-section {
+    flex: 2; /* Chiếm 2 phần */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/*================== Insights (3 ô)(Dashboard) ====================*/
+.insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+/*========================== Biểu đồ(Dashboard) ===================================*/
+.chart-container {
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column; /* Đưa h1 lên trên */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: var(--color-white);
+}
+
+    .chart-container:hover {
+        box-shadow: none;
+    }
+
+/* ===================== tên biểu đồ(Dashboard) ===================== */
+.chart-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem; /* Tạo khoảng cách với biểu đồ */
+    color: var(--color-dark); /* Điều chỉnh màu theo giao diện */
+}
+
+#chart {
+    background: var(--color-white);
+    width: 100%;
+    height: 100%;
+}
+
+.apexcharts-text {
+    fill: var(--color-dark) !important;
+}
+
+/* Màu tooltip */
+.apexcharts-tooltip {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+    border-radius: 5px;
+}
+
+.apexcharts-legend-text {
+    color: var(--color-dark) !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+    background: var(--color-white);
+}
+
+/*============================ right(Dashboard) ================*/
+.right {
+    flex: 1; /* Chiếm 1 phần */
+}
+
+/* =================================insights(Dashboard) =========================== */
+.insights > div {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+    .insights > div:hover {
+        box-shadow: none;
+    }
+
+    .insights > div span {
+        background-color: var(--color-primary);
+        padding: 0.5rem;
+        border-radius: 50%;
+        color: var(--color-white);
+        font-size: 2rem;
+    }
+
+    .insights > div.income span {
+        background: var(--color-success);
+    }
+
+    .insights > div.expenses span {
+        background: var(--color-danger);
+    }
+
+    .insights > div.comic-total span {
+        background: var(--color-success);
+    }
+
+    .insights > div.chapter-total span {
+        background: var(--color-warning);
+    }
+
+    .insights > div.favorite-total span {
+        background: var(--color-danger);
+    }
+
+    .insights > div .middle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+.insights h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+.insights small {
+    margin-top: 1.3rem;
+    display: block;
+}
+
+
+/* ============================ recent-updates(Dashboard) ================================ */
+
+.right .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right .recent-updates .updates {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+    .right .recent-updates .updates:hover {
+        box-shadow: none;
+    }
+
+    .right .recent-updates .updates .update {
+        display: grid;
+        grid-template-columns: 2.6rem auto;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+/* ========================== sales-analytics(Dashboard) ================================ */
+
+.right .sales-analytics {
+    margin-top: 2rem;
+}
+
+    .right .sales-analytics h2 {
+        margin-bottom: 0.8rem;
+    }
+
+    .right .sales-analytics .item {
+        background: var(--color-white);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.7rem;
+        padding: 1.4rem var(--card-padding);
+        border-radius: var(--border-radius-3);
+        box-shadow: var(--box-shadow);
+    }
+
+        .right .sales-analytics .item:hover {
+            box-shadow: none;
+        }
+
+        .right .sales-analytics .item .right {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin: 0;
+            width: 100%;
+        }
+
+        .right .sales-analytics .item .icon {
+            padding: 0.6rem;
+            color: var(--color-white);
+            border-radius: 50%;
+            background: var(--color-primary);
+            display: flex;
+        }
+
+        .right .sales-analytics .item.offline .icon {
+            background: var(--color-danger);
+        }
+
+        .right .sales-analytics .item.customers .icon {
+            background: var(--color-success);
+        }
+
+    .right .sales-analytics .add-movie {
+        background-color: var(--color-white);
+        border: 2px dashed var(--color-primary);
+        color: var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .right .sales-analytics .add-movie div {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+
+            .right .sales-analytics .add-movie div a {
+                text-decoration: none;
+                display: flex; /* Đảm bảo nằm cùng dòng */
+                align-items: center;
+                gap: 0.6rem; /* Tạo khoảng cách giữa icon và text */
+            }
+
+            .right .sales-analytics .add-movie div h3 {
+                font-weight: 600;
+                margin: 0; /* Loại bỏ margin mặc định */
+            }
+
+/* ============================= Thêm mới truyện(create) =========================== */
+.create-comic {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+    .create-comic .title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+.custom-radio-input {
+    width: 18px !important;
+    height: 18px;
+}
+
+.custom-radio-label {
+    cursor: pointer;
+    padding-left: 0.5rem;
+    align-items: center;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+    .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        cursor: pointer;
+        accent-color: var(--color-primary-variant);
+    }
+
+
+
+/* Ô chứa ảnh tải lên */
+.image-preview {
+    width: 100%;
+    height: 200px;
+    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+    .image-preview img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.btn-submit, .btn-cancel {
+    flex: 1; /* Để cả hai nút có cùng kích thước */
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-submit {
+    background: #388e3c;
+    color: white;
+    border: none;
+}
+
+
+.btn-cancel {
+    background: #dc3545; /* Bootstrap danger */
+    color: white;
+}
+
+
+/* ========================== chi tiết truyện(details) ============================= */
+/* Định dạng tổng thể phần details-comic */
+.details-comic {
+    max-width: 900px; /* Định chiều rộng tối đa */
+    width: 100%;
+    margin: 20px auto; /* Căn giữa màn hình */
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Phần header chứa ảnh và thông tin truyện */
+.comic-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Ảnh bìa */
+.comic-cover img {
+    width: 180px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Chỉnh sửa thông tin truyện */
+.comic-info {
+    flex: 1;
+}
+
+    .comic-info h2 {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: var(--color-dark);
+    }
+
+    .comic-info p {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        color: var(--color-dark);
+    }
+
+/* Nút Thêm chương & Quay lại */
+.comic-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+strong {
+    font-weight: 600;
+}
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+.btn-create {
+    background-color: #388e3c;
+}
+
+
+.btn-back {
+    background-color: #6c757d;
+}
+
+
+/* Bảng danh sách chương */
+.comic-chapters {
+    margin-top: 20px;
+}
+
+    .comic-chapters h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+.chapter-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .chapter-list tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .chapter-list th, .chapter-list td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .chapter-list th {
+        background: #007bff;
+        color: white;
+    }
+
+    .chapter-list td a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+        .chapter-list td a:hover {
+            text-decoration: underline;
+        }
+
+/*================================ Phân Trang ============================ */
+/* Styling for the pagination */
+.pagination {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.page-item {
+    margin: 0 5px;
+    z-index: 1;
+}
+
+.page-link {
+    border-radius: 50% !important; /* Circular shape */
+    background-color: #007bff; /* Blue background for links */
+    color: white; /* White text color */
+    border: none; /* Removes the default border */
+    padding: 6px 12px; /* Smaller padding for compact size */
+    font-size: 1rem; /* Smaller font size */
+    width: 30px; /* Fixed width to make it circular */
+    height: 30px; /* Fixed height to make it circular */
+    display: flex; /* Flexbox for centering the text */
+    justify-content: center;
+    align-items: center;
+}
+
+    .page-link:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        text-decoration: none; /* Removes underline when hovered */
+    }
+
+.page-item.active .page-link {
+    background-color: #0056b3; /* Active page gets a darker blue */
+    font-weight: bold; /* Bold text for the active page */
+}
+
+.page-link:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Adds a blue glow on focus */
+}
+
+
+/*=================Ảnh Chapter=============*/
+.tiny-chapter-image {
+    max-width: 40px;
+    max-height: 60px;
+}
+
+
+/*============================ Edit Chapter_image====================================*/
+
+/* Container chính */
+.row-image {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Khoảng cách giữa các ảnh */
+    justify-content: center;
+}
+
+/* Container ảnh */
+.image-container {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 280px;
+    height: 400px; /* Tăng chiều cao để phù hợp nội dung */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+/* Đánh số thứ tự ảnh */
+.image-index {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    background: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Ảnh hiển thị */
+.image-container img {
+    width: 250px;
+    height: 300px; /* Ảnh luôn vừa với container */
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Chỉnh nút xoá & cập nhật */
+.button-group-image {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+    .button-group-image button {
+        flex: 1;
+        max-width: 120px;
+        height: 35px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+/* Kích thước của ô xem trước ảnh */
+.preview-container {
+    width: 120px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+/* Nút bấm - đồng đều kích thước */
+.image-container button, .action-buttons-image .btn {
+    width: 100px;
+    height: 35px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+/* Canh chỉnh nút "Cập nhật" & "Quay lại" */
+.action-buttons-image {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Back to Top */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+    #backToTop:hover {
+        background: #0056b3;
+    }
+
+/* 🔹 Responsive: Màn hình nhỏ - 2 ảnh mỗi dòng */
+@media (max-width: 768px) {
+    .row-image {
+        gap: 10px; /* Giảm khoảng cách để vừa màn hình nhỏ */
+    }
+
+    .image-container {
+        width: 48%; /* Đảm bảo mỗi dòng có 2 ảnh */
+        height: auto; /* Tự động căn chiều cao */
+        padding: 8px;
+    }
+
+        .image-container img {
+            width: 100%;
+            height: 220px; /* Giảm kích thước ảnh cho vừa */
+        }
+
+    .button-group-image {
+        /*flex-direction: column;*/ /* Chuyển nút sang dọc nếu quá nhỏ */
+        gap: 5px;
+    }
+
+        .button-group-image button {
+            max-width: 100%;
+        }
+}
+
+
+
+
+
+/* ======================= Media ================================ */
+@media screen and (max-width: 1200px) {
+    /*================== sidebar ================== */
+    #sidebar {
+        width: 5.6rem; /* Thu nhỏ sidebar nhưng vẫn giữ icon */
+        overflow: hidden;
+    }
+
+        #sidebar .logo h2 {
+            display: none; /* Ẩn chữ trong logo */
+        }
+
+        #sidebar .sidebar-menu h3 {
+            display: none; /* Ẩn chữ bên trong menu */
+        }
+
+        #sidebar .sidebar-menu a {
+            width: 5.6rem; /* Định nghĩa chiều rộng cố định */
+            display: flex;
+        }
+
+            #sidebar .sidebar-menu a span {
+                font-size: 1.8rem; /* Tăng kích thước icon */
+            }
+
+        #sidebar .sidebar-menu .message-count {
+            display: none;
+        }
+
+        #sidebar .sidebar-menu a:last-child {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+
+    /*===================================== header ============================ */
+    #header {
+        left: 5.6rem; /* Căn header sau khi sidebar thu nhỏ */
+        width: calc(100% - 5.6rem);
+    }
+
+
+    /* ================== main ========================== */
+    #main {
+        margin-left: 5.6rem; /* Cập nhật khoảng trống cho nội dung */
+        width: calc(100% - 5.6rem);
+    }
+
+    /* ================================== dashboard-content ============ */
+    .dashboard-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+    /*======== Left-section chứa insights ============*/
+    .left-section {
+        flex: 1;
+        width: 50%; /* Chiếm một nửa màn hình */
+    }
+
+    .insights {
+        display: grid;
+        grid-template-columns: 1fr; /* Đảm bảo chỉ 1 cột */
+        gap: 1.6rem;
+    }
+
+    /*============ Right nằm ngoài left-section =============*/
+    .right {
+        flex: 1;
+        width: 50%; /* Chiếm một nửa màn hình */
+    }
+
+    /*================== Chart-container nằm dưới cả insights và right ============*/
+    .chart-container {
+        width: 200%;
+        height: auto;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #chart {
+        width: 100%;
+        height: 350px;
+    }
+
+
+    /* ===================== table-container ================ */
+    .table-container {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    .search-bar input {
+        width: 200px;
+    }
+
+    td img {
+        width: 45px;
+        height: 55px;
+    }
+
+    .btn {
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* ============== sidebar ===================== */
+    #sidebar {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+        #sidebar.show {
+            left: 0; /* Hiện sidebar khi có class `show` */
+        }
+
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    }
+
+    #sidebar .logo {
+        margin-left: 1rem;
+    }
+
+        #sidebar .logo h2 {
+            display: inline;
+        }
+
+    #sidebar .sidebar-menu h3 {
+        display: inline;
+    }
+
+    #sidebar .sidebar-menu a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    #sidebar .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    #sidebar .sidebar-menu .message-count {
+        display: inline-block;
+    }
+
+    /*=================== Main full width ==================*/
+    #main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+
+    /*=================== header  ==================*/
+    #header .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+        #header .top .theme-toggler {
+            width: 4.4rem;
+            position: absolute;
+            left: 60%;
+        }
+
+    #header .profile .info {
+        display: none;
+    }
+
+    #header .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+        #header .top button span {
+            font-size: 2rem;
+        }
+
+    .frame-info {
+        left: 50%;
+    }
+
+    /*===================== table-container ================*/
+    .table-container {
+        padding: 10px; /* Giảm padding */
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.8rem; /* Thu nhỏ chữ */
+    }
+
+    th, td {
+        padding: 8px; /* Giảm padding */
+    }
+
+    .table-container h1 {
+        display: none;
+    }
+
+
+
+    /*=================== dashboard ====================  */
+    .dashboard-content {
+        flex-direction: column; /* Chuyển thành cột dọc */
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    /* Left-section chiếm toàn bộ chiều rộng */
+    .left-section {
+        width: 100%;
+    }
+
+    .insights {
+        grid-template-columns: 1fr; /* Giữ 1 cột */
+    }
+
+    /* Right cũng chiếm toàn bộ chiều rộng */
+    .right {
+        width: 100%;
+    }
+
+    /* Chart-container nằm dưới, cũng chiếm toàn bộ chiều rộng */
+    .chart-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #chart {
+        width: 100%;
+        height: 300px;
+    }
+
+    /* ================= Thêm mới ============== */
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    /* ======================= chi tiết truyện ===================== */
+    .details-comic {
+        padding: 10px;
+    }
+
+    .comic-header {
+        display: flex;
+        flex-direction: column; /* Xếp dọc ảnh và thông tin */
+        align-items: start;
+        text-align: start;
+        gap: 10px;
+    }
+
+    .comic-cover img {
+        width: 180px; /* Tăng kích thước ảnh để nhìn rõ hơn */
+        height: auto;
+    }
+
+    .comic-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+    }
+
+    .comic-actions {
+        display: flex;
+        flex-direction: row; /* Hiển thị các phần tử theo hàng ngang */
+        justify-content: flex-start; /* Căn giữa các nút */
+        gap: 10px; /* Tạo khoảng cách giữa các nút */
+        width: 100%;
+    }
+
+        .comic-actions a {
+            flex: 1; /* Để các nút có kích thước bằng nhau */
+            max-width: 120px; /* Giới hạn chiều rộng tối đa */
+            text-align: center; /* Căn giữa nội dung */
+        }
+
+
+    /* Bảng danh sách chương */
+    .chapter-table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+        .chapter-table th, .chapter-table td {
+            padding: 6px;
+            text-align: center;
+        }
+
+            .chapter-table td .btn {
+                display: block; /* Các nút xếp chồng lên nhau */
+                margin: 5px auto;
+                width: 90%;
+            }
+}

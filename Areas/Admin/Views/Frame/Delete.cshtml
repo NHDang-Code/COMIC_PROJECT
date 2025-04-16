@@ -1,0 +1,20 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FrameModel
+
+<div class="create-comic">
+    <h2 class="title">Xóa khung</h2>
+    <p class="fs-5">
+        Bạn có chắc chắn muốn xóa khung <strong class="text-danger">"@Model.FrameName"</strong> không?
+    </p>
+    <form asp-action="Delete" method="post" class="comic-form">
+        <input type="hidden" asp-for="FrameId" />
+        <div class="form-group">
+            <label asp-for="FrameName" for="comic-name">Tên khung</label>
+            <input asp-for="FrameName" type="text" id="comic-name" placeholder="Nhập tên khung..." readonly>
+            <span asp-validation-for="FrameName" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Xóa Khung</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

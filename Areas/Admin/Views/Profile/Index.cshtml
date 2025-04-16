@@ -1,0 +1,87 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel
+
+<div class="table-container" style="margin-top: 1rem">
+    <div class="profile-container" style="background: var(--color-white); border-radius: 10px; overflow: hidden; font-family: sans-serif;">
+
+        <!-- PHẦN HEADER: Cover + Avatar + Info -->
+        <div style="position: relative; height: 280px;border-bottom: 1px solid var(--color-dark)">
+            <!-- Ảnh bìa -->
+            <img src="@Url.Content("~/" + Model.CoverUserImage)" alt="Cover"
+                 style="width: 100%; height: 100%; object-fit: cover;">
+
+            <!-- Overlay chứa avatar và thông tin -->
+            <div style="position: absolute; bottom: 0; left: 0; display: flex; align-items: center; background-color: var(--color-white); padding: 15px 20px; border-top-right-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                <!-- Avatar -->
+                <img src="@Url.Content("~/" + Model.UserImage)" alt="Avatar"
+                     style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+
+                <!-- Thông tin người dùng -->
+                <div style="margin-left: 20px;">
+                    <h2 style="margin: 0 0 5px 0;">@Model.UserName</h2>
+                    @if (Model.Members != null && Model.Members.Any(m => m.TranslationTeam != null))
+                    {
+                        <p style="margin: 2px 0;">
+                            Nhóm dịch:
+                            @foreach (var member in Model.Members.Where(m => m.TranslationTeam != null))
+                            {
+                                @member.TranslationTeam.TeamName
+                            }
+                        </p>
+                    }
+                    else
+                    {
+                        <p style="margin: 2px 0;">Nhóm dịch: không có</p>
+                    }
+                    <p style="margin: 2px 0;">Vai trò: @Model.Role?.RoleName</p>
+                    <p style="margin: 2px 0;">Điểm: <strong>@Model.Points</strong> | Xu: <strong>@Model.Coin.ToString("N0")</strong></p>
+                    <p style="margin: 2px 0;">Email: @Model.UserEmail</p>
+                    
+
+                </div>
+            </div>
+        </div>
+              
+        @if (ViewBag.TeamComics != null && ((List<K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel>)ViewBag.TeamComics).Any())
+        {
+            var comics = (List<K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel>)ViewBag.TeamComics;
+
+            <div class="d-flex justify-content-between align-items-center" style="margin-top: 15px;">
+                <h2 class="mb-0">Truyện Đã Đăng (@comics.Count)</h2>
+                <a href="@Url.Action("AddComic", "Profile", new { area = "Admin", teamId = ViewBag.TeamId })" class="btn btn-success p-2">Thêm Truyện</a>
+            </div>
+    
+            <div class="comic-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 10px;row-gap:1rem">
+                @foreach (var comic in comics)
+                {
+                    <div style="background: var(--color-white); border-radius: 12px; overflow: hidden; transition: box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+
+                        <!-- Ảnh truyện -->
+                        <div style="width: 200px; height: 250px; margin-top: 15px; overflow: hidden; border-radius: 10px;">
+                            <img src="@Url.Content("~/" + comic.ComicImage)" alt="@comic.ComicName"
+                                 style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <!-- Tên truyện -->
+                        <h5 title="@comic.ComicName"
+                            style="margin: 15px 10px 8px; font-size: 1.05rem; font-weight: 500;
+                           white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 90%;">
+                            @comic.ComicName
+                        </h5>
+
+                        <!-- Nút chức năng -->
+                        <div style="display: flex; justify-content: center; gap: 8px; padding: 10px 0 15px;">
+                            <a href="@Url.Action("Details", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-primary">Xem</a>
+                            <a href="@Url.Action("EditComic", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-warning">Sửa</a>
+                            <a href="@Url.Action("Delete", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-danger">Xóa</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p style="text-align:center">Chưa có truyện nào.</p>
+        }
+
+    </div>
+</div>

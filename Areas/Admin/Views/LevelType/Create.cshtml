@@ -1,0 +1,16 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LevelTypeModel
+
+<div class="create-comic">
+    <h2 class="title">Tạo Kiểu Level</h2>
+    <form asp-action="Create" method="post" class="comic-form">
+        <div class="form-group">
+            <label asp-for="TypeName" for="comic-name">Tên Kiểu Level</label>
+            <input asp-for="TypeName" type="text" id="comic-name" placeholder="Nhập tên kiểu Level...">
+            <span asp-validation-for="TypeName" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Tạo kiểu Level</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

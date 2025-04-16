@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<h2 class="text-center mb-4 mt-5">@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-lg p-4" style="background: var(--color-white)">
+                <h4 class="text-center mb-4">Đăng Nhập Trang Quản Trị</h4>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required placeholder="Nhập Email" />
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="password">Mật Khẩu</label>
+                        <input type="password" class="form-control" id="password" name="password" required placeholder="Nhập Mật Khẩu Của Bạn" />
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Đăng Nhập</button>
+                    </div>
+                </form>              
+            </div>
+        </div>
+    </div>
+</div>

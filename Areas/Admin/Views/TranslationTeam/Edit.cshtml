@@ -1,0 +1,51 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TranslationTeamModel
+
+<div class="create-comic">
+    <h2 class="title">Sửa Nhóm Dịch</h2>
+    <form asp-action="Edit" method="post" class="comic-form" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="TeamId" />
+
+        <div class="form-group">
+            <label asp-for="TeamName" for="comic-name">Tên Nhóm Dịch</label>
+            <input asp-for="TeamName" type="text" id="comic-name" placeholder="Nhập tên nhóm dịch...">
+            <span asp-validation-for="TeamName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" for="comic-name">Mô tả</label>
+            <textarea asp-for="Description" id="description" placeholder="Nhập mô tả nhóm dịch..." class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ảnh Nhóm Dịch</label>
+            <input type="file" name="TeamAvatar" class="form-control" onchange="previewImage(event, 'frameImagePreview')" />
+            <div>
+                <img id="frameImagePreview"
+                     src="~/@Model.TeamAvatar"
+                     style="height:80px;width:80px; margin-top: 10px;"
+                     onerror="this.src='/media/team_image/team_default.png'" />
+            </div>
+            <span asp-validation-for="TeamAvatar" class="text-danger"></span>
+        </div>
+       
+
+        <div class="mb-3">
+            <label asp-for="TotalEarnings" class="form-label fw-bold">Tổng Tiền</label>
+            <input asp-for="TotalEarnings" class="form-control" value="0" readonly />
+            <span asp-validation-for="TotalEarnings" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CreatedAt" class="form-label fw-bold">Ngày Tạo</label>
+            <input asp-for="CreatedAt" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")" readonly />
+            <span asp-validation-for="CreatedAt" class="text-danger"></span>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Sửa Nhóm Dịch</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

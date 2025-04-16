@@ -1,0 +1,47 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.GenreModel
+
+<div class="create-comic">
+    <h2 class="title">Tạo Thể Loại mới</h2>
+    <form asp-action="Create" method="post" class="comic-form">
+        <div class="form-group">
+            <label asp-for="GenreName" for="comic-name">Tên Thể Loại</label>
+            <input asp-for="GenreName" type="text" id="genre-name" placeholder="Nhập tên thể loại...">
+            <span asp-validation-for="GenreName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Slug" for="slug">Slug</label>
+            <input asp-for="Slug" type="text" id="slug" placeholder="Nhập Slug...">
+            <span asp-validation-for="Slug" class="text-danger"></span>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Tạo Thể Loại</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function removeDiacritics(str) {
+            str = str.replace(/Đ/g, "D").replace(/đ/g, "d");
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function generateSlug(text) {
+            return removeDiacritics(text)
+                .toLowerCase()
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .replace(/\s/g, '-');
+        }
+
+        document.getElementById("genre-name").addEventListener("input", function () {
+            const genreName = this.value;
+            const slug = generateSlug(genreName);
+            document.getElementById("slug").value = slug;
+        });
+    </script>
+}

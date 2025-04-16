@@ -1,0 +1,163 @@
+﻿<div class="dashboard-container mt-3">
+    <h1>Dashboard</h1>
+    <div class="dashboard-content">
+        <div class="left-section">
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp">analytics</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Doanh thu</h3>
+                            <h1 class="text-min">2.500.000.000</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">24 giờ qua</small>
+                </div>
+                <!-------------hết doanh thu ----------->
+                <div class="expenses">
+                    <span class="material-icons-sharp">bar_chart</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Tổng tiêu phí</h3>
+                            <h1 class="text-min">1.800.000.000</h1>
+                        </div>
+
+                    </div>
+                    <small class="text-muted">24 giờ qua</small>
+                </div>
+                <!-- Hết tổng chi phí -->
+                <div class="income">
+                    <span class="material-icons-sharp">stacked_line_chart</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Tổng thu nhập</h3>
+                            <h1 class="text-min">5.000.000.000.000</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">24 giờ qua</small>
+                </div>
+
+                <div class="comic-total">
+                    <span class="material-icons-sharp">history_edu</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Tổng số truyện</h3>
+                            <h1 class="text-min">20</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">24 giờ qua</small>
+                </div>
+
+                <div class="chapter-total">
+                    <span class="material-icons-sharp">description</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Tổng số chương</h3>
+                            <h1 class="text-min">5.000</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">24 giờ qua</small>
+                </div>
+
+                <div class="favorite-total">
+                    <span class="material-icons-sharp">favorite</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Tổng theo dõi</h3>
+                            <h1 class="text-min">2.000</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">24 giờ qua</small>
+                </div>
+            </div>
+
+            <!-- hết  -->
+            <div class="chart-container">
+                <h1 class="chart-title">Biểu đồ Thống Kê</h1>
+                <div id="chart"></div>
+            </div>
+        </div>
+        <!-- ========================== right=========================== -->
+        <div class="right">
+            <div class="recent-updates">
+                <h2>Nạp gần đây</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="~/media/icons/avatar_thor_gift.gif" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Tokuda:</b> 999 🪙</p>
+                            <small class="text-muted"> 2 phút trước</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="~/media/icons/avatar_thor_gift.gif" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Caubanh:</b> 778 🪙</p>
+                            <small class="text-muted"> 3 phút trước</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="~/media/icons/avatar_thor_gift.gif" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Goku</b> 300 🪙</p>
+                            <small class="text-muted"> 2 phút trước</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- hết recent-updates -->
+            <div class="sales-analytics">
+                <h2>Phân tích</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-icons-sharp">payments</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>Lượng mua chapter</h3>
+                            <small class="text-muted">24 giờ qua</small>
+                        </div>
+                        <h3>3849</h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-icons-sharp">local_mall</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>Lượng mua khung</h3>
+                            <small class="text-muted">24 giờ qua</small>
+                        </div>
+                        <h3>1100</h3>
+                    </div>
+                </div>
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="material-icons-sharp">person</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>Người mới</h3>
+                            <small class="text-muted">24 giờ qua</small>
+                        </div>
+                        <h3>45</h3>
+                    </div>
+                </div>
+                <div class="item add-movie">
+                    <div>
+                        <span class="material-icons-sharp">add</span>
+                        <a href="@Url.Action("Create", "TranslationTeam", new { area = "Admin" })"><h3>Thêm Nhóm Dịch</h3></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

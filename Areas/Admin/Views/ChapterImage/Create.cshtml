@@ -1,0 +1,52 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterImageModel
+
+@{
+    int selectedChapterId = ViewBag.ChapterId ?? 0;
+}
+
+<div class="create-comic">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <!-- Chọn Chapter -->
+            <div class="col-md-12 mb-3">
+                <label for="ChapterId" class="form-label">Chapter đã chọn</label>
+
+                @if (selectedChapterId > 0)
+                {
+                    <!-- Hiển thị ChapterId trong input hidden để submit -->
+                    <input type="hidden" name="ChapterId" value="@selectedChapterId" />
+
+                    <!-- Hiển thị thông tin Chapter bằng input readonly -->
+                    <input type="text" class="form-control" value="ChapterId @selectedChapterId" readonly />
+                }
+                else
+                {
+                    <div class="text-danger">Chưa chọn chapter!</div>
+                }
+
+                <small class="form-text text-muted">Thông tin chương đã chọn, không thể chỉnh sửa.</small>
+            </div>
+
+
+            <!-- Nhập hình ảnh -->
+            <div class="col-md-12 mb-3">
+                <label for="UploadedImages" class="form-label">Chọn hình ảnh</label>
+                <input type="file" class="form-control" id="UploadedImages" name="UploadedImages" multiple />
+                <small class="form-text text-muted">Chọn nhiều hình ảnh để tải lên.</small>
+            </div>
+        </div>
+
+        <!-- Nút Submit & Quay Lại -->
+        <div class="d-flex justify-content-between mt-3">
+            <button type="submit" class="btn btn-primary">Tạo Mới</button>
+
+            @if (selectedChapterId > 0)
+            {
+                <a href="@Url.Action("Details", "Chapter", new { id = selectedChapterId })" class="btn btn-secondary">
+                    Quay Lại
+                </a>
+            }
+        </div>
+    </form>
+
+</div>

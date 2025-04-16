@@ -1,0 +1,29 @@
+﻿@using System.Security.Claims
+
+<div class="top">
+    <button id="menu-btn">
+        <span class="material-icons-sharp">menu</span>
+    </button>
+    <div class="theme-toggler">
+        <span class="material-icons-sharp active">light_mode</span>
+        <span class="material-icons-sharp">dark_mode</span>
+    </div>
+    <div class="profile">
+        <div class="info">
+            <p>Xin Chào: <b>@User.Identity.Name</b></p>  <!-- Hiển thị tên người dùng -->
+            <small class="text-muted">Vai trò: @User.FindFirst(ClaimTypes.Role)?.Value</small>  <!-- Hiển thị Role -->
+        </div>
+        <div class="profile-photo">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Hiển thị ảnh người dùng từ claim -->
+                <img src="@Url.Content($"/{User.FindFirst("UserImage")?.Value}")" alt="avatar">
+            }
+            else
+            {
+                <!-- Hiển thị ảnh mặc định khi người dùng chưa đăng nhập -->
+                <img src="~/media/icons/logo_dragon.jpg" alt="default-avatar">
+            }
+        </div>
+    </div>
+</div>

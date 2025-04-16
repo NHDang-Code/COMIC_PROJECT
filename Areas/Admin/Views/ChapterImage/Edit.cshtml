@@ -1,0 +1,92 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterImageModel
+
+@{
+    var imageUrls = ViewBag.ImageUrls as List<string>;
+}
+
+<div class="table-container">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="ImageId" />
+
+        <!-- 🔸 PHẦN 1: DANH SÁCH ẢNH HIỆN TẠI -->
+        <div class="mb-3">
+            <a href="@Url.Action("Details", "Chapter", new { id = Model.ChapterId })" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
+            <div class="row-image">
+                @if (imageUrls != null && imageUrls.Count > 0)
+                {
+                    int index = 1;
+                    @foreach (var imgUrl in imageUrls)
+                    {
+                        <div class="col-md-3 text-center image-container" id="image-container-@imgUrl.GetHashCode()">
+
+                            <!-- Hiển thị số thứ tự -->
+                            <div class="image-index">Ảnh #@index</div>
+
+                            <!-- Checkbox xóa nhiều -->
+                            <input type="checkbox" class="delete-checkbox" data-id="@Model.ImageId" data-url="@imgUrl" />
+
+                            <!-- Hiển thị ảnh -->
+                            <img src="@imgUrl" alt="Ảnh chương" class="img-thumbnail" />
+
+                            <!-- Nút Xóa -->
+                            <!-- Nút Xóa & Cập nhật nằm ngang nhau -->
+                            <div class="button-group-image">
+                                <button type="button" class="btn btn-danger btn-sm delete-image-btn"
+                                        data-id="@Model.ImageId" data-old="@imgUrl">
+                                    Xóa
+                                </button>
+                                <input type="file" class="form-control mt-2 update-image-input" data-old="@imgUrl" style="display: none;" />
+
+                                <button type="button" class="btn btn-warning btn-sm update-image-btn"
+                                        data-id="@Model.ImageId" data-old="@imgUrl">
+                                    Cập nhật
+                                </button>
+                            </div>
+
+                            <!-- Chọn ảnh mới để thay thế -->
+
+                        </div>
+                        index++;
+                    }
+                }
+                else
+                {
+                    <p>Không có ảnh nào!</p>
+                }
+            </div>
+        </div>
+
+        <!-- 🔸 PHẦN 2: TẢI LÊN ẢNH MỚI -->
+        <div class="mb-3 text-center">
+            <label class="form-label">Thêm ảnh mới:</label>
+
+            <!-- Ô rỗng để xem trước ảnh tải lên -->
+            <div class="preview-container mx-auto" id="imagePreview">Chưa có ảnh</div>
+
+            <input type="file" name="newImages" multiple class="form-control mx-auto" id="uploadImage" style="width: 300px;" />
+        </div>
+
+        <!-- 🔸 PHẦN 3: CÁC NÚT HÀNH ĐỘNG -->
+        <div class="action-buttons-image">
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        
+            <button type="button" class="btn btn-danger" id="deleteSelectedImages">
+                Xóa đã chọn
+            </button>
+            <a href="@Url.Action("Details", "Chapter", new { id = Model.ChapterId })" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
+        </div>
+    </form>
+
+    <!-- 🔸 PHẦN 4: FORM ẨN XÓA ẢNH -->
+    <form id="deleteImageForm" asp-action="DeleteImage" method="post">
+        <input type="hidden" name="id" id="deleteImageId" />
+        <input type="hidden" name="imageUrl" id="deleteImageUrl" />
+    </form>
+
+    <!-- 🔸 PHẦN 5: NÚT CUỘN LÊN -->
+    <button id="backToTop" title="Lên đầu trang">↑</button>
+</div>

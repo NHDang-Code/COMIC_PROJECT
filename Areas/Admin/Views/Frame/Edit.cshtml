@@ -1,0 +1,48 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FrameModel
+
+<div class="create-comic">
+    <h2 class="title">Sửa Khung</h2>
+    <form asp-action="Edit" method="post" class="comic-form" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="FrameId" />
+
+        <div class="form-group">
+            <label asp-for="FrameName" for="comic-name">Tên khung</label>
+            <input asp-for="FrameName" type="text" id="comic-name" placeholder="Nhập tên khung...">
+            <span asp-validation-for="FrameName" class="text-danger"></span>
+        </div>
+
+        <!-- Is Free / Paid -->
+        <div class="mb-3">
+            <label asp-for="IsFree" class="form-label fw-bold">Loại Frame</label>
+            <select asp-for="IsFree" class="form-control">
+                <option value="true">Free</option>
+                <option value="false">Paid</option>
+            </select>
+            <span asp-validation-for="IsFree" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Coin" for="comic-name">Số Coin</label>
+            <input asp-for="Coin" type="text" id="comic-name" placeholder="Nhập số coin...">
+            <span asp-validation-for="Coin" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Hình ảnh Frame</label>
+            <input type="file" name="FrameImage" class="form-control" onchange="previewImage(event, 'frameImagePreview')" />
+            @if (!string.IsNullOrEmpty(Model.FrameImage))
+            {
+                <img id="frameImagePreview" src="@Url.Content(Model.FrameImage)" alt="Frame Image" style="width:80px; height:80px" class="mt-2" />
+
+            }
+            <span asp-validation-for="FrameImage" class="text-danger"></span>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Sửa Khung</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

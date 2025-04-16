@@ -1,0 +1,20 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LevelTypeModel
+
+<div class="create-comic">
+    <h2 class="title">Xóa Kiểu Level</h2>
+    <p class="fs-5">
+        Bạn có chắc chắn muốn xóa Kiểu Level <strong class="text-danger">"@Model.TypeName"</strong> không?
+    </p>
+    <form asp-action="Delete" method="post" class="comic-form">
+        <input type="hidden" asp-for="LevelTypeId" />
+        <div class="form-group">
+            <label asp-for="TypeName" for="comic-name">Tên Kiểu Level</label>
+            <input asp-for="TypeName" type="text" id="comic-name" placeholder="Nhập tên kiểu level..." readonly>
+            <span asp-validation-for="TypeName" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Xóa Kiểu Level</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>

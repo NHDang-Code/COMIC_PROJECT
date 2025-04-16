@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\K21CNT2_NguyenHaiDang_2110900067_DATN.props" />
+</Project>
