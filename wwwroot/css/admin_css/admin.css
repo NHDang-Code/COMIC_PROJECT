@@ -93,7 +93,12 @@ small {
     overflow: hidden; /* Ẩn phần nội dung vượt quá */
     text-overflow: ellipsis; /* Thêm dấu "..." */
 }
-
+.max-text-title {
+    max-width: 200px; /* Giới hạn chiều rộng */
+    white-space: nowrap; /* Không cho xuống dòng */
+    overflow: hidden; /* Ẩn phần nội dung vượt quá */
+    text-overflow: ellipsis;
+}
 p {
     color: var(--color-dark-variant);
 }
@@ -1134,8 +1139,54 @@ strong {
             max-width: 100%;
         }
 }
+/*==================== setting ngôn ngữ==================*/
+
+.language-switcher {
+    font-size: 16px; /* Cỡ chữ */
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các label */
+    align-items: center;
+}
+
+    .language-switcher label {
+        cursor: pointer; /* Hiển thị con trỏ khi hover vào label */
+        padding: 5px 10px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+        /* Chỉnh sửa màu sắc khi hover vào các label */
+        .language-switcher label:hover {
+            color: #007BFF; /* Màu chữ khi hover */
+        }
+
+    /* Kiểm tra xem ngôn ngữ được chọn và thay đổi màu chữ */
+    .language-switcher input[type="radio"]:checked + span {
+        color: #4CAF50; /* Màu chữ khi đã chọn */
+        font-weight: bold; /* Làm đậm chữ khi đã chọn */
+    }
 
 
+.language-switcher label span {
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Đặt các label thành nút */
+.language-switcher label {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.language-switcher input[type="radio"]:checked + span::before {
+    content: "\2713"; /* Ký hiệu check khi chọn */
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    color: white;
+    font-size: 18px;
+}
 
 
 
@@ -1371,6 +1422,9 @@ strong {
     .table-container h1 {
         display: none;
     }
+    .max-text-title h1 {
+        display: none;
+    }
 
 
 
@@ -1468,4 +1522,7 @@ strong {
                 margin: 5px auto;
                 width: 90%;
             }
+    .create-comic{
+        overflow-x:auto;
+    }
 }

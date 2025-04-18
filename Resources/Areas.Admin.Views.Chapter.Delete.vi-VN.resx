@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="DeleteChapter">
+		<value>Xóa Chương</value>
+	</data>
+	<data name="Management">
+		<value>Bạn có chắc chắn muốn xóa chương thứ:</value>
+	</data>
+	<data name="ComicName">
+		<value>của truyện</value>
+	</data>
+	<data name="No">
+		<value>không?</value>
+	</data>
+	<data name="Delete" xml:space="preserve">
+        <value>Xóa chương</value>
+    </data>
+	<data name="Back" xml:space="preserve">
+        <value>Quay Lại</value>
+    </data>
+</root>

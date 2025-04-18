@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Back">
+		<value>돌어가다</value>
+	</data>
+	<data name="Image">
+		<value>영상:</value>
+	</data>
+	<data name="Delete">
+		<value>삭제</value>
+	</data>
+	<data name="Update">
+		<value>업데이트</value>
+	</data>
+	<data name="CreateImage">
+		<value>새 사진 추가:</value>
+	</data>
+	<data name="NoImage">
+		<value>사진 없음	</value>
+	</data>
+	<data name="DeleteSelected">
+		<value>삭제</value>
+	</data>
+</root>

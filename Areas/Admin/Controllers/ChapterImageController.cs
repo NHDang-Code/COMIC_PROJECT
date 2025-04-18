@@ -79,6 +79,13 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                     model.ImageUrls = JsonSerializer.Serialize(imageUrls);
                 }
 
+                if (string.IsNullOrEmpty(model.ImageUrls)) // Kiểm tra nếu model.ImageUrls là null hoặc chuỗi rỗng
+                {
+                    TempData["error"] = "Không có ảnh nào được tải lên.";
+                    ViewBag.ChapterId = chapterId;
+                    return View(model);
+                }
+
                 model.ChapterId = chapterId; // Gán ID chương cho ảnh
                 _context.ChapterImages.Add(model);
                 await _context.SaveChangesAsync();
@@ -86,9 +93,10 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                 TempData["success"] = "Thêm ảnh thành công!";
                 return RedirectToAction("Details", "Chapter", new { id = chapterId });
             }
-
+            ViewBag.ChapterId = chapterId;
             return View(model);
         }
+
 
         //------------------------------------------Sửa Ảnh-------------------------------
         [HttpGet]

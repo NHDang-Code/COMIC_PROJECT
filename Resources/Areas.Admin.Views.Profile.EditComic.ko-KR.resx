@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="EditComic">
+		<value>스토리 편집자</value>
+	</data>
+	<data name="ComicName">
+		<value>이야기 제목</value>
+	</data>
+	<data name="Slug">
+		<value>Slug</value>
+	</data>
+	<data name="Author">
+		<value>작가</value>
+	</data>
+	<data name="ComicDescription">
+		<value>소개하다</value>
+	</data>
+	<data name="ComicImage">
+		<value>메인 사진</value>
+	</data>
+	<data name="Genre">
+		<value>유형</value>
+	</data>
+	<data name="TranslationTeam" xml:space="preserve">
+		<value>번역 그룹</value>
+	</data>
+	<data name="Nation" xml:space="preserve">
+		<value>국가</value>
+	</data>
+	<data name="ClickNation" xml:space="preserve">
+		<value>국가 선택</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+        <value>스토리 편집자</value>
+    </data>
+	<data name="Back" xml:space="preserve">
+        <value>돌어가다</value>
+    </data>
+</root>

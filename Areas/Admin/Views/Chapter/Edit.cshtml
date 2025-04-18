@@ -1,37 +1,40 @@
-﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel
 
 <div class="create-comic">
-    <h2 class="title">Sửa Chương</h2>
+    <h2 class="title">@Localizer["EditChapter"]</h2>
     <form asp-action="Edit" method="post">
         <input type="hidden" asp-for="ChapterId" />
         <div class="form-group">
-            <label class="form-label">Tên Truyện</label>
+            <label class="form-label">@Localizer["ComicName"]</label>
             <input asp-for="ComicId" type="hidden" value="@ViewData["ComicId"]" />
             <input type="text" class="form-control" value="@ViewData["ComicName"]" readonly />
             <span asp-validation-for="ComicId" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="ChapterNumber">Chương Thứ</label>
+            <label asp-for="ChapterNumber">@Localizer["ChapterNumber"]</label>
             <input asp-for="ChapterNumber" class="form-control" readonly />
             <span asp-validation-for="ChapterNumber" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Coin">Xu</label>
+            <label asp-for="Coin">@Localizer["Coin"]</label>
             <input asp-for="Coin" class="form-control" />
             <span asp-validation-for="Coin" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="CreatedAt">Ngày Tạo</label>
+            <label asp-for="CreatedAt">@Localizer["Day"]</label>
             <input asp-for="CreatedAt" class="form-control" type="datetime-local" readonly/>
             <span asp-validation-for="CreatedAt" class="text-danger"></span>
         </div>
 
         <div class="button-group">
-            <button type="submit" class="btn-submit">Sửa Chương</button>
-            <a href="@Url.Action("Details", "Profile", new { id = ViewBag.ComicId})" class="btn-cancel">Quay Lại</a>
+            <button type="submit" class="btn-submit">@Localizer["Edit"]</button>
+            <a href="@Url.Action("Details", "Profile", new { id = ViewBag.ComicId})" class="btn-cancel">@Localizer["Back"]</a>
         </div>
     </form>
 </div>

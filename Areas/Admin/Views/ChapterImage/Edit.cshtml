@@ -1,4 +1,7 @@
-﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterImageModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterImageModel
 
 @{
     var imageUrls = ViewBag.ImageUrls as List<string>;
@@ -11,7 +14,7 @@
         <!-- 🔸 PHẦN 1: DANH SÁCH ẢNH HIỆN TẠI -->
         <div class="mb-3">
             <a href="@Url.Action("Details", "Chapter", new { id = Model.ChapterId })" class="btn btn-secondary">
-                <i class="fas fa-arrow-left"></i> Quay lại
+                @Localizer["Back"]
             </a>
             <div class="row-image">
                 @if (imageUrls != null && imageUrls.Count > 0)
@@ -22,7 +25,7 @@
                         <div class="col-md-3 text-center image-container" id="image-container-@imgUrl.GetHashCode()">
 
                             <!-- Hiển thị số thứ tự -->
-                            <div class="image-index">Ảnh #@index</div>
+                            <div class="image-index">@Localizer["Image"] #@index</div>
 
                             <!-- Checkbox xóa nhiều -->
                             <input type="checkbox" class="delete-checkbox" data-id="@Model.ImageId" data-url="@imgUrl" />
@@ -35,13 +38,13 @@
                             <div class="button-group-image">
                                 <button type="button" class="btn btn-danger btn-sm delete-image-btn"
                                         data-id="@Model.ImageId" data-old="@imgUrl">
-                                    Xóa
+                                    @Localizer["Delete"]
                                 </button>
                                 <input type="file" class="form-control mt-2 update-image-input" data-old="@imgUrl" style="display: none;" />
 
                                 <button type="button" class="btn btn-warning btn-sm update-image-btn"
                                         data-id="@Model.ImageId" data-old="@imgUrl">
-                                    Cập nhật
+                                    @Localizer["Update"]
                                 </button>
                             </div>
 
@@ -60,23 +63,23 @@
 
         <!-- 🔸 PHẦN 2: TẢI LÊN ẢNH MỚI -->
         <div class="mb-3 text-center">
-            <label class="form-label">Thêm ảnh mới:</label>
+            <label class="form-label">@Localizer["CreateImage"]</label>
 
             <!-- Ô rỗng để xem trước ảnh tải lên -->
-            <div class="preview-container mx-auto" id="imagePreview">Chưa có ảnh</div>
+            <div class="preview-container mx-auto" id="imagePreview">@Localizer["NoImage"]</div>
 
             <input type="file" name="newImages" multiple class="form-control mx-auto" id="uploadImage" style="width: 300px;" />
         </div>
 
         <!-- 🔸 PHẦN 3: CÁC NÚT HÀNH ĐỘNG -->
         <div class="action-buttons-image">
-            <button type="submit" class="btn btn-primary">Cập nhật</button>
+            <button type="submit" class="btn btn-primary">@Localizer["Update"]</button>
         
             <button type="button" class="btn btn-danger" id="deleteSelectedImages">
-                Xóa đã chọn
+                @Localizer["DeleteSelected"]
             </button>
             <a href="@Url.Action("Details", "Chapter", new { id = Model.ChapterId })" class="btn btn-secondary">
-                <i class="fas fa-arrow-left"></i> Quay lại
+                @Localizer["Back"]
             </a>
         </div>
     </form>

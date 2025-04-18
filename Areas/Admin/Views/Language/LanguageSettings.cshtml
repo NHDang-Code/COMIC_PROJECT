@@ -1,0 +1,41 @@
+﻿<div class="create-comic">
+    <p>Chọn ngôn ngữ bạn muốn sử dụng:</p>
+
+    <div class="language-switcher">
+        <label>
+            <input type="radio" name="language" value="vi-VN" onchange="changeLanguage('vi-VN')"
+            @if (Context.Request.Cookies[".AspNetCore.Culture"]?.Contains("vi-VN") == true)
+            {
+                @:checked
+            } />
+            Tiếng Việt
+        </label>
+        <label>
+            <input type="radio" name="language" value="zh-CN" onchange="changeLanguage('zh-CN')"
+            @if (Context.Request.Cookies[".AspNetCore.Culture"]?.Contains("zh-CN") == true)
+            {
+                @:checked
+            } />
+            中文
+        </label>
+        <label>
+            <input type="radio" name="language" value="ko-KR" onchange="changeLanguage('ko-KR')"
+            @if (Context.Request.Cookies[".AspNetCore.Culture"]?.Contains("ko-KR") == true)
+            {
+                @:checked
+            } />
+            한국어
+        </label>
+    </div>
+</div>
+
+
+<script>
+    function changeLanguage(culture) {
+        var returnUrl = window.location.href;
+        var url = '@Url.Action("ChangeLanguage", "Language", new { culture = "__culture__", returnUrl = "__returnUrl__" })';
+        url = url.replace('__culture__', culture).replace('__returnUrl__', returnUrl);
+        window.location.href = url;
+    }
+</script>
+

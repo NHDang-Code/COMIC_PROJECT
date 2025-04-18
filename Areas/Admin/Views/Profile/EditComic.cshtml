@@ -1,36 +1,39 @@
-﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel
 
 <div class="create-comic">
-    <h2 class="title">Sửa Truyện</h2>
+    <h2 class="title">@Localizer["EditComic"]</h2>
     <form asp-action="EditComic" method="post" class="comic-form" enctype="multipart/form-data">
 
         <input type="hidden" asp-for="ComicId" />
         <div class="form-group">
-            <label asp-for="ComicName" for="comic-name">Tên Truyện</label>
+            <label asp-for="ComicName" for="comic-name">@Localizer["ComicName"]</label>
             <input asp-for="ComicName" type="text" id="comic-name" placeholder="Nhập tên truyện...">
             <span asp-validation-for="ComicName" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Slug" for="slug">Slug</label>
+            <label asp-for="Slug" for="slug">@Localizer["Slug"]</label>
             <input asp-for="Slug" type="text" id="slug" placeholder="Nhập Slug...">
             <span asp-validation-for="Slug" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="ComicAuthor" for="comic-name">Tên Tác Giả</label>
+            <label asp-for="ComicAuthor" for="comic-name">@Localizer["Author"]</label>
             <input asp-for="ComicAuthor" type="text" id="comic-author" placeholder="Nhập tên tác giả...">
             <span asp-validation-for="ComicAuthor" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="ComicDescription" class="form-label fw-bold">Giới thiệu</label>
+            <label asp-for="ComicDescription" class="form-label fw-bold">@Localizer["ComicDescription"]</label>
             <textarea asp-for="ComicDescription" class="form-control" rows="4" placeholder="Nhập giới thiệu..."></textarea>
             <span asp-validation-for="ComicDescription" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label class="form-label fw-bold">Ảnh Truyện</label>
+            <label class="form-label fw-bold">@Localizer["ComicImage"]</label>
             <input type="file" name="ComicImage" class="form-control" onchange="previewImage(event, 'frameImagePreview')" />
             <div style="width:80px; height:100px">
                 @if (!string.IsNullOrEmpty(Model.ComicImage))
@@ -42,7 +45,7 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label fw-bold">Thể loại</label>
+            <label class="form-label fw-bold">@Localizer["Genre"]</label>
             <div class="row">
                 @if (ViewBag.AvailableGenres != null)
                 {
@@ -75,20 +78,23 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label">Nhóm Dịch</label>
-            <!-- Trường ẩn để lưu TeamId -->
+            <label class="form-label">@Localizer["TranslationTeam"]</label>
             <input asp-for="TeamId" type="hidden" value="@Model.TeamId" />
-
-            <!-- Trường input chỉ đọc để hiển thị tên nhóm dịch -->
             <input type="text" class="form-control" value="@ViewBag.TeamName" readonly />
-
             <span asp-validation-for="TeamId" class="text-danger"></span>
         </div>
 
+        <div class="form-group">
+            <label asp-for="NationId" class="form-label">@Localizer["Nation"]</label>
+            <select asp-for="NationId" class="form-control" asp-items="ViewBag.NationId">
+                <option value="">--- @Localizer["ClickNation"] ---</option>
+            </select>
+            <span asp-validation-for="NationId" class="text-danger"></span>
+        </div>
 
         <div class="button-group">
-            <button type="submit" class="btn-submit">Cập Nhật truyện</button>
-            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+            <button type="submit" class="btn-submit">@Localizer["Edit"]</button>
+            <a asp-action="Index" class="btn-cancel">@Localizer["Back"]</a>
         </div>
     </form>
 </div>

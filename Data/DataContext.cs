@@ -32,6 +32,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Data
         public DbSet<ChapterModel> Chapters { get; set; }
         public DbSet<ChapterImageModel> ChapterImages { get; set; }
 
+        public DbSet<NationModel> Nations { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Quan hệ giữa User và Role
@@ -107,6 +109,12 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Data
                 .WithMany(t => t.Comics)
                 .HasForeignKey(c => c.TeamId)
                 .OnDelete(DeleteBehavior.SetNull); // Nếu nhóm dịch bị xóa, truyện vẫn tồn tại nhưng không có nhóm dịch
+
+            modelBuilder.Entity<ComicModel>()
+                .HasOne(c => c.Nation)
+                .WithMany(n => n.Comics)
+                .HasForeignKey(c => c.NationId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             // Quan hệ giữa Chapter và Comic
             modelBuilder.Entity<ChapterModel>()

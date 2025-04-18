@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="TranslationTeam">
+		<value>Nhóm Dịch:</value>
+	</data>
+	<data name="NoTranslationTeam">
+		<value>Nhóm Dịch: Không có.</value>
+	</data>
+	<data name="Role">
+		<value>Vai Trò:</value>
+	</data>
+	<data name="Points">
+		<value>Điểm:</value>
+	</data>
+	<data name="Coin">
+		<value>Xu:</value>
+	</data>
+	<data name="Email">
+		<value>Email:</value>
+	</data>
+	<data name="UploadedComics">
+		<value>Truyện Đã Đăng </value>
+	</data>
+	<data name="AddComic">
+		<value>Thêm Truyện</value>
+	</data>
+	<data name="View">
+		<value>Xem</value>
+	</data>
+	<data name="Edit">
+		<value>Sửa</value>
+	</data>
+	<data name="Delete">
+		<value>Xóa</value>
+	</data>
+	<data name="NoComic">
+		<value>Bạn chưa đăng tải truyện nào.</value>
+	</data>
+</root>

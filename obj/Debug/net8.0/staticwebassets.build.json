@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Q4aKE9OiiIbO6wAxaPWhtWkbMDiNCXRBPYAyyVs+kW8=",
+  "Hash": "wG0evspNPP3avswG31Ew+zWonExpVXDHFHJOJ8kKLCA=",
   "Source": "K21CNT2_NguyenHaiDang_2110900067_DATN",
   "BasePath": "_content/K21CNT2_NguyenHaiDang_2110900067_DATN",
   "Mode": "Default",
@@ -1328,6 +1328,25 @@
       "OriginalItemSpec": "wwwroot\\media\\comic_image\\dodetadeuladaiphanphai.jpg"
     },
     {
+      "Identity": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\hoa-ra-ta-da-vo-dich-tu-lau-1708445275_1729577972.jpg",
+      "SourceId": "K21CNT2_NguyenHaiDang_2110900067_DATN",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\",
+      "BasePath": "_content/K21CNT2_NguyenHaiDang_2110900067_DATN",
+      "RelativePath": "media/comic_image/hoa-ra-ta-da-vo-dich-tu-lau-1708445275_1729577972.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\media\\comic_image\\hoa-ra-ta-da-vo-dich-tu-lau-1708445275_1729577972.jpg"
+    },
+    {
       "Identity": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\langtienkydan.jpg",
       "SourceId": "K21CNT2_NguyenHaiDang_2110900067_DATN",
       "SourceType": "Discovered",
@@ -1345,6 +1364,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\media\\comic_image\\langtienkydan.jpg"
+    },
+    {
+      "Identity": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\moi-tuan-ta-co-mot-nghe-nghiep-moi_1634743645.jpg",
+      "SourceId": "K21CNT2_NguyenHaiDang_2110900067_DATN",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\",
+      "BasePath": "_content/K21CNT2_NguyenHaiDang_2110900067_DATN",
+      "RelativePath": "media/comic_image/moi-tuan-ta-co-mot-nghe-nghiep-moi_1634743645.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\media\\comic_image\\moi-tuan-ta-co-mot-nghe-nghiep-moi_1634743645.jpg"
     },
     {
       "Identity": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\talatade.jpg",
@@ -1421,6 +1459,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\media\\comic_image\\tram-nguyet_1708404583.jpg"
+    },
+    {
+      "Identity": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\trothanhnhanvienchocacvithan.jpg",
+      "SourceId": "K21CNT2_NguyenHaiDang_2110900067_DATN",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\",
+      "BasePath": "_content/K21CNT2_NguyenHaiDang_2110900067_DATN",
+      "RelativePath": "media/comic_image/trothanhnhanvienchocacvithan.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\media\\comic_image\\trothanhnhanvienchocacvithan.jpg"
     },
     {
       "Identity": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\vantotoicuongtong.jpg",

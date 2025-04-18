@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title">
+		<value>장 콘텐츠 추가</value>
+	</data>
+	<data name="SelectedChapter">
+		<value>선택한 장</value>
+	</data>
+	<data name="SelectedImage">
+		<value>이미지 선택</value>
+	</data>
+	<data name="Create">
+		<value>새로운</value>
+	</data>
+	<data name="Back">
+		<value>돌어가다</value>
+	</data>
+</root>

@@ -20,7 +20,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
 
         public IActionResult Index(string search, int page = 1)
         {
-            int pageSize = 10;
+            int pageSize = 3;
 
             // Start with all roles
             var query = _context.Roles.AsQueryable();

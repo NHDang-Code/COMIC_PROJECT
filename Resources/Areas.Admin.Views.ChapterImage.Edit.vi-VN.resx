@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Back">
+		<value>Quay Lại</value>
+	</data>
+	<data name="Image">
+		<value>Ảnh:</value>
+	</data>
+	<data name="Delete">
+		<value>Xóa</value>
+	</data>
+	<data name="Update">
+		<value>Cập Nhật</value>
+	</data>
+	<data name="CreateImage">
+		<value>Thêm Ảnh Mới:</value>
+	</data>
+	<data name="NoImage">
+		<value>Chưa có ảnh</value>
+	</data>
+	<data name="DeleteSelected">
+		<value>Xóa Đã Chọn</value>
+	</data>
+</root>

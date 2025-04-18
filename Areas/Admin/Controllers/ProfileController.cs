@@ -137,7 +137,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                 ViewBag.TeamName = team?.TeamName ?? "Không xác định";
             }
 
-
+            ViewBag.NationId = new SelectList(_context.Nations, "NationId", "NationName");
 
             return View(comicModel);
         }
@@ -164,6 +164,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                 // Lấy lại danh sách thể loại
                 var genres = await _context.Genres.ToListAsync();
                 comics.AvailableGenres = genres;
+
+                ViewBag.NationId = new SelectList(_context.Nations, "NationId", "NationName", comics.NationId);
 
                 // Gửi lại danh sách thành viên và nhóm dịch
                 if (teamId != null)
@@ -280,13 +282,14 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
 
             ViewBag.TeamName = existingComic.TranslationTeam?.TeamName;
 
+            ViewBag.NationId = new SelectList(_context.Nations, "NationId", "NationName", existingComic.NationId);
 
             return View(existingComic);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditComic(int id, [Bind("ComicId,ComicName,ComicImage,ComicAuthor,Slug,ComicDescription,Views,Status,SelectedGenreIds,TeamId")] ComicModel comics)
+        public async Task<IActionResult> EditComic(int id, [Bind("ComicId,ComicName,ComicImage,ComicAuthor,Slug,ComicDescription,Views,Status,SelectedGenreIds,TeamId,NationId")] ComicModel comics)
         {
             if (id != comics.ComicId)
             {
@@ -340,6 +343,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
 
                     // Giữ nguyên ngày tạo và TeamId
                     comics.CreatedDate = existingComic.CreatedDate;
+
+
                     comics.TeamId = existingComic.TeamId;
 
                     comics.Slug = ComicSlug(comics.ComicName);
@@ -366,6 +371,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                     existingComic.Views = comics.Views;
                     existingComic.Status = comics.Status;
                     existingComic.ComicImage = comics.ComicImage;
+                    existingComic.NationId = comics.NationId;
 
                     _context.Update(existingComic);
                     await _context.SaveChangesAsync();
@@ -389,12 +395,18 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
 
         private async Task PopulateEditViewData(ComicModel comics)
         {
-            ViewBag.AvailableGenres = await _context.Genres.ToListAsync();
+            ViewBag.AvailableGenres = await _context.Genres.ToListAsync(); 
             ViewBag.SelectedGenreIds = comics.SelectedGenreIds ?? new List<int>();
             ViewBag.TeamName = await _context.TranslationTeams
                                     .Where(t => t.TeamId == comics.TeamId)
                                     .Select(t => t.TeamName)
                                     .FirstOrDefaultAsync();
+            ViewBag.NationId = new SelectList(
+                                await _context.Nations.ToListAsync(),
+                                "NationId",
+                                "NationName",
+                                comics.NationId
+                            );
         }
         private bool ComicExists(int id)
         {

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Dashboard" xml:space="preserve">
+      <value>대시보드</value> <!-- Tiếng Hàn cho Dashboard -->
+  </data>
+	<data name="Profile" xml:space="preserve">
+      <value>프로필</value> <!-- Tiếng Hàn cho Trang cá nhân -->
+  </data>
+	<data name="ManageComics" xml:space="preserve">
+      <value>만화 관리</value> <!-- Tiếng Hàn cho Quản lý truyện -->
+  </data>
+  <data name="ManageGenres" xml:space="preserve">
+      <value>장르 관리</value> <!-- Tiếng Hàn cho Quản lý thể loại -->
+  </data>
+	<data name="ManageNations" xml:space="preserve">
+      <value>국가 경영</value> <!-- Tiếng Hàn cho Quản lý Quốc gia -->
+  </data>
+	<data name="ManageTranslationTeams" xml:space="preserve">
+      <value>번역 팀 관리</value> <!-- Tiếng Hàn cho Quản lý nhóm dịch -->
+  </data>
+	<data name="ManageRoles" xml:space="preserve">
+      <value>권한 관리</value> <!-- Tiếng Hàn cho Quản lý quyền -->
+  </data>
+	<data name="ManageUsers" xml:space="preserve">
+      <value>사용자 관리</value> <!-- Tiếng Hàn cho Quản lý người dùng -->
+  </data>
+	<data name="ManageComments" xml:space="preserve">
+      <value>댓글 관리</value> <!-- Tiếng Hàn cho Quản lý bình luận -->
+  </data>
+	<data name="ManageFrames" xml:space="preserve">
+      <value>프레임 관리</value> <!-- Tiếng Hàn cho Quản lý khung -->
+  </data>
+	<data name="ManageLevels" xml:space="preserve">
+      <value>레벨 관리</value> <!-- Tiếng Hàn cho Quản lý cấp độ -->
+  </data>
+	<data name="SettingsLanguage" xml:space="preserve">
+      <value>언어 설정</value> <!-- Tiếng Hàn cho Setting Language -->
+  </data>
+	<data name="Logout" xml:space="preserve">
+       <value>로그아웃</value> 
+  </data>
+</root>

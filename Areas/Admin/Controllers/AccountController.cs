@@ -73,15 +73,14 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
 
                 TempData["success"] = "Đăng nhập thành công!";
 
-                // Điều hướng người dùng theo vai trò
                 if (user.RoleId == RoleConstants.Admin)
                 {
-                    // Admin vào Dashboard/Index
+
                     return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
                 }
                 else if (user.RoleId == RoleConstants.Translator)
                 {
-                    // Translator vào Comic/Index
+
                     return RedirectToAction("Index", "Profile", new { area = "Admin" });
                 }
             }
@@ -93,12 +92,11 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            // Đăng xuất người dùng khỏi hệ thống
+
             await HttpContext.SignOutAsync("AdminScheme");
 
-            // Chuyển hướng đến trang đăng nhập hoặc trang chính sau khi đăng xuất
             TempData["success"] = "Bạn đã đăng xuất thành công!";
-            return RedirectToAction("Login", "Account", new { area = "Admin" }); // Hoặc trang chính của bạn
+            return RedirectToAction("Login", "Account", new { area = "Admin" });
         }
 
     }

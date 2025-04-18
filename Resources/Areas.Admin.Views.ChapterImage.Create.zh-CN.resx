@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title">
+		<value>添加内容</value>
+	</data>
+	<data name="SelectedChapter">
+		<value>所选章节</value>
+	</data>
+	<data name="SelectedImage">
+		<value>选择照片</value>
+	</data>
+	<data name="Create">
+		<value>创造新的</value>
+	</data>
+	<data name="Back">
+		<value>返回</value>
+	</data>
+</root>

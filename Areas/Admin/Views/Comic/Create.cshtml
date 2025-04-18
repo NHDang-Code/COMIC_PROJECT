@@ -66,6 +66,15 @@
             </select>
             <span asp-validation-for="TeamId" class="text-danger"></span>
         </div>
+
+        <div class="form-group">
+            <label asp-for="NationId" class="form-label">Quốc Gia</label>
+            <select asp-for="NationId" class="form-control" asp-items="ViewBag.NationId">
+                <option value="">--- Chọn Quốc Gia ---</option>
+            </select>
+            <span asp-validation-for="NationId" class="text-danger"></span>
+        </div>
+
         <div class="button-group">
             <button type="submit" class="btn-submit">Tạo truyện</button>
             <a asp-action="Index" class="btn-cancel">Quay Lại</a>

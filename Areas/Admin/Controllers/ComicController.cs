@@ -27,7 +27,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             var query = _context.Comics.AsQueryable();
             if (!string.IsNullOrEmpty(search))
             {
-                query = query.Where(c => c.ComicName.Contains(search) || c.TranslationTeam.TeamName.Contains(search));
+                query = query.Where(c => c.ComicName.Contains(search) || c.TranslationTeam.TeamName.Contains(search) || c.Nation.NationName.Contains(search));
             }
             int totalItems = await query.CountAsync(); // Đếm tổng số truyện sau khi lọc
 
@@ -37,6 +37,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             // Lấy danh sách truyện trong phạm vi phân trang
             var comics = await query
                 .Include(c => c.TranslationTeam)
+                .Include(c => c.Nation)
                 .Include(c => c.Chapters)
                 .OrderByDescending(c => c.ComicId)
                 .Skip((paginate.CurrentPage - 1) * pageSize)
@@ -66,6 +67,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             };
 
             ViewBag.TeamId = new SelectList(_context.TranslationTeams, "TeamId", "TeamName");
+
+            ViewBag.NationId = new SelectList(_context.Nations, "NationId", "NationName");
 
             return View(comicModel);
         }
@@ -184,13 +187,14 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
 
             ViewBag.TeamId = new SelectList(_context.TranslationTeams, "TeamId", "TeamName", existingComic.TeamId);
 
+            ViewBag.NationId = new SelectList(_context.Nations, "NationId", "NationName", existingComic.NationId);
 
             return View(existingComic);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ComicId,ComicName,ComicImage,ComicAuthor,Slug,ComicDescription,Views,Status,SelectedGenreIds,TeamId")] ComicModel comics)
+        public async Task<IActionResult> Edit(int id, [Bind("ComicId,ComicName,ComicImage,ComicAuthor,Slug,ComicDescription,Views,Status,SelectedGenreIds,TeamId,NationId")] ComicModel comics)
         {
             if (id != comics.ComicId)
             {
@@ -269,7 +273,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                     existingComic.ComicImage = comics.ComicImage;
                     existingComic.TeamId = comics.TeamId;
 
-
+                    existingComic.NationId = comics.NationId;
                     _context.Update(existingComic);
                     await _context.SaveChangesAsync();
                 }
@@ -293,7 +297,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             ViewBag.AvailableGenres = await _context.Genres.ToListAsync();
             ViewBag.SelectedGenreIds = comics.SelectedGenreIds ?? new List<int>();
             ViewBag.TeamId = new SelectList(_context.TranslationTeams, "TeamId", "TeamName", comics.TeamId);
-
+            ViewBag.NationId = new SelectList(_context.Nations, "NationId", "NationName", comics.NationId);
             return View(comics);
 
         }

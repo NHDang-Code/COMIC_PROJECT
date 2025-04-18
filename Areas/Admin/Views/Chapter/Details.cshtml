@@ -1,4 +1,7 @@
-﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel
 
 @using System.Text.Json
 
@@ -8,13 +11,10 @@
 
 <div class="table-container">
     <div class="header-table">
-        <h1 class="max-text" style="max-width: 400px">Chương:@Model.ChapterNumber, Truyện:@Model.Comic.ComicName</h1>
+        <h1 class="max-text" style="max-width: 400px">@Localizer["ChapterNumber"]@Model.ChapterNumber, @Localizer["ComicName"]@Model.Comic.ComicName</h1>
         <div class="search-bar">          
-            <a href="@Url.Action("Create", "ChapterImage", new { chapterId = Model.ChapterId })" class="btn btn-create p-2">Thêm Ảnh</a>
-            <a href="@Url.Action("Details", "Profile", new { id = ViewData["ComicId"] })" class="btn btn-secondary">
-                <i class="fas fa-arrow-left"></i> Quay lại
-            </a>
-
+            <a href="@Url.Action("Create", "ChapterImage", new { chapterId = Model.ChapterId })" class="btn btn-create p-2">@Localizer["AddChapter"]</a>
+            <a href="@Url.Action("Details", "Profile", new { id = ViewData["ComicId"] })" class="btn btn-secondary">@Localizer["Back"]</a>
         </div>
     </div>
     @if (images != null && images.Count > 0)
@@ -22,8 +22,8 @@
         <table>
             <thead>
                 <tr>
-                    <th class="text-center">Ảnh</th>
-                    <th class="text-center">Hành động</th>
+                    <th class="text-center">@Localizer["ChapterImage"]</th>
+                    <th class="text-center">@Localizer["Action"]</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
                 {
                     <tr>
                         <td class="text-center">
-                            <div class="d-flex flex-wrap justify-content-center">
+                            <div class="d-flex flex-wrap justify-content-start">
                                 @foreach (var imageUrl in JsonSerializer.Deserialize<List<string>>(item.ImageUrls))
                                 {
                                     <img src="@imageUrl" class="img-thumbnail m-1 tiny-chapter-image" />
@@ -41,14 +41,14 @@
                                 }
                             </div>
                         </td>
-                        <td class="text-center ">
+                        <td class="text-center">
                             <a href="@Url.Action("Edit", "ChapterImage", new { id = item.ImageId })" class="btn btn-warning btn-sm">
-                                <i class="fas fa-edit"></i> Sửa
+                               @Localizer["Edit"]
                             </a>
                             <form asp-action="Delete" asp-controller="ChapterImage" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?');">
                                 <input type="hidden" name="id" value="@item.ImageId" />
                                 <button type="submit" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i> Xóa
+                                   @Localizer["Delete"]
                                 </button>
                             </form>
                         </td>

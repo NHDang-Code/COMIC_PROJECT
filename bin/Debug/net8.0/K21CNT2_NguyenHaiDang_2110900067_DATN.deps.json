@@ -15,6 +15,17 @@
         },
         "runtime": {
           "K21CNT2_NguyenHaiDang_2110900067_DATN.dll": {}
+        },
+        "resources": {
+          "ko-KR/K21CNT2_NguyenHaiDang_2110900067_DATN.resources.dll": {
+            "locale": "ko-KR"
+          },
+          "vi-VN/K21CNT2_NguyenHaiDang_2110900067_DATN.resources.dll": {
+            "locale": "vi-VN"
+          },
+          "zh-CN/K21CNT2_NguyenHaiDang_2110900067_DATN.resources.dll": {
+            "locale": "zh-CN"
+          }
         }
       },
       "Azure.Core/1.38.0": {

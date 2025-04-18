@@ -1,4 +1,7 @@
-﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel
 
 <div class="table-container" style="margin-top: 1rem">
     <div class="profile-container" style="background: var(--color-white); border-radius: 10px; overflow: hidden; font-family: sans-serif;">
@@ -21,7 +24,7 @@
                     @if (Model.Members != null && Model.Members.Any(m => m.TranslationTeam != null))
                     {
                         <p style="margin: 2px 0;">
-                            Nhóm dịch:
+                            @Localizer["TranslationTeam"]
                             @foreach (var member in Model.Members.Where(m => m.TranslationTeam != null))
                             {
                                 @member.TranslationTeam.TeamName
@@ -30,26 +33,24 @@
                     }
                     else
                     {
-                        <p style="margin: 2px 0;">Nhóm dịch: không có</p>
+                        <p style="margin: 2px 0;">@Localizer["NoTranslationTeam"]</p>
                     }
-                    <p style="margin: 2px 0;">Vai trò: @Model.Role?.RoleName</p>
-                    <p style="margin: 2px 0;">Điểm: <strong>@Model.Points</strong> | Xu: <strong>@Model.Coin.ToString("N0")</strong></p>
-                    <p style="margin: 2px 0;">Email: @Model.UserEmail</p>
-                    
-
+                    <p style="margin: 2px 0;">@Localizer["Role"] @Model.Role?.RoleName</p>
+                    <p style="margin: 2px 0;">@Localizer["Points"] <strong>@Model.Points</strong> | @Localizer["Coin"] <strong>@Model.Coin.ToString("N0")</strong></p>
+                    <p style="margin: 2px 0;">@Localizer["Email"] @Model.UserEmail</p>
                 </div>
             </div>
         </div>
-              
+
         @if (ViewBag.TeamComics != null && ((List<K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel>)ViewBag.TeamComics).Any())
         {
             var comics = (List<K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel>)ViewBag.TeamComics;
 
             <div class="d-flex justify-content-between align-items-center" style="margin-top: 15px;">
-                <h2 class="mb-0">Truyện Đã Đăng (@comics.Count)</h2>
-                <a href="@Url.Action("AddComic", "Profile", new { area = "Admin", teamId = ViewBag.TeamId })" class="btn btn-success p-2">Thêm Truyện</a>
+                <h2 class="mb-0">@Localizer["UploadedComics"] (@comics.Count)</h2>
+                <a href="@Url.Action("AddComic", "Profile", new { area = "Admin", teamId = ViewBag.TeamId })" class="btn btn-success p-2">@Localizer["AddComic"]</a>
             </div>
-    
+
             <div class="comic-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 10px;row-gap:1rem">
                 @foreach (var comic in comics)
                 {
@@ -70,9 +71,9 @@
 
                         <!-- Nút chức năng -->
                         <div style="display: flex; justify-content: center; gap: 8px; padding: 10px 0 15px;">
-                            <a href="@Url.Action("Details", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-primary">Xem</a>
-                            <a href="@Url.Action("EditComic", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-warning">Sửa</a>
-                            <a href="@Url.Action("Delete", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-danger">Xóa</a>
+                            <a href="@Url.Action("Details", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-primary">@Localizer["View"]</a>
+                            <a href="@Url.Action("EditComic", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-warning">@Localizer["Edit"]</a>
+                            <a href="@Url.Action("Delete", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-danger">@Localizer["Delete"]</a>
                         </div>
                     </div>
                 }
@@ -80,8 +81,9 @@
         }
         else
         {
-            <p style="text-align:center">Chưa có truyện nào.</p>
+            <p style="text-align:center">@Localizer["NoComic"]</p>
         }
 
     </div>
 </div>
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Back">
+		<value>返回</value>
+	</data>
+	<data name="Image">
+		<value>图像:</value>
+	</data>
+	<data name="Delete">
+		<value>删除</value>
+	</data>
+	<data name="Update">
+		<value>延长</value>
+	</data>
+	<data name="CreateImage">
+		<value>更多漫画:</value>
+	</data>
+	<data name="NoImage">
+		<value>还没有照片</value>
+	</data>
+	<data name="DeleteSelected">
+		<value>删除</value>
+	</data>
+</root>

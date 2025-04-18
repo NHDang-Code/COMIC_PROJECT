@@ -35,7 +35,6 @@
                 <th>Họ Tên</th>
                 <th>Vai Trò</th>
                 <th>Ngày Tham Gia</th>
-                @* <th>Hành Động</th> *@
             </tr>
         </thead>
         <tbody>
@@ -51,15 +50,6 @@
 
 
                     <td>@item.JoinedAt.ToString("dd/MM/yyyy")</td>
-                    @* <td>
-                        @if (Model.Members.Any(m => m.UserId == ViewBag.CurrentUserId && m.IsLeader) && !item.IsLeader)
-                        {
-                            <form asp-action="DeleteMember" method="post" onsubmit="return confirm('Xác nhận xóa thành viên này?');">
-                                <input type="hidden" name="memberId" value="@item.MemberId" />
-                                <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
-                            </form>
-                        }
-                    </td> *@
                 </tr>
             }
         </tbody>

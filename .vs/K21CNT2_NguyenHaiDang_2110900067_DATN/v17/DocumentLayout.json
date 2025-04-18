@@ -1,122 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|d:\\asp\\k21cnt2_nguyenhaidang_2110900067_datn\\areas\\admin\\controllers\\translationteamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|solutionrelative:areas\\admin\\controllers\\translationteamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|d:\\asp\\k21cnt2_nguyenhaidang_2110900067_datn\\areas\\admin\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|solutionrelative:areas\\admin\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|d:\\asp\\k21cnt2_nguyenhaidang_2110900067_datn\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|solutionrelative:areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|d:\\asp\\k21cnt2_nguyenhaidang_2110900067_datn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|d:\\asp\\k21cnt2_nguyenhaidang_2110900067_datn\\areas\\admin\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|solutionrelative:areas\\admin\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|d:\\asp\\k21cnt2_nguyenhaidang_2110900067_datn\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0C261875-10D3-4EFC-89E4-F9E5DB683AF1}|K21CNT2_NguyenHaiDang_2110900067_DATN.csproj|solutionrelative:areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProfileController.cs",
-              "DocumentMoniker": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Controllers\\ProfileController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProfileController.cs",
-              "ToolTip": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Controllers\\ProfileController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\ProfileController.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAgwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T08:26:40.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TranslationTeamController.cs",
-              "DocumentMoniker": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Controllers\\TranslationTeamController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\TranslationTeamController.cs",
-              "ToolTip": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Controllers\\TranslationTeamController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\TranslationTeamController.cs",
-              "ViewState": "AQIAABUBAAAAAAAAAAAcwC8BAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T08:26:19.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T08:21:52.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Notification.cshtml",
-              "DocumentMoniker": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Views\\Shared\\_Notification.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_Notification.cshtml",
-              "ToolTip": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Views\\Shared\\_Notification.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_Notification.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-15T08:20:50.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAADIAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-15T08:20:30.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwCsAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T08:16:43.375Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

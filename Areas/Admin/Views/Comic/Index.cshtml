@@ -22,8 +22,8 @@
                 <th>ID</th>
                 <th>Ảnh</th>
                 <th>Tên Truyện</th>
-                <th>Tác Giả</th>
                 <td>Nhóm Dịch</td>
+                <td>Quốc Gia</td>
                 <td>Số Chương</td>
                 <th>Hành Động</th>
             </tr>
@@ -38,8 +38,8 @@
                         <img src="~/@Url.Content(item.ComicImage)" alt="Comic Image" class="img-fluid" style="height: 50px;width:50px" />
                     </td>
                     <td class="max-text">@item.ComicName</td>
-                    <td class="max-text">@item.ComicAuthor</td>
                     <td class="max-text">@(item.TranslationTeam != null ? item.TranslationTeam.TeamName : "Không có")</td>
+                    <td class="max-text">@(item.Nation != null ? item.Nation.NationName : "Không có")</td>
                     <td>@item.Chapters.Count</td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.ComicId" class="btn btn-edit">Sửa</a>

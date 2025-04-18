@@ -40,6 +40,10 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
         public int? TeamId { get; set; } // Nhóm dịch sở hữu
         public virtual TranslationTeamModel? TranslationTeam { get; set; }
 
+        public int? NationId {  get; set; }
+
+        public virtual NationModel? Nation { get; set; }
+
         public virtual ICollection<ComicGenreModel> ComicGenres { get; set; } = new List<ComicGenreModel>();
 
         public List<GenreModel> AvailableGenres { get; set; } = new List<GenreModel>();

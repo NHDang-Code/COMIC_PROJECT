@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="AddComic">
+		<value>Tạo Truyện Mới</value>
+	</data>
+	<data name="ComicName">
+		<value>Tên Truyện</value>
+	</data>
+	<data name="Slug">
+		<value>Slug</value>
+	</data>
+	<data name="Author">
+		<value>Tên Tác Giả</value>
+	</data>
+	<data name="ComicDescription">
+		<value>Giới Thiệu</value>
+	</data>
+	<data name="ComicImage">
+		<value>Ảnh Truyện</value>
+	</data>
+	<data name="Genre">
+		<value>Thể Loại</value>
+	</data>
+	<data name="TranslationTeam" xml:space="preserve">
+		<value>Nhóm Dịch</value>
+	</data>
+	<data name="Nation" xml:space="preserve">
+		<value>Quốc Gia</value>
+	</data>
+	<data name="ClickNation" xml:space="preserve">
+		<value>Chọn Quốc Gia</value>
+	</data>
+	<data name="Create" xml:space="preserve">
+        <value>Tạo Truyện</value> <!-- Tiếng Hàn cho "Sửa" -->
+    </data>
+	<data name="Back" xml:space="preserve">
+        <value>Quay Lại</value> <!-- Tiếng Hàn cho "Xóa" -->
+    </data>
+</root>

@@ -123,6 +123,9 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("NationId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Slug")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -139,6 +142,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ComicId");
+
+                    b.HasIndex("NationId");
 
                     b.HasIndex("TeamId");
 
@@ -241,6 +246,24 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.HasKey("LevelTypeId");
 
                     b.ToTable("LevelTypes");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.NationModel", b =>
+                {
+                    b.Property<int>("NationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NationId"));
+
+                    b.Property<string>("NationName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("NationId");
+
+                    b.ToTable("Nations");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.RoleModel", b =>
@@ -444,10 +467,17 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel", b =>
                 {
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.NationModel", "Nation")
+                        .WithMany("Comics")
+                        .HasForeignKey("NationId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TranslationTeamModel", "TranslationTeam")
                         .WithMany("Comics")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Nation");
 
                     b.Navigation("TranslationTeam");
                 });
@@ -560,6 +590,11 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.Navigation("LevelMappings");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.NationModel", b =>
+                {
+                    b.Navigation("Comics");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.RoleModel", b =>

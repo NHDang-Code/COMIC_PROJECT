@@ -1,6 +1,8 @@
 using K21CNT2_NguyenHaiDang_2110900067_DATN.Data;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using System.Globalization;
 
 namespace K21CNT2_NguyenHaiDang_2110900067_DATN
 {
@@ -10,13 +12,15 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             builder.Services.AddSession(options =>
             {
-                options.Cookie.HttpOnly = true;  // cho phép truy cap qua HTTP
-                options.Cookie.IsEssential = true;  // ??m b?o cookie c?n thi?t cho session
-                options.Cookie.Name = "HDDev";  // ??t tên cookie cho session
-                options.IdleTimeout = TimeSpan.FromHours(1);  // Th?i gian h?t h?n c?a session
-                options.Cookie.SameSite = SameSiteMode.Lax; ;  // Không c?n SSL cho localhost
+                options.Cookie.HttpOnly = true;  
+                options.Cookie.IsEssential = true; 
+                options.Cookie.Name = "HDDev";  
+                options.IdleTimeout = TimeSpan.FromHours(1);  
+                options.Cookie.SameSite = SameSiteMode.Lax; ;  
             });
 
             builder.Services.AddDbContext<K21CNT2_NguyenHaiDang_2110900067_DATNContext>(options =>
@@ -52,18 +56,32 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN
 
 
             builder.Services.AddAuthorization();
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
+          
+            builder.Services.AddControllersWithViews()
+                .AddViewLocalization()
+                .AddDataAnnotationsLocalization();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+           
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                
                 app.UseHsts();
             }
+
+            var supportedCultures = new[] {"vi-VN", "zh-CN", "ko-KR" };
+
+            var localizationOptions = new RequestLocalizationOptions()
+                .SetDefaultCulture("vi-VN")
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            localizationOptions.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
+
+            app.UseRequestLocalization(localizationOptions);
+
 
             app.UseRouting();
 

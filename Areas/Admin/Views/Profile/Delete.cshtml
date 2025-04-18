@@ -1,20 +1,24 @@
-﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+
+@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel
 
 <div class="create-comic">
-    <h2 class="title">Xóa Truyện</h2>
+    <h2 class="title">@Localizer["DeleteComic"]</h2>
     <p class="fs-5">
-        Bạn có chắc chắn muốn xóa truyện <strong class="text-danger">"@Model.ComicName"</strong> không?
+        @Localizer["Management"] <strong class="text-danger">"@Model.ComicName"</strong> @Localizer["No"]
     </p>
     <form asp-action="Delete" method="post" class="comic-form">
         <input type="hidden" asp-for="ComicId" />
         <div class="form-group">
-            <label asp-for="ComicName" for="comic-name">Tên Truyện</label>
+            <label asp-for="ComicName" for="comic-name">@Localizer["ComicName"]</label>
             <input asp-for="ComicName" type="text" id="comic-name" placeholder="Nhập tên truyện..." readonly>
             <span asp-validation-for="ComicName" class="text-danger"></span>
         </div>
         <div class="button-group">
-            <button type="submit" class="btn-submit">Xóa Truyện</button>
-            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+            <button type="submit" class="btn-submit">@Localizer["Delete"]</button>
+            <a asp-action="Index" class="btn-cancel">@Localizer["Back"]</a>
         </div>
     </form>
 </div>

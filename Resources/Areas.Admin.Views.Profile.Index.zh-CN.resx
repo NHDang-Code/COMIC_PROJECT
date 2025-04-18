@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="TranslationTeam">
+		<value>翻译组</value>
+	</data>
+	<data name="NoTranslationTeam">
+		<value>翻译组：暂无</value>
+	</data>
+	<data name="Role">
+		<value>角色</value>
+	</data>
+	<data name="Points">
+		<value>积分</value>
+	</data>
+	<data name="Coin">
+		<value>金币</value>
+	</data>
+	<data name="Email">
+		<value>邮箱</value>
+	</data>
+	<data name="UploadedComics">
+		<value>已上传漫画</value>
+	</data>
+	<data name="AddComic">
+		<value>添加漫画</value>
+	</data>
+	<data name="View">
+		<value>查看</value>
+	</data>
+	<data name="Edit">
+		<value>编辑</value>
+	</data>
+	<data name="Delete">
+		<value>删除</value>
+	</data>
+	<data name="NoComic">
+		<value>还没有上传任何漫画。</value>
+	</data>
+</root>

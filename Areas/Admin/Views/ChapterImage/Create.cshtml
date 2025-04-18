@@ -1,15 +1,19 @@
-﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterImageModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterImageModel
 
 @{
     int selectedChapterId = ViewBag.ChapterId ?? 0;
 }
 
 <div class="create-comic">
+    <h2 class="title">@Localizer["Title"]</h2>
     <form asp-action="Create" method="post" enctype="multipart/form-data">
         <div class="row">
             <!-- Chọn Chapter -->
             <div class="col-md-12 mb-3">
-                <label for="ChapterId" class="form-label">Chapter đã chọn</label>
+                <label for="ChapterId" class="form-label">@Localizer["SelectedChapter"]</label>
 
                 @if (selectedChapterId > 0)
                 {
@@ -30,7 +34,7 @@
 
             <!-- Nhập hình ảnh -->
             <div class="col-md-12 mb-3">
-                <label for="UploadedImages" class="form-label">Chọn hình ảnh</label>
+                <label for="UploadedImages" class="form-label">@Localizer["SelectedImage"]</label>
                 <input type="file" class="form-control" id="UploadedImages" name="UploadedImages" multiple />
                 <small class="form-text text-muted">Chọn nhiều hình ảnh để tải lên.</small>
             </div>
@@ -38,12 +42,12 @@
 
         <!-- Nút Submit & Quay Lại -->
         <div class="d-flex justify-content-between mt-3">
-            <button type="submit" class="btn btn-primary">Tạo Mới</button>
+            <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
 
             @if (selectedChapterId > 0)
             {
                 <a href="@Url.Action("Details", "Chapter", new { id = selectedChapterId })" class="btn btn-secondary">
-                    Quay Lại
+                    @Localizer["Back"]
                 </a>
             }
         </div>

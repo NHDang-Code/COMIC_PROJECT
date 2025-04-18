@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Comic">
+		<value>만화 잡지</value>
+	</data>
+	<data name="Search">
+		<value>찾다</value>
+	</data>
+	<data name="AddChapter">
+		<value>챕터 추가</value>
+	</data>
+	<data name="ID">
+		<value>ID</value>
+	</data>
+	<data name="ChapterNumber">
+		<value>페이지</value>
+	</data>
+	<data name="Price">
+		<value>가격</value>
+	</data>
+	<data name="Day">
+		<value>생성 날짜</value>
+	</data>
+	<data name="Action" xml:space="preserve">
+		<value>행동</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+        <value>돌어가다</value>
+    </data>
+	<data name="View">
+		<value>보기</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+        <value>수정</value> <!-- Tiếng Hàn cho "Sửa" -->
+    </data>
+	<data name="Delete" xml:space="preserve">
+        <value>삭제</value> <!-- Tiếng Hàn cho "Xóa" -->
+    </data>
+</root>

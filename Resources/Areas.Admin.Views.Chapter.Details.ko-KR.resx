@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="ChapterNumber">
+		<value>페이지:</value>
+	</data>
+	<data name="ComicName">
+		<value>만화 잡지:</value>
+	</data>
+	<data name="AddChapter">
+		<value>페이지 추가</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+        <value>돌어가다</value>
+    </data>
+	<data name="ChapterImage">
+		<value>영상</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+        <value>수정</value> <!-- Tiếng Hàn cho "Sửa" -->
+    </data>
+	<data name="Delete" xml:space="preserve">
+        <value>삭제</value> <!-- Tiếng Hàn cho "Xóa" -->
+    </data>
+	<data name="Action" xml:space="preserve">
+		<value>행동</value>
+	</data>
+</root>

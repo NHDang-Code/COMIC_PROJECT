@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="AddComic">
+		<value>创作新漫画</value>
+	</data>
+	<data name="ComicName">
+		<value>故事标题</value>
+	</data>
+	<data name="Slug">
+		<value>Slug</value>
+	</data>
+	<data name="Author">
+		<value>作者</value>
+	</data>
+	<data name="ComicDescription">
+		<value>介绍</value>
+	</data>
+	<data name="ComicImage">
+		<value>图像</value>
+	</data>
+	<data name="Genre">
+		<value>类型</value>
+	</data>
+	<data name="TranslationTeam" xml:space="preserve">
+		<value>翻译团队</value>
+	</data>
+	<data name="Nation" xml:space="preserve">
+		<value>国家</value>
+	</data>
+	<data name="ClickNation" xml:space="preserve">
+		<value>选择国家</value>
+	</data>
+	<data name="Create" xml:space="preserve">
+        <value>创造</value> <!-- Tiếng Hàn cho "Sửa" -->
+    </data>
+	<data name="Back" xml:space="preserve">
+        <value>返回</value> <!-- Tiếng Hàn cho "Xóa" -->
+    </data>
+</root>

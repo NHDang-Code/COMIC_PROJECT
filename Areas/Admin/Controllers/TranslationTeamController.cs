@@ -320,61 +320,12 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             return View(model);
         }
 
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteMember(int memberId)
-        {
-            var member = await _context.TeamMembers
-                .FirstOrDefaultAsync(m => m.MemberId == memberId);
+        
 
-            if (member == null)
-            {
-                TempData["error"] = "Thành viên không tồn tại.";
-                return RedirectToAction("Index");
-            }
 
-            // Lấy ID người dùng hiện tại từ cookie
-            if (!int.TryParse(Request.Cookies["UserId"], out int currentUserId))
-            {
-                TempData["error"] = "Không xác định được người dùng hiện tại.";
-                return RedirectToAction("Details", new { id = member.TeamId });
-            }
 
-            // Kiểm tra xem người dùng hiện tại có phải trưởng nhóm của nhóm đó không
-            bool isLeader = await _context.TeamMembers
-                .AnyAsync(m => m.UserId == currentUserId && m.TeamId == member.TeamId && m.IsLeader);
 
-            if (!isLeader)
-            {
-                TempData["error"] = "Chỉ trưởng nhóm mới có quyền xóa thành viên.";
-                return RedirectToAction("Details", new { id = member.TeamId });
-            }
 
-            // Không cho phép xóa trưởng nhóm
-            if (member.IsLeader)
-            {
-                TempData["error"] = "Không thể xóa trưởng nhóm.";
-                return RedirectToAction("Details", new { id = member.TeamId });
-            }
-
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == member.UserId);
-
-            if (user != null && user.RoleId != 1)  // Kiểm tra nếu RoleId khác 1
-            {
-                user.RoleId = 3;  // Cập nhật RoleId thành 3 (Ví dụ: thành viên mặc định)
-
-                _context.Users.Update(user);
-
-                await _context.SaveChangesAsync();
-            }
-
-            _context.TeamMembers.Remove(member);
-
-            await _context.SaveChangesAsync();
-
-            TempData["success"] = "Xóa thành viên khỏi nhóm thành công!";
-            return RedirectToAction("Details", new { id = member.TeamId });
-        }*/
 
     }
 }

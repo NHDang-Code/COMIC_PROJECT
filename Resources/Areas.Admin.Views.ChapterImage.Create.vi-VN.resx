@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title">
+		<value>Thêm Nội Dung Chương</value>
+	</data>
+	<data name="SelectedChapter">
+		<value>Chương Đã Chọn</value>
+	</data>
+	<data name="SelectedImage">
+		<value>Chọn Ảnh</value>
+	</data>
+	<data name="Create">
+		<value>Tạo Mới</value>
+	</data>
+	<data name="Back">
+		<value>Quay Lại</value>
+	</data>
+</root>

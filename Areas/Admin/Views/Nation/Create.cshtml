@@ -1,0 +1,16 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.NationModel
+
+<div class="create-comic">
+    <h2 class="title">Tạo Quốc Gia Mới</h2>
+    <form asp-action="Create" method="post" class="comic-form">
+        <div class="form-group">
+            <label asp-for="NationName" for="comic-name">Tên Quốc Gia</label>
+            <input asp-for="NationName" type="text" id="comic-name" placeholder="Nhập tên quốc gia...">
+            <span asp-validation-for="NationName" class="text-danger"></span>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Tạo Quốc Gia</button>
+            <a asp-action="Index" class="btn-cancel">Quay Lại</a>
+        </div>
+    </form>
+</div>
