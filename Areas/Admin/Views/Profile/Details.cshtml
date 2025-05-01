@@ -25,8 +25,9 @@
             <tr>
                 <th>@Localizer["ID"]</th>
                 <th>@Localizer["ChapterNumber"]</th>
-                <td>@Localizer["Price"]</td>
-                <td>@Localizer["Day"]</td>
+                <th>@Localizer["Price"]</th>
+                <th>@Localizer["Free"]</th>
+                <th>@Localizer["Day"]</th>
                 <th>@Localizer["Action"]</th>
             </tr>
         </thead>
@@ -36,13 +37,14 @@
             {
                 <tr>
                     <td>@stt</td>
-                    <td class="max-text">@item.ChapterNumber</td>
-                    <td class="max-text">@item.Coin?.ToString("0,#")</td>
-                    <td class="max-text">@item.CreatedAt?.ToString("dd/MM/yyyy")</td>
-                    <td>
-                        <a asp-area="Admin" asp-controller="Chapter" asp-action="Details" asp-route-id="@item.ChapterId" class="btn btn-edit">@Localizer["View"]</a>
-                        <a asp-area="Admin" asp-controller="Chapter" asp-action="Edit" asp-route-id="@item.ChapterId" class="btn btn-details">@Localizer["Edit"]</a>
-                        <a asp-area="Admin" asp-controller="Chapter" asp-action="Delete" asp-route-id="@item.ChapterId" class="btn btn-delete">@Localizer["Delete"]</a>
+                    <td>@item.ChapterNumber</td>
+                    <td>@item.Coin?.ToString("0,#")</td>
+                    <td>@(item.IsPaid ? Localizer["No"] : Localizer["Yes"])</td>
+                    <td>@item.CreatedAt?.ToString("dd/MM/yyyy")</td>                 
+                    <td>                     
+                        <a href="@Url.Action("Details", "Chapter", new { id = item.ChapterId, area = "Admin" })" class="btn btn-details">@Localizer["View"]</a>
+                        <a href="@Url.Action("Edit", "Chapter", new { id = item.ChapterId, area = "Admin" })" class="btn btn-edit">@Localizer["Edit"]</a>
+                        <a href="@Url.Action("Delete", "Chapter", new { id = item.ChapterId, area = "Admin" })" class="btn btn-delete">@Localizer["Delete"]</a>
                     </td>
                 </tr>
                 stt++;
@@ -57,7 +59,7 @@
             @for (int i = Model.Pagination.StartPage; i <= Model.Pagination.EndPage; i++)
             {
                 <li class="page-item @(i == Model.Pagination.CurrentPage ? "active" : "")">
-                    <a class="page-link" href="@Url.Action("Index", new { search = Model.ChapterSearchTerm, page = i })">@i</a>
+                    <a class="page-link" href="@Url.Action("Details", new { search = Model.ChapterSearchTerm, page = i })">@i</a>
                 </li>
             }
         </ul>

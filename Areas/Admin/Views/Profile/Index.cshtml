@@ -71,9 +71,9 @@
 
                         <!-- Nút chức năng -->
                         <div style="display: flex; justify-content: center; gap: 8px; padding: 10px 0 15px;">
-                            <a href="@Url.Action("Details", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-primary">@Localizer["View"]</a>
-                            <a href="@Url.Action("EditComic", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-warning">@Localizer["Edit"]</a>
-                            <a href="@Url.Action("Delete", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-danger">@Localizer["Delete"]</a>
+                            <a href="@Url.Action("Details", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-details">@Localizer["View"]</a>
+                            <a href="@Url.Action("EditComic", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-edit">@Localizer["Edit"]</a>
+                            <a href="@Url.Action("Delete", "Profile", new { id = comic.ComicId, area = "Admin" })" class="btn btn-sm btn-delete">@Localizer["Delete"]</a>
                         </div>
                     </div>
                 }

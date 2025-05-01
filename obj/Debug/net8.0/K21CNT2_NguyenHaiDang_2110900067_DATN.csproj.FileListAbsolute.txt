@@ -186,7 +186,6 @@ D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiD
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.Index.zh-CN.resources
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.Details.ko-KR.resources
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.Details.vi-VN.resources
-D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.Details.zh-CN.resources
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.AddComic.ko-KR.resources
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.AddComic.vi-VN.resources
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.AddComic.zh-CN.resources
@@ -214,3 +213,4 @@ D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiD
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.ChapterImage.Edit.vi-VN.resources
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.ChapterImage.Edit.ko-KR.resources
 D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.ChapterImage.Edit.zh-CN.resources
+D:\ASP\K21CNT2_NguyenHaiDang_2110900067_DATN\obj\Debug\net8.0\K21CNT2_NguyenHaiDang_2110900067_DATN.Resources.Areas.Admin.Views.Profile.Details.zh-CN.resources

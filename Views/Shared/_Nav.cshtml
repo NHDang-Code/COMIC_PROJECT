@@ -1,0 +1,117 @@
+﻿@model List<GenreModel>
+
+<div class="nav-menu">
+    <div class="nav-header">
+        <ul class="nav-list">
+            <li class="home">
+                <a href="@Url.Action("Index", "Home")">Trang Chủ</a>
+                <span class="material-icons-sharp menu">menu</span>
+            </li>
+
+            <li class="nav-dropdown hidden-item">
+
+                <a href="#" id="genre-toggle">
+                    Thể Loại
+                    <span class="material-icons-sharp">arrow_drop_down</span>
+                </a>
+            </li>
+
+            <li class="genre-list-nav-mobie" id="genre-list">
+                <ul class="list-nav-menu-mobie">
+                    @foreach (var genre in Model)
+                    {
+                        <li class="nav-wapper-mobie">
+                            <a href="@Url.Action("Details", "Genre", new { id = genre.GenreId })">
+                                @genre.GenreName
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+
+            <li class="extra-item hidden-item"><a href="#">Xếp Hạng</a></li>
+
+            <li class="extra-item hidden-item"><a href="#">Theo Dõi</a></li>
+
+            <li class="extra-item hidden-item"><a href="#">Lịch Sử Đọc</a></li>
+
+            <li class="extra-item hidden-item"><a href="https://www.facebook.com/profile.php?id=100032050313326">Fanpage</a></li>
+        </ul>
+    </div>
+    <div class="genre-list-nav" id="genre-list">
+        <ul class="list-nav-menu">
+            @foreach (var genre in Model)
+            {
+                <li class="nav-wapper">
+                    <a href="@Url.Action("Details", "Genre", new { id = genre.GenreId })">
+                        @genre.GenreName
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    
+
+</div>
+
+<script>
+    const genreToggle = document.getElementById('genre-toggle');
+    const genreListNavPC = document.querySelector('.genre-list-nav');
+    const genreListNavMobile = document.querySelector('.genre-list-nav-mobie');
+
+    function closeAllGenreMenus() {
+        genreListNavPC.classList.remove('is-open');
+        genreListNavMobile.classList.remove('is-open');
+    }
+
+    genreToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isMobile = window.innerWidth <= 768;
+
+        
+        if (isMobile) {
+            genreListNavMobile.classList.toggle('is-open');
+            genreListNavPC.classList.remove('is-open');
+        } else {
+            genreListNavPC.classList.toggle('is-open');
+            genreListNavMobile.classList.remove('is-open');
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        
+        if (!genreToggle.contains(e.target) &&
+            !genreListNavPC.contains(e.target) &&
+            !genreListNavMobile.contains(e.target)) {
+            closeAllGenreMenus();
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        
+        closeAllGenreMenus();
+    });
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector(".menu");
+        const navList = document.querySelector(".nav-list");
+
+        menuIcon.addEventListener("click", function () {
+            navList.classList.toggle("open");
+
+            if (navList.classList.contains("open")) {
+                menuIcon.textContent = "close";
+            } else {
+                menuIcon.textContent = "menu";
+            }
+        });
+    });
+
+
+</script>
+
+

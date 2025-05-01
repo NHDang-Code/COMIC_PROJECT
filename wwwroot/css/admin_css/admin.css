@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap&subset=vietnamese');
+﻿
 
 /*------------------------------------ROOT VARAIBLES---------------------------------*/
 :root {
@@ -62,6 +62,11 @@ h2 {
     font-size: 1.4rem;
 }
 
+#toast-container.toast-top-right {
+    top: 5rem !important; 
+    right: 1rem;
+}
+
 h3 {
     font-size: 0.87rem;
 }
@@ -87,16 +92,16 @@ small {
     font-weight: 500;
 }
 
-.max-text { /* Cột Tên truyện */
-    max-width: 50px; /* Giới hạn chiều rộng */
-    white-space: nowrap; /* Không cho xuống dòng */
-    overflow: hidden; /* Ẩn phần nội dung vượt quá */
-    text-overflow: ellipsis; /* Thêm dấu "..." */
+.max-text { 
+    max-width: 50px; 
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 .max-text-title {
-    max-width: 200px; /* Giới hạn chiều rộng */
-    white-space: nowrap; /* Không cho xuống dòng */
-    overflow: hidden; /* Ẩn phần nội dung vượt quá */
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 p {
@@ -130,7 +135,7 @@ html {
 body {
     background: var(--color-background);
     font-size: 0.88rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     user-select: none;
     color: var(--color-dark);
     overflow-x: hidden;
@@ -160,7 +165,14 @@ body {
     #sidebar .logo {
         display: flex;
         gap: 1rem;
+        
     }
+.logo h2 {
+    line-height: 1;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
 
         #sidebar .logo img {
             width: 2.3rem;
@@ -279,7 +291,7 @@ body {
     }
 
         #header .theme-toggler span {
-            font-size: 1.2rem;
+            font-size: 1rem;
             width: 50%;
             height: 100%;
             display: flex;
@@ -764,16 +776,16 @@ td {
     .checkbox-group label {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 0.4rem;
         cursor: pointer;
     }
 
     .checkbox-group input[type="checkbox"] {
-        width: 16px;
-        height: 16px;
+        width: 1rem;
+        height: 1rem;
         padding: 0;
         cursor: pointer;
-        accent-color: var(--color-primary-variant);
+        accent-color: var(--color-success);
     }
 
 
@@ -799,12 +811,12 @@ td {
 
 .button-group {
     display: flex;
-    gap: 10px; /* Khoảng cách giữa các nút */
-    justify-content: center; /* Căn giữa theo chiều ngang */
+    gap: 10px;
+    justify-content: center;
 }
 
 .btn-submit, .btn-cancel {
-    flex: 1; /* Để cả hai nút có cùng kích thước */
+    flex: 1;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
@@ -1142,51 +1154,39 @@ strong {
 /*==================== setting ngôn ngữ==================*/
 
 .language-switcher {
-    font-size: 16px; /* Cỡ chữ */
     display: flex;
-    gap: 20px; /* Khoảng cách giữa các label */
-    align-items: center;
+    flex-direction: column;
+    gap: 12px;
 }
 
     .language-switcher label {
-        cursor: pointer; /* Hiển thị con trỏ khi hover vào label */
-        padding: 5px 10px;
-        transition: color 0.3s ease, background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--color-white);
+        color: var(--color-dark);
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        cursor: pointer;
     }
 
-        /* Chỉnh sửa màu sắc khi hover vào các label */
         .language-switcher label:hover {
-            color: #007BFF; /* Màu chữ khi hover */
+            background-color: var(--color-white);
+            border-color: #aaa;
         }
 
-    /* Kiểm tra xem ngôn ngữ được chọn và thay đổi màu chữ */
-    .language-switcher input[type="radio"]:checked + span {
-        color: #4CAF50; /* Màu chữ khi đã chọn */
-        font-weight: bold; /* Làm đậm chữ khi đã chọn */
+    .language-switcher input[type="radio"] {
+        transform: scale(1.2);
+        
     }
 
-
-.language-switcher label span {
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-/* Đặt các label thành nút */
-.language-switcher label {
-    position: relative;
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.language-switcher input[type="radio"]:checked + span::before {
-    content: "\2713"; /* Ký hiệu check khi chọn */
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    color: white;
-    font-size: 18px;
-}
+    .language-switcher img {
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 
 
 
@@ -1200,6 +1200,10 @@ strong {
 
         #sidebar .logo h2 {
             display: none; /* Ẩn chữ trong logo */
+        }
+
+        #sidebar .sidebar-menu {
+            top: 1.5rem;
         }
 
         #sidebar .sidebar-menu h3 {
@@ -1314,7 +1318,7 @@ strong {
         width: 18rem;
         z-index: 3;
         box-shadow: 1rem 3rem 4rem var(--color-light);
-        height: 100vh;
+        height: 100%;
         padding-right: var(--card-padding);
         display: none;
         animation: showMenu 400ms ease forwards;
@@ -1331,11 +1335,14 @@ strong {
     }
 
     #sidebar .logo {
-        margin-left: 1rem;
+        display: flex;
+        margin-left: 0.5rem;
     }
 
         #sidebar .logo h2 {
             display: inline;
+            display: flex;
+            align-items: center;
         }
 
     #sidebar .sidebar-menu h3 {
@@ -1350,6 +1357,7 @@ strong {
     #sidebar .close {
         display: inline-block;
         cursor: pointer;
+        font-size: 0.5rem;
     }
 
     #sidebar .sidebar-menu .message-count {
@@ -1522,7 +1530,5 @@ strong {
                 margin: 5px auto;
                 width: 90%;
             }
-    .create-comic{
-        overflow-x:auto;
-    }
+    
 }

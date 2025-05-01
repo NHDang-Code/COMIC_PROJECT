@@ -1,8 +1,166 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<K21CNT2_NguyenHaiDang_2110900067_DATN.ViewModels.ComicChapterViewModel>
+<div class="home-tag mt-2">
+    <h1>
+        <div class="text_list_hot">
+            <a href="">
+                <span class="material-icons-sharp icons-box">local_fire_department</span>
+                <span>Truyện Hot</span>
+            </a>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </h1>
+    <div class="sort">
+        <span class="material-icons-sharp">
+            whatshot
+        </span>
+    </div>
 </div>
+@*====================== Truyện Hot ======================*@
+<div class="hot-banner-wrapper">
+    <button class="scroll-btn left" onclick="scrollHotBanner(-1)">&#10094;</button>
+
+    <div class="list_comic_hot" id="hotBanner">
+        @foreach (var item in ViewBag.HotComics)
+        {
+            <div class="comic-card-banner">
+                <div class="card-wrapper">
+                    <a href="@Url.Action("Details", "Home", new { slug = item.Comic.Slug, id = item.Comic.ComicId })">
+                        <div class="image-wrap">
+                            <img src="@Url.Content("~/" + item.Comic.ComicImage)" alt="@item.Comic.ComicName">
+
+                            @if (item.Comic.Views >= 500)
+                            {
+                                <div class="hot-tag">Hot</div>
+                            }
+
+                            <div class="image-overlay">@item.Comic.TimeAgo</div>
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Comic.ComicName</h5>
+                        <div class="chapter-title">
+                            @if (item.LatestChapter != null)
+                            {
+                                <a href="@Url.Action("Index", "Chapter", new { id = item.LatestChapter.ChapterId })">
+                                    <span>Chương: @item.LatestChapter.ChapterNumber</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <span>Không có chương</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button class="scroll-btn right" onclick="scrollHotBanner(1)">&#10095;</button>
+</div>
+
+@*======================================= Truyện mới =======================*@
+<div class="home-tag mt-2">
+    <h1>
+        <div class="text_list_update">
+            <a href="">
+                <span class="material-icons-sharp icons-box">star</span>
+                <span>Truyện Mới Cập Nhật</span>
+            </a>
+        </div>
+
+    </h1>
+    <div class="sort">
+        <span class="material-icons-sharp">
+            backup
+        </span>
+    </div>
+</div>
+<div class="list_comic_update">
+    @foreach (var item in Model)
+    {
+        <div class="comic-card">
+            <div class="card">
+                <a href="@Url.Action("Details", "Home", new {slug = item.Comic.Slug, id = item.Comic.ComicId })">
+                    <div class="image-container">
+                        <img src="@Url.Content("~/" + item.Comic.ComicImage)" alt="@item.Comic.ComicName">
+
+                        @if (item.Comic.CreatedDate >= DateTime.Now.AddDays(-7))
+                        {
+                            <div class="new-badge">New</div>
+                        }
+
+                        <div class="overlay">@item.Comic.TimeAgo</div>
+                    </div>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Comic.ComicName</h5>
+                    <div class="chapter-info">
+                        @if (item.LatestChapter != null)
+                        {
+                            <a href="@Url.Action("Index", "Chapter", new { id = item.LatestChapter.ChapterId })" style="text-decoration: none; font-style: italic;color:#fff">
+                                <span>Chương: @item.LatestChapter.ChapterNumber</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <span>Không có chương</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+<div class="view-comic">
+    <a href="">
+        <span>Xem thêm truyện</span>
+    </a>
+</div>
+
+
+<script>
+    function scrollHotBanner(direction) {
+        const container = document.getElementById('hotBanner');
+        const scrollAmount = 250;
+
+        container.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+
+    function autoScrollHotBanner() {
+        const container = document.getElementById('hotBanner');
+        const scrollAmount = container.offsetWidth; 
+        const scrollDelay = 3000;
+
+        setInterval(() => {
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+            if (container.scrollLeft >= maxScrollLeft) {
+                container.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }, scrollDelay);
+    }
+
+
+    window.onload = function () {
+        autoScrollHotBanner();
+    }
+
+</script>
+
+
+       
+    

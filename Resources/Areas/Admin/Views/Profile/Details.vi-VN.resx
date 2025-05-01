@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Comic">
+		<value>Truyện</value>
+	</data>
+	<data name="Search">
+		<value>Tìm Kiếm</value>
+	</data>
+	<data name="AddChapter">
+		<value>Thêm Mới</value>
+	</data>
+	<data name="ID">
+		<value>ID</value>
+	</data>
+	<data name="ChapterNumber">
+		<value>Chương</value>
+	</data>
+	<data name="Price">
+		<value>Giá</value>
+	</data>
+	<data name="Day">
+		<value>Ngày Tạo</value>
+	</data>
+	<data name="Free">
+		<value>Miễn Phí</value>
+	</data>
+	<data name="Yes">
+		<value>Có</value>
+	</data>
+	<data name="No">
+		<value>Không</value>
+	</data>
+	<data name="Action" xml:space="preserve">
+		<value>Hành Động</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+        <value>Quay Lại</value>
+    </data>
+	<data name="View">
+		<value>Xem</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+        <value>Sửa</value>
+    </data>
+	<data name="Delete" xml:space="preserve">
+        <value>Xóa</value>
+    </data>
+</root>

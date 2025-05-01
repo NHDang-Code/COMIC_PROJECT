@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Comic">
+		<value>漫画</value>
+	</data>
+	<data name="Search">
+		<value>搜索</value>
+	</data>
+	<data name="AddChapter">
+		<value>添加章节</value>
+	</data>
+	<data name="ID">
+		<value>ID</value>
+	</data>
+	<data name="ChapterNumber">
+		<value>章</value>
+	</data>
+	<data name="Price">
+		<value>价格</value>
+	</data>
+	<data name="Day">
+		<value>创建日期</value>
+	</data>
+	<data name="Free">
+		<value>免费</value>
+	</data>
+	<data name="Yes">
+		<value>有</value>
+	</data>
+	<data name="No">
+		<value>不是</value>
+	</data>
+	<data name="Action" xml:space="preserve">
+		<value>操作</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+        <value>返回</value>
+    </data>
+	<data name="View">
+		<value>查看</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+        <value>编辑</value>
+    </data>
+	<data name="Delete" xml:space="preserve">
+        <value>删除</value>
+    </data>
+</root>

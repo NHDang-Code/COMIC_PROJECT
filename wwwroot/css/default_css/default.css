@@ -1,0 +1,1534 @@
+﻿
+
+/*------------------------------------ROOT VARAIBLES---------------------------------*/
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-secondary: #B57EDC;
+    --color-info-light: #e7e7e7;
+    --color-info-dark: #363949;
+    --color-dark: black;
+    --color-nav: #f18121;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: white;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --banner-gap: 0.8rem;
+    --banner-items: 6;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-theme-variables {
+    --color-nav: #242526;
+    --color-background: #242526;
+    --color-white: #1c1c1c;
+    --color-dark: white;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --color-info-dark: #edeffd;
+    --color-info-light: #3a3b3c;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--color-dark);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+#toast-container.toast-top-right {
+    top: 5rem !important;
+    right: 1rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+.text-min {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.text-light {
+    color:var(--color-dark) !important;
+}
+
+.max-text {
+    max-width: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.max-text-title {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-danger);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+.secondary {
+    color: var(--color-secondary);
+}
+
+.btn-like {
+    color: #fff;
+    background: var(--color-secondary);
+}
+    .btn-like:hover {
+        color: #fff;
+    }
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background: var(--color-white);
+    font-size: 0.88rem;
+    font-family: 'Quicksand', sans-serif;
+    user-select: none;
+    color: var(--color-dark);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/*=====================================* Header ==========================*/
+#header {
+    width: 100%;
+    background: var(--color-white);
+}
+
+.header-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-white);
+    padding: 1.5rem 0;
+    flex-wrap: wrap;
+}
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--color-info-light);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 400px;
+    transition: width 0.3s ease;
+}
+
+    .search-bar input {
+        flex: 1;
+        border: none;
+        background: none;
+        color: var(--color-dark);
+        outline: none;
+        padding: 8px;
+        display: block;
+    }
+
+    .search-bar button {
+        background: none;
+        border: none;
+        color: var(--color-dark);
+        cursor: pointer;
+    }
+
+    
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 240px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    display: none;
+}
+
+    .search-results .result-item {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: background 0.3s;
+    }
+
+        .search-results .result-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+    .search-results img {
+        width: 40px;
+        height: 55px;
+        object-fit: cover;
+        margin-right: 10px;
+        border-radius: 4px;
+    }
+
+    .search-results a {
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+.top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+    
+    .top .logo {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .top .logo img {
+            width: 2.3rem;
+            height: 2.3rem;
+        }
+
+.logo h2 {
+    font-size: 1.2rem;
+    line-height: 1;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.theme-toggler {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.5rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-2);
+}
+
+    .theme-toggler span {
+        font-size: 1rem;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .theme-toggler span.active {
+            background: var(--color-primary);
+            color: white;
+            border-radius: var(--border-radius-2);
+        }
+
+
+
+
+.user-profle a{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+
+}
+    .user-profle a:hover {
+        color: var(--color-dark);
+    }
+
+
+
+.user-profle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+
+.user-avatar-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .user-avatar-container img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+    }
+    .user-avatar-container .material-icons-sharp {
+        font-size: 1.5rem;
+        color: var(--color-dark);
+        transition: transform 1s ease;
+    }
+
+.user-avatar-container:hover .material-icons-sharp {
+    transform: rotate(180deg);
+}
+
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    z-index: 3;
+    padding: 10px 0;
+    min-width: 150px;
+    
+}
+
+
+.user-menu.active {
+    display: block;
+
+}
+
+
+.user-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.user-menu li a{
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    justify-content: space-between;
+}
+
+
+
+    .user-menu li .material-icons-sharp {
+        font-size: 1rem;
+        color: var(--color-dark);
+    }
+
+
+    .user-menu li h3 {
+        margin: 0;
+        font-size: 1rem;
+        color: var(--color-dark);
+    }
+
+
+
+/*============================== nav =======================================================*/
+#nav {
+    width: 100%;
+}
+
+.nav-menu {
+    width: 100%;
+    background: var(--color-nav);
+    padding: 1.3rem 0;
+}
+
+.menu {
+    display:none;
+}
+
+.nav-header {
+    width: 100%;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    gap: 2rem;
+}
+
+    .nav-list li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+.nav-dropdown a {
+    display: flex;
+    align-items: center;
+    
+}
+
+.genre-list-nav,
+.genre-list-nav-mobie {
+    display: none;
+}
+
+    
+    .genre-list-nav.is-open,
+    .genre-list-nav-mobie.is-open {
+        display: block;
+    }
+
+
+.genre-list-nav {
+    background: var(--color-white);
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    border-top: 2px solid var(--color-dark);
+    border-bottom: 2px solid var(--color-dark);
+}
+
+.list-nav-menu {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2rem;
+    padding: 1rem 0;
+    list-style: none;
+}
+
+    .list-nav-menu li {
+        text-align: center;
+    }
+
+        .list-nav-menu li a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-size: 1rem;
+        }
+
+
+/*========================= Footer ====================*/
+.footer {
+    border-top: 0.5rem solid var(--color-nav);
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    padding: 2rem 1rem;
+    font-size: 16px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1 1 300px;
+}
+
+    .footer-section.logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-section.about p {
+        font-size: 15px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        color: var(--color-dark);
+    }
+    .footer-section.contact p {
+        font-size: 15px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        color: var(--color-dark);
+    }
+
+.footer-logo {
+    max-width: 80px;
+    height: auto;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #f39c12;
+    font-size: 22px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid #555;
+    margin-top: 2rem;
+    font-size: 14px;
+    color: #888;
+}
+/*============================= Trang chủ(Hiển thị truyện) ===============================*/
+#main {
+    width: 100%;
+    background: var(--color-white);
+}
+
+/*======================== Kiểu Tag ================*/
+.home-tag {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    background: var(--color-white);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%
+}
+
+.text_list_update {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+    .text_list_update a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--color-dark);
+        font-size: 1.6rem;
+        font-weight: 550;
+    }
+
+    .text_list_update span {
+        color: var(--color-primary);
+        font-size: 1.5rem;
+        
+    }
+
+
+.text_list_hot {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+    .text_list_hot a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--color-dark);
+        font-size: 1.6rem;
+        font-weight: 550;
+    }
+
+    .text_list_hot span {
+        color: var(--color-danger);
+        font-size: 1.5rem;
+    }
+
+.icons-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-info-light); 
+    border-radius: 50%;
+    padding: 0.3rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+}
+
+
+.sort span {
+    color: var(--color-dark);
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+/*=========================== Truyện Hot =====================*/
+.hot-banner-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 0.6rem;
+}
+
+
+#hotBanner {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: var(--banner-gap);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.comic-card-banner {
+    flex: 0 0 auto;
+    width: calc((100% - (var(--banner-gap) * (var(--banner-items) - 1))) / var(--banner-items));
+    background-color: var(--color-white);
+    border-radius: 8px;
+    scroll-snap-align: start;
+}
+
+/*============== Nút điều hướng =============*/
+.scroll-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: var(--border-radius-1);
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+    .scroll-btn.left {
+        left: 0;
+    }
+
+    .scroll-btn.right {
+        right: 0;
+    }
+
+
+
+    #hotBanner::-webkit-scrollbar {
+        display: none; 
+    }
+    #hotBanner > * {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+    }
+
+/*========================== Card Truyện Hot =================*/
+.card-wrapper {
+    background: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/*=================== Ảnh ====================*/
+.image-wrap {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: var(--border-radius-1);
+}
+
+    .image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .image-wrap::before {
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 100%;
+        height: 200%;
+        background: linear-gradient( 120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 70% );
+        transform: rotate(25deg);
+        transition: transform 0.5s ease;
+    }
+
+    .image-wrap:hover::before {
+        transform: translate(150%, 150%);
+    }
+
+/*======================= Ngày Tạo ==================*/
+.image-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-bottom-left-radius: 0.5rem;
+}
+
+
+/*================= Hot ==============*/
+.hot-tag {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: var(--color-danger);
+    color: var(--color-dark);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: var(--border-radius-1);
+    text-transform: uppercase;
+    box-shadow: var(--box-shadow);
+    animation: blink 1s infinite;
+}
+
+.chapter-title a {
+    text-decoration: none !important;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+.chapter-title span {
+    font-style: italic !important;
+}
+
+
+/*========================== Truyện Mới ======================*/
+.list_comic_update {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    background: var(--color-white);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0 0.6rem;
+}
+
+.comic-card {
+    width: calc((100% - 0.8rem * 5) / 6);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+/*================== Card truyện ===================*/
+
+.card {
+    background: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/*================== Ảnh Truyện ====================*/
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: var(--border-radius-1);
+
+}
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .image-container::before {
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 100%;
+        height: 200%;
+        background: linear-gradient( 120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 70% );
+        transform: rotate(25deg);
+        transition: transform 0.5s ease;
+    }
+    .image-container:hover::before {
+        transform: translate(150%, 150%);
+    }
+
+/*================================ Ngày Tạo =====================*/
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-bottom-left-radius: 0.5rem;
+}
+
+/*============== Tên truyện =====================*/
+.card-title {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+/*=============== Chương truyện ===================*/
+.chapter-info {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+    .chapter-info span {
+        font-size: 0.9rem;
+        color: var(--color-dark);
+        font-style: italic !important;
+    }
+/*================================ Icon Truyện Mới ======================*/
+.new-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: var(--color-warning);
+    color: var(--color-dark);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: var(--border-radius-1);
+    text-transform: uppercase;
+    box-shadow: var(--box-shadow);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+}
+
+
+.view-comic {
+    display: flex;
+    justify-content: center;
+    background: var(--color-white);
+}
+
+    .view-comic a {
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.8rem;
+        color: #fff;
+        background: var(--color-warning);
+        border-radius: var(--border-radius-1);
+    }
+    .view-comic a:hover{
+        color: #fff;
+        box-shadow: none;
+    }
+
+
+/*======================== Details-Comic =======================*/
+
+.details-comic {
+    max-width: 1200px;
+    margin: 1.2rem auto;
+    padding: 1rem;
+    border-radius: var(--border-radius-2);
+    background: var(--color-background);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.breadcrumb {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+}
+
+    .breadcrumb a {
+        color: var(--color-dark);
+        text-decoration: none;
+        margin-right: 5px;
+        font-weight: 600;
+
+    }
+
+        .breadcrumb a::after {
+            content: "/";
+            margin-left: 5px;
+        }
+
+        .breadcrumb a:last-child::after {
+            content: "";
+        }
+
+.comic-info {
+    display: flex;
+    gap: 3rem;
+}
+
+.comic-avatar img {
+    width: 200px;
+    height: auto;
+    border-radius: var(--border-radius-1);
+    object-fit: cover;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.comic-other {
+    flex: 1;
+}
+
+.comic-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.list-info {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+    .list-info li p{
+        color: var(--color-dark) !important;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.6rem;
+        font-size: 1rem;
+    }
+
+    .list-info span.material-icons-sharp {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+        color: var(--color-dark);
+    }
+
+.genre-list {
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.genre-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #8e44ad, #ff69b4);
+    padding: 0.5rem 0.8rem;
+    margin-right: 0.5rem;
+    border-radius: var(--border-radius-1);
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+.genre-badge:hover {
+    color: #fff;
+}
+
+.comic-details-menu {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+    .comic-details-menu button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        border-radius: var(--border-radius-1);
+    }
+    .comic-details-menu button span {
+        font-size: 1rem;
+    }
+
+.comic-description {
+    margin-top: 2.2rem;
+}
+
+    .comic-description h2 {
+        font-size: 20px;
+        display:flex;
+        gap: 0.4rem;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+.comic-content p{
+    font-size: 1rem;
+    color: var(--color-dark);
+}
+
+.chapter-info-list {
+    margin-top: 2.2rem;
+}
+
+    .chapter-info-list h2 {
+        display: flex;
+        align-items:center;
+        gap: 0.5rem;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        
+        
+    }
+    .chapter-info-list h2 span {
+        font-size: 1.3rem;
+    }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-1);
+    max-height: 250px;
+    overflow-y: auto !important;
+}
+
+    .chapter-list a.list-group-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem;
+        background: var(--color-white);
+        text-decoration: none;
+        border-radius: var(--border-radius-1);
+        color: var(--color-dark);
+        border-bottom: 1px solid #ccc;
+        
+    }
+
+    
+
+.chapter-number {
+    font-size: 1rem;
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.chapter-time {
+    font-size: 1rem;
+    color: var(--color-dark);
+}
+
+
+
+/*======================== Account ================================*/
+
+.account-container {
+    background: var(--color-background);
+    padding: 20px;
+    border-radius: var(--border-radius-2);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    max-width: 550px;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+    .account-container .title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"],
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+
+.account-submit {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-submit {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: 100%;
+    border-radius: var(--border-radius-2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-submit:hover {
+        background-color: #0056b3;
+    }
+
+
+/*=========================== MEDIA =============================*/
+@media screen and (max-width: 1200px) {
+    #header {
+        padding: 0 1rem;
+    }
+
+    .text_list_update a {
+        font-size: 1.5rem;
+    }
+
+    .text_list_update span {
+        font-size: 1.7rem;
+    }
+
+    .icons-box {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    
+    .comic-card-banner {
+        width: calc((100% - 1rem * 4) / 5);
+    }
+
+    .sort span {
+        font-size: 2rem;
+    }
+
+    .home-tag {
+        padding: 0.5rem 0.8rem;
+    }
+
+    .list_comic_update {
+        padding: 0 1rem;
+        gap: 0.5rem;
+    }
+
+    .comic-card {
+        width: calc((100% - 0.5rem * 4) / 5);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #header{
+        padding: 0 1rem;
+    }
+
+    .top{
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+
+    .logo h2 {
+        display: none;
+    }
+
+    .search-bar {
+        position: relative;
+        z-index: 3;
+        width: 200px;
+        padding: 2px 5px;
+    }
+
+    .theme-toggler {
+        height: 1.5rem;
+        width: 3.8rem;
+    }
+
+        .theme-toggler span {
+            font: 0.6rem;
+        }
+
+    .user-profle a {
+        font-size: 1rem;
+    }
+
+    /*============== Thẻ Nav ================*/
+    .nav-list li a {
+        font-size: 1rem;
+        
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 0.7rem;
+        margin: 0;
+        list-style: none;
+    }
+        .nav-list .home {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+           
+        }
+    
+
+
+        .nav-list .menu {
+            margin-left: auto;
+            cursor: pointer;
+            display: block;
+            color: #fff;
+        }
+
+        .nav-list .hidden-item{
+            display: none;
+        }
+
+        .nav-list.open {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+            .nav-list.open .hidden-item {
+                display: block;
+            }
+
+
+    .genre-list-nav-mobie {
+        display: none;
+        position: static;
+        width: 100%;
+        background: var(--color-nav);
+        border: none;
+        border-top: 2px solid var(--color-dark);
+    }
+
+        
+        .genre-list-nav-mobie.is-open {
+            display: block;
+        }
+
+    
+    .list-nav-menu-mobie {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 0.5rem 0;
+        list-style: none;
+    }
+
+        .list-nav-menu-mobie li {
+            text-align: start;
+        }
+
+            .list-nav-menu-mobie li a {
+                font-size: 0.95rem;
+                text-decoration: none;
+                color: #fff;
+            }
+
+    
+    .genre-list-nav {
+        display: none;
+    }
+
+    .list-nav-menu {
+        display: none;
+    }
+
+    
+    /*============== Trang chủ ===============*/
+    .home-tag {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0.5rem 0.5rem;
+        margin: 0;
+    }
+
+    .sort span {
+        font-size: 1.3rem;
+    }
+
+    .hot-banner-wrapper {
+        display: flex;
+        padding: 0 0.4rem;
+        
+    }
+    .comic-card-banner {
+        width: 50%;
+        max-width: 100%;
+    }
+
+    .text_list_hot span {
+        font-size: 1.2rem;
+    } 
+
+
+    .list_comic_update {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 0.5rem;
+        gap: 0.9rem;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .text_list_update span{
+        font-size: 1.2rem;
+    }   
+
+    .comic-card {
+        width: 48%;
+        max-width: 100%;
+    }
+
+    
+
+
+
+    /*=============== Trang Details ==========*/
+
+    .details-comic {
+        padding: 0.8rem;
+        margin: 0.5rem;
+    }
+
+    .breadcrumb {
+        font-size: 1rem;
+    }
+
+    .comic-info {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .comic-avatar img {
+        width: 150px;
+        height: auto;
+    }
+
+    .comic-other {
+        width: 100%;
+        text-align: start;
+    }
+
+    .comic-name {
+        font-size: 1.3rem;
+    }
+
+    .list-info li p {
+        justify-content: start;
+        font-size: 0.95rem;
+    }
+
+    .genre-list {
+        text-align: start;
+        
+    }
+
+    .comic-details-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+        .comic-details-menu button {
+            flex: 1 1 calc(50% - 0.8rem);
+            font-size: 0.95rem;
+            padding: 0.8rem 0.2rem;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+            .comic-details-menu button span {
+                font-size: 1.1rem;
+            }
+
+    .comic-description {
+        margin-top: 1.5rem;
+        overflow:hidden;
+    }
+
+        .comic-description h2,
+        .chapter-info-list h2 {
+            font-size: 1.2rem;
+        }
+    
+    .chapter-list {
+        border: none;
+        border: 1px solid var(--color-dark);
+    }
+
+        .chapter-list a.list-group-item {
+            padding: 0.8rem 0.8rem;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ccc;
+            
+        }
+
+    .chapter-time {
+        font-size: 12px;
+    }
+
+
+    /*=========== Acciunt ==========*/
+    .account-container {
+       margin: 0.8rem;
+    }
+
+
+    /*==================== Footer ===================*/
+    .footer-container {
+        flex-direction: column;
+        align-items: start;
+        text-align: start;
+    }
+
+    .footer-section {
+        flex: 1 1 100%;
+    }
+
+        .footer-section.about,
+        .footer-section.contact {
+            margin-top: 1rem;
+        }
+
+    .footer-logo {
+        max-width: 60px;
+    }
+}

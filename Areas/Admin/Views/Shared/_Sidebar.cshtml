@@ -13,51 +13,51 @@
 <div class="sidebar-menu">
     <a href="@Url.Action("Index", "Dashboard", new { area = "Admin" })" class="active">
         <span class="material-icons-sharp">grid_view</span>
-        <h3>@Localizer["Dashboard"]</h3> <!-- Tiếng Hàn cho Dashboard -->
+        <h3>@Localizer["Dashboard"]</h3>
     </a>
     <a href="@Url.Action("Index", "Profile", new { area = "Admin" })">
         <span class="material-icons-sharp">diversity_3</span>
-        <h3>@Localizer["Profile"]</h3> <!-- Tiếng Hàn cho Trang cá nhân -->
+        <h3>@Localizer["Profile"]</h3>
     </a>
     <a href="@Url.Action("Index", "Comic", new { area = "Admin" })">
         <span class="material-icons-sharp">history_edu</span>
-        <h3>@Localizer["ManageComics"]</h3> <!-- Tiếng Hàn cho Quản lý truyện -->
+        <h3>@Localizer["ManageComics"]</h3>
     </a>
     <a href="@Url.Action("Index", "Genre", new { area = "Admin" })">
         <span class="material-icons-sharp">category</span>
-        <h3>@Localizer["ManageGenres"]</h3> <!-- Tiếng Hàn cho Quản lý thể loại -->
+        <h3>@Localizer["ManageGenres"]</h3>
     </a>
     <a href="@Url.Action("Index", "Nation", new { area = "Admin" })">
         <span class="material-icons-sharp">flag</span>
-        <h3>@Localizer["ManageNations"]</h3> <!-- Tiếng Hàn cho Quản lý thể loại -->
+        <h3>@Localizer["ManageNations"]</h3>
     </a>
     <a href="@Url.Action("Index", "TranslationTeam", new { area = "Admin" })">
         <span class="material-icons-sharp">toggle_on</span>
-        <h3>@Localizer["ManageTranslationTeams"]</h3> <!-- Tiếng Hàn cho Quản lý nhóm dịch -->
+        <h3>@Localizer["ManageTranslationTeams"]</h3>
     </a>
     <a href="@Url.Action("Index", "Role", new { area = "Admin" })">
         <span class="material-icons-sharp">verified_user</span>
-        <h3>@Localizer["ManageRoles"]</h3> <!-- Tiếng Hàn cho Quản lý quyền -->
+        <h3>@Localizer["ManageRoles"]</h3>
     </a>
     <a href="@Url.Action("Index", "User", new { area = "Admin" })">
         <span class="material-icons-sharp">group</span>
-        <h3>@Localizer["ManageUsers"]</h3> <!-- Tiếng Hàn cho Quản lý người dùng -->
+        <h3>@Localizer["ManageUsers"]</h3>
     </a>
     <a href="#">
         <span class="material-icons-sharp">comment</span>
-        <h3>@Localizer["ManageComments"]</h3> <!-- Tiếng Hàn cho Quản lý bình luận -->
+        <h3>@Localizer["ManageComments"]</h3>
     </a>
     <a href="@Url.Action("Index", "Frame", new { area = "Admin" })">
-        <span class="material-icons-sharp">crop_free</span>
-        <h3>@Localizer["ManageFrames"]</h3> <!-- Tiếng Hàn cho Quản lý khung -->
+        <span class="material-icons-sharp">view_in_ar</span>
+        <h3>@Localizer["ManageFrames"]</h3>
     </a>
     <a href="@Url.Action("Index", "LevelType", new { area = "Admin" })">
         <span class="material-icons-sharp">insights</span>
-        <h3>@Localizer["ManageLevels"]</h3> <!-- Tiếng Hàn cho Quản lý cấp độ -->
+        <h3>@Localizer["ManageLevels"]</h3>
     </a>
     <a href="@Url.Action("LanguageSettings", "Language", new { area = "Admin" })">
-        <span class="material-icons-sharp">settings</span>
-        <h3>@Localizer["SettingsLanguage"]</h3> <!-- Tiếng Hàn cho Setting Language -->
+        <span class="material-icons-sharp">g_translate</span>
+        <h3>@Localizer["SettingsLanguage"]</h3>
     </a>
 
     <form asp-area="Admin" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">

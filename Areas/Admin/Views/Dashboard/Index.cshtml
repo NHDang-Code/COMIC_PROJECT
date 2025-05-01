@@ -1,4 +1,11 @@
-﻿<div class="dashboard-container mt-3">
+﻿@{
+    int totalComics = (int)ViewData["totalComics"];
+    int totalChapters = (int)ViewData["totalChapters"];
+    int totalViews = (int)ViewData["TotalViews"];
+}
+
+
+<div class="dashboard-container mt-3">
     <h1>Dashboard</h1>
     <div class="dashboard-content">
         <div class="left-section">
@@ -11,41 +18,18 @@
                             <h1 class="text-min">2.500.000.000</h1>
                         </div>
                     </div>
-                    <small class="text-muted">24 giờ qua</small>
-                </div>
-                <!-------------hết doanh thu ----------->
-                <div class="expenses">
-                    <span class="material-icons-sharp">bar_chart</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Tổng tiêu phí</h3>
-                            <h1 class="text-min">1.800.000.000</h1>
-                        </div>
-
-                    </div>
-                    <small class="text-muted">24 giờ qua</small>
-                </div>
-                <!-- Hết tổng chi phí -->
-                <div class="income">
-                    <span class="material-icons-sharp">stacked_line_chart</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Tổng thu nhập</h3>
-                            <h1 class="text-min">5.000.000.000.000</h1>
-                        </div>
-                    </div>
-                    <small class="text-muted">24 giờ qua</small>
-                </div>
-
+                    <small class="text-muted">từ trước đến nay</small>
+                </div>               
+                
                 <div class="comic-total">
                     <span class="material-icons-sharp">history_edu</span>
                     <div class="middle">
                         <div class="left">
                             <h3>Tổng số truyện</h3>
-                            <h1 class="text-min">20</h1>
+                            <h1 class="text-min">@totalComics.ToString("0,#")</h1>
                         </div>
                     </div>
-                    <small class="text-muted">24 giờ qua</small>
+                    <small class="text-muted">từ trước đến nay</small>
                 </div>
 
                 <div class="chapter-total">
@@ -53,24 +37,12 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Tổng số chương</h3>
-                            <h1 class="text-min">5.000</h1>
+                            <h1 class="text-min">@totalChapters.ToString("0,#")</h1>
                         </div>
                     </div>
-                    <small class="text-muted">24 giờ qua</small>
-                </div>
-
-                <div class="favorite-total">
-                    <span class="material-icons-sharp">favorite</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Tổng theo dõi</h3>
-                            <h1 class="text-min">2.000</h1>
-                        </div>
-                    </div>
-                    <small class="text-muted">24 giờ qua</small>
+                    <small class="text-muted">từ trước đến nay</small>
                 </div>
             </div>
-
             <!-- hết  -->
             <div class="chart-container">
                 <h1 class="chart-title">Biểu đồ Thống Kê</h1>

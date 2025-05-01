@@ -51,7 +51,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             var teamComics = user.Members
                 .Where(m => m.TranslationTeam != null && m.TranslationTeam.Comics != null)
                 .SelectMany(m => m.TranslationTeam.Comics)
-                .GroupBy(c => c.ComicId) // Dùng GroupBy để tránh truyện trùng lặp
+                .GroupBy(c => c.ComicId)
                 .Select(g => g.First())
                 .ToList();
 
@@ -62,7 +62,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Details(int? id, string genreSearch, string searchTerm, int page = 1)
+        public async Task<IActionResult> Details(int? id, string searchTerm, int page = 1)
         {
             if (id == null)
             {
@@ -77,7 +77,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            int pageSize = 5; // Số chương trên mỗi trang
+            int pageSize = 5;
             var totalChapters = await _context.Chapters
                 .Where(c => c.ComicId == id && (string.IsNullOrEmpty(searchTerm)))
                 .CountAsync();
@@ -89,13 +89,6 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
                 .Take(pageSize)
                 .ToListAsync();
 
-            // Lấy toàn bộ thể loại của truyện,
-            var comicGenres = await _context.ComicGenres
-                .Where(cg => cg.ComicId == id && (string.IsNullOrEmpty(genreSearch) || cg.Genre.GenreName.Contains(genreSearch)))
-                .Include(cg => cg.Genre)
-                .OrderBy(cg => cg.Genre.GenreName)
-                .ToListAsync(); // Bỏ Skip() và Take()
-
             var pagination = new Paginate(totalChapters, page, pageSize);
 
             ViewData["ComicName"] = comic.ComicName;
@@ -105,13 +98,13 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             {
                 Comic = comic,
                 Chapters = chapters,
-                ComicGenres = comicGenres,
-                Pagination = pagination, // Giữ phân trang cho Chapters
+                Pagination = pagination,
                 ChapterSearchTerm = searchTerm,
             };
 
             return View(viewModel);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> AddComic(int? teamId)

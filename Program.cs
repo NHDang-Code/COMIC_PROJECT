@@ -2,6 +2,7 @@ using K21CNT2_NguyenHaiDang_2110900067_DATN.Data;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
 using System.Globalization;
 
 namespace K21CNT2_NguyenHaiDang_2110900067_DATN
@@ -28,31 +29,33 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN
                 options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectedDb"]);
             });
 
-            builder.Services.AddAuthentication()
-                .AddCookie("AdminScheme", options =>
-                {
-                    options.LoginPath = "/Admin/Account/Login";
-                    options.LogoutPath = "/Admin/Account/Logout";
-                    options.AccessDeniedPath = "/Admin/Account/AccessDenied";
-                    options.Cookie.Name = "AdminAuthCookie";
-                    options.Cookie.HttpOnly = true;
-                    options.Cookie.IsEssential = true;
-                    options.Cookie.SameSite = SameSiteMode.Lax;
-                    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-                    options.SlidingExpiration = true;
-                })
-                .AddCookie("UserScheme", options =>
-                {
-                    options.LoginPath = "/Account/Login";
-                    options.LogoutPath = "/Account/Logout";
-                    options.AccessDeniedPath = "/Account/AccessDenied";
-                    options.Cookie.Name = "UserAuthCookie";
-                    options.Cookie.HttpOnly = true;
-                    options.Cookie.IsEssential = true;
-                    options.Cookie.SameSite = SameSiteMode.Lax;
-                    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-                    options.SlidingExpiration = true;
-                });
+            builder.Services.AddAuthentication(options =>{
+                options.DefaultScheme = "UserScheme";
+            })
+            .AddCookie("AdminScheme", options =>
+            {
+                options.LoginPath = "/Admin/Account/Login";
+                options.LogoutPath = "/Admin/Account/Logout";
+                options.AccessDeniedPath = "/Admin/Account/AccessDenied";
+                options.Cookie.Name = "AdminAuthCookie";
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+                options.SlidingExpiration = true;
+            })
+            .AddCookie("UserScheme", options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.Cookie.Name = "UserAuthCookie";
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+                options.SlidingExpiration = true;
+            });
 
 
             builder.Services.AddAuthorization();
@@ -112,6 +115,24 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN
                 name: "custom_home_index",
                 pattern: "trang-chu",
                 defaults: new { controller = "Home", action = "Index" }
+            );
+
+            app.MapControllerRoute(
+                name: "comic_details",
+                pattern: "trang-chu/{slug}/{id}",
+                defaults: new { controller = "Home", action = "Details" }
+            );
+
+            app.MapControllerRoute(
+                name: "custom_account_login",
+                pattern: "dang-nhap",
+                defaults: new { controller = "Account", action = "Login" }
+            );
+
+            app.MapControllerRoute(
+                name: "custom_account_register",
+                pattern: "dang-ky",
+                defaults: new { controller = "Account", action = "Register" }
             );
 
             //route cho areas/admin

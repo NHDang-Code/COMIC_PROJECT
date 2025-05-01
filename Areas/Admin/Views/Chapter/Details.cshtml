@@ -43,7 +43,7 @@
                         </td>
                         <td class="text-center">
                             <a href="@Url.Action("Edit", "ChapterImage", new { id = item.ImageId })" class="btn btn-warning btn-sm">
-                               @Localizer["Edit"]
+                               @Localizer["View"]
                             </a>
                             <form asp-action="Delete" asp-controller="ChapterImage" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?');">
                                 <input type="hidden" name="id" value="@item.ImageId" />
@@ -57,5 +57,6 @@
             </tbody>
         </table>
     }
+    
 </div>
 

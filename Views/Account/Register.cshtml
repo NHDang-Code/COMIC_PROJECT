@@ -1,0 +1,41 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.ViewModels.UserRegisterViewModel
+
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+}
+
+<div class="account-container">
+    <h2 class="title">Đăng Ký</h2>
+    <form asp-action="Register" method="post" class="account-form">
+        <div class="form-group">
+            <label asp-for="UserName">Tên</label>
+            <input asp-for="UserName" type="text" placeholder="Nhập tên của bạn..." />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="UserEmail">Email</label>
+            <input asp-for="UserEmail" type="text" placeholder="Nhập email của bạn..." />
+            <span asp-validation-for="UserEmail" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password">Mật khẩu</label>
+            <input asp-for="Password" type="password" placeholder="Nhập mật khẩu..." />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ConfirmPassword">Xác Nhận Mật khẩu</label>
+            <input asp-for="ConfirmPassword" type="password" placeholder="Nhập lại mật khẩu..." />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <div class="account-submit">
+            <button type="submit" class="btn-submit">Đăng Ký</button>
+        </div>
+        <div class="text-center mt-4">
+            <p class="text-light">Chưa đã có tài khoản? <a href="@Url.Action("Login", "Account")" class="text-info">Đăng nhập ngay</a></p>
+        </div>
+    </form>
+</div>

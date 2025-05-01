@@ -1,0 +1,28 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.ViewModels.UserLoginViewModel
+
+@{
+    ViewData["Title"] = "Đăng nhập tài khoản";
+}
+
+<div class="account-container">
+    <h2 class="title">Đăng Nhập</h2>
+    <form asp-action="Login" method="post" class="account-form">
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" type="text" placeholder="Nhập email của bạn..." />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Mật khẩu</label>
+            <input asp-for="Password" type="password" placeholder="Nhập mật khẩu..." />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="account-submit">
+            <button type="submit" class="btn-submit">Đăng Nhập</button>
+        </div>
+        <div class="text-center mt-4">
+            <p class="text-light">Chưa có tài khoản? <a href="@Url.Action("Register", "Account")" class="text-info">Đăng ký ngay</a></p>
+        </div>
+    </form>
+</div>

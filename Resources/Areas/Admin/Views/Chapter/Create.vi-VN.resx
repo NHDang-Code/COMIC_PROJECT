@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="ChapterCreate">
+		<value>Tạo Chương Mới</value>
+	</data>
+	<data name="ComicName">
+		<value>Tên Truyện</value>
+	</data>
+	<data name="ChapterNumber">
+		<value>Chương Thứ</value>
+	</data>
+	<data name="ChapterCoin">
+		<value>Loại Chương</value>
+	</data>
+	<data name="Free">
+		<value>Miễn Phí</value>
+	</data>
+	<data name="Toll">
+		<value>Mất Phí</value>
+	</data>
+	<data name="Coin">
+		<value>Xu</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+        <value>Quay Lại</value>
+    </data>
+</root>

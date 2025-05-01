@@ -55,5 +55,23 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
         [NotMapped]
         public int ChapterCount => Chapters?.Count ?? 0;
+
+        [NotMapped]
+        public string TimeAgo
+        {
+            get
+            {
+                var timeSpan = DateTime.Now - CreatedDate;
+
+                if (timeSpan.TotalMinutes < 1)
+                    return "Vừa xong";
+                if (timeSpan.TotalMinutes < 60)
+                    return $"{(int)timeSpan.TotalMinutes} phút trước";
+                if (timeSpan.TotalHours < 24)
+                    return $"{(int)timeSpan.TotalHours} giờ trước";
+                return $"{(int)timeSpan.TotalDays} ngày trước";
+            }
+        }
+
     }
 }

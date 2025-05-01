@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 {
@@ -24,7 +25,26 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
         public bool IsPaid { get; set; }
 
-        // Quan hệ với ChapterImageModel
         public virtual ICollection<ChapterImageModel> ChapterImages { get; set; } = new List<ChapterImageModel>();
+
+        [NotMapped]
+        public string TimeAgo
+        {
+            get
+            {
+                if (!CreatedAt.HasValue)
+                    return "Không xác định";
+
+                var timeSpan = DateTime.Now - CreatedAt.Value;
+
+                if (timeSpan.TotalMinutes < 1)
+                    return "Vừa xong";
+                if (timeSpan.TotalMinutes < 60)
+                    return $"{(int)timeSpan.TotalMinutes} phút trước";
+                if (timeSpan.TotalHours < 24)
+                    return $"{(int)timeSpan.TotalHours} giờ trước";
+                return $"{(int)timeSpan.TotalDays} ngày trước";
+            }
+        }
     }
 }

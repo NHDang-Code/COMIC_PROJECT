@@ -1,0 +1,83 @@
+﻿@using System.Security.Claims
+
+<div class="header-top">
+    <div class="top">
+
+        <div class="logo">
+            <a href="@Url.Action("Index", "Home")">
+                <img src="~/media/icons/logo_dragon_icons.png" alt="">
+            </a>
+            <h2 class="text-muted">Dragon<span class="danger">Comic</span></h2>
+        </div>
+
+        <div class="theme-toggler">
+            <span class="material-icons-sharp active">light_mode</span>
+            <span class="material-icons-sharp">dark_mode</span>
+        </div>        
+
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Tìm Kiếm..." autocomplete="off">
+            <button type="submit" id="search-button">
+                <span class="material-icons-sharp">search</span>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+    </div>
+
+    <div class="user-profle">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="user-avatar-container">
+                <img src="@Url.Content($"/{User.FindFirst("UserImage")?.Value}")" alt="avatar">
+                <span class="material-icons-sharp" onclick="toggleLogoutMenu()">arrow_drop_down</span>
+            </div>
+
+            <div class="user-menu">
+                <ul>
+                    <li>
+                        <a href="">
+                            <h3>Profile</h3>
+                            <span class="material-icons-sharp">group</span>             
+                        </a>
+                    </li>
+                    <li>
+                        <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                            <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();">
+                                <h3>Đăng Xuất</h3>
+                                <span class="material-icons-sharp">logout</span>                     
+                            </a>
+                        </form>
+                    </li>
+                    
+                </ul>
+            </div>          
+        }
+        else
+        {
+            <a href="@Url.Action("Login", "Account")">Đăng Nhập</a>
+        }
+       
+        
+    </div>   
+</div>
+
+<script>
+
+    function toggleLogoutMenu() {
+        const menu = document.querySelector('.user-menu');
+        menu.classList.toggle('active');
+    }
+
+
+    document.addEventListener('click', function (event) {
+        const menu = document.querySelector('.user-menu');
+        const avatarContainer = document.querySelector('.user-avatar-container');
+
+    
+        if (!avatarContainer.contains(event.target) && !menu.contains(event.target)) {
+            menu.classList.remove('active');
+        }
+    });
+
+</script>

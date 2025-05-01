@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Resources\Views\Shared\" />
     <Folder Include="wwwroot\media\comic_image\" />
     <Folder Include="wwwroot\media\frame_image\" />
     <Folder Include="wwwroot\media\chapter_image\" />

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="UserManagement" xml:space="preserve">
+        <value>Quản Lý Người Dùng</value> 
+    </data>
+	<data name="ID" xml:space="preserve">
+        <value>ID</value>
+    </data>
+	<data name="Name" xml:space="preserve">
+        <value>Tên</value>
+    </data>
+	<data name="Coin" xml:space="preserve">
+        <value>Xu</value>
+    </data>
+	<data name="Points" xml:space="preserve">
+        <value>Điểm</value>
+    </data>
+	<data name="Role" xml:space="preserve">
+        <value>Vai trò</value>
+    </data>
+	<data name="Action" xml:space="preserve">
+        <value>Hành động</value>
+    </data>
+	<data name="Search" xml:space="preserve">
+        <value>Tìm Kiếm</value>
+    </data>
+	<data name="AddNew" xml:space="preserve">
+        <value>Thêm mới</value>
+    </data>
+	<data name="Edit" xml:space="preserve">
+        <value>Sửa</value>
+    </data>
+	<data name="Delete" xml:space="preserve">
+        <value>Xóa</value>
+    </data>
+</root>

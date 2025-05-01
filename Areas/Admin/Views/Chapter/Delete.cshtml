@@ -7,7 +7,7 @@
     <h2 class="title">@Localizer["DeleteChapter"]</h2>
     <p class="fs-5">
         @Localizer["Management"] @Model.ChapterNumber @Localizer["ComicName"] <strong class="text-danger">"@Model.Comic.ComicName"</strong> @Localizer["No"]
-    </p
+    </p>
     <form asp-action="Delete" method="post" class="comic-form">
         <input type="hidden" asp-for="ChapterId" />       
         <div class="button-group">

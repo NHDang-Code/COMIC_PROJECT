@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="DeleteComic">
+		<value>새로운 만화 만들기</value>
+	</data>
+	<data name="Management">
+		<value>만화를 삭제하시겠습니까:</value>
+	</data>
+	<data name="ComicName">
+		<value>이야기 제목</value>
+	</data>
+	<data name="No">
+		<value>?</value>
+	</data>
+	<data name="Delete" xml:space="preserve">
+        <value>삭제</value>
+    </data>
+	<data name="Back" xml:space="preserve">
+        <value>돌어가다</value>
+    </data>
+</root>

@@ -7,20 +7,56 @@
     <h2 class="title">@Localizer["ChapterCreate"]</h2>
     <form asp-action="Create" method="post" class="comic-form">
         <input type="hidden" asp-for="ComicId" />
+
         <div class="form-group">
             <label class="form-label">@Localizer["ComicName"]</label>
             <input asp-for="ComicId" type="hidden" value="@ViewBag.ComicId" />
             <input type="text" class="form-control" value="@ViewBag.ComicName" readonly />
             <span asp-validation-for="ComicId" class="text-danger"></span>
         </div>
+
         <div class="form-group">
-            <label asp-for="ChapterNumber" for="comic-name">@Localizer["ChapterNumber"]</label>
-            <input asp-for="ChapterNumber" type="text" value="@ViewData["NextChapterNumber"]" placeholder="Nhập thứ tự chương" readonly>
+            <label asp-for="ChapterNumber">@Localizer["ChapterNumber"]</label>
+            <input asp-for="ChapterNumber" type="text" value="@ViewData["NextChapterNumber"]" class="form-control" readonly placeholder="Nhập thứ tự chương" />
             <span asp-validation-for="ChapterNumber" class="text-danger"></span>
         </div>
+
+        <div class="form-group">
+            <label asp-for="IsPaid">@Localizer["ChapterCoin"]</label>
+            <select asp-for="IsPaid" class="form-control" id="isPaidSelect">
+                <option value="false">@Localizer["Free"]</option>
+                <option value="true">@Localizer["Toll"]</option>
+            </select>
+            <span asp-validation-for="IsPaid" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Coin">@Localizer["Coin"]</label>
+            <input asp-for="Coin" class="form-control" id="coinInput" readonly />
+            <span asp-validation-for="Coin" class="text-danger"></span>
+        </div>
+
         <div class="button-group">
             <button type="submit" class="btn-submit">@Localizer["Create"]</button>
-            <a href="@Url.Action("Details", "Profile", new { id = ViewBag.ComicId})" class="btn-cancel">@Localizer["Back"]</a>
+            <a href="@Url.Action("Details", "Profile", new { id = ViewBag.ComicId })" class="btn-cancel">@Localizer["Back"]</a>
         </div>
     </form>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const isPaidSelect = document.getElementById("isPaidSelect");
+            const coinInput = document.getElementById("coinInput");
+
+            function updateCoin() {
+                coinInput.value = isPaidSelect.value === "true" ? 20 : 0;
+            }
+
+            isPaidSelect.addEventListener("change", updateCoin);
+
+            
+            updateCoin();
+        });
+    </script>
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="ChapterNumber">
+		<value>页:</value>
+	</data>
+	<data name="ComicName">
+		<value>漫画:</value>
+	</data>
+	<data name="AddChapter">
+		<value>更多漫画</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+        <value>返回</value> <!-- Tiếng Hàn cho "Xóa" -->
+    </data>
+	<data name="ChapterImage">
+		<value>图像</value>
+	</data>
+	<data name="View" xml:space="preserve">
+        <value>查看</value> <!-- Tiếng Trung cho "Edit" -->
+    </data>
+	<data name="Delete" xml:space="preserve">
+        <value>删除</value> <!-- Tiếng Trung cho "Delete" -->
+    </data>
+	<data name="Action" xml:space="preserve">
+        <value>操作</value> <!-- Tiếng Trung -->
+    </data>
+</root>

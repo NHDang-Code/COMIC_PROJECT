@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Dashboard" xml:space="preserve">
+      <value>Dashboard</value>
+  </data>
+	<data name="Profile" xml:space="preserve">
+      <value>Trang Cá Nhân</value>
+  </data>
+	<data name="ManageComics" xml:space="preserve">
+      <value>Quản Lý Truyện</value>
+  </data>
+	<data name="ManageGenres" xml:space="preserve">
+      <value>Quản Lý Thể Loại</value>
+  </data>
+	<data name="ManageNations" xml:space="preserve">
+      <value>Quản Lý Quốc Gia</value>
+  </data>
+	<data name="ManageTranslationTeams" xml:space="preserve">
+      <value>Quản Lý Nhóm Dịch</value>
+  </data>
+	<data name="ManageRoles" xml:space="preserve">
+      <value>Quản Lý Quyền</value>
+  </data>
+	<data name="ManageUsers" xml:space="preserve">
+      <value>Quản Lý Người Dùng</value>
+  </data>
+	<data name="ManageComments" xml:space="preserve">
+      <value>Quản Lý Bình Luận</value>
+  </data>
+	<data name="ManageFrames" xml:space="preserve">
+      <value>Quản Lý Khung</value>
+  </data>
+	<data name="ManageLevels" xml:space="preserve">
+      <value>Quản Lý Cấp Độ</value>
+  </data>
+	<data name="SettingsLanguage" xml:space="preserve">
+      <value>Cài Đặt Ngôn Ngữ</value>
+  </data>
+	<data name="Logout" xml:space="preserve">
+      <value>Đăng Xuất</value>
+  </data>
+</root>

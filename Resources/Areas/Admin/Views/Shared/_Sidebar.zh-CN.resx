@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Dashboard" xml:space="preserve">
+        <value>仪表盘</value>
+    </data>
+	<data name="Profile" xml:space="preserve">
+        <value>个人资料</value>
+    </data>
+	<data name="ManageComics" xml:space="preserve">
+        <value>漫画管理</value>
+    </data>
+	<data name="ManageGenres" xml:space="preserve">
+        <value>类别管理</value>
+    </data>
+	<data name="ManageNations" xml:space="preserve">
+        <value>国家管理</value>
+    </data>
+	<data name="ManageTranslationTeams" xml:space="preserve">
+        <value>翻译团队管理</value>
+    </data>
+	<data name="ManageRoles" xml:space="preserve">
+        <value>权限管理</value>
+    </data>
+	<data name="ManageUsers" xml:space="preserve">
+        <value>用户管理</value>
+    </data>
+	<data name="ManageComments" xml:space="preserve">
+        <value>评论管理</value>
+    </data>
+	<data name="ManageFrames" xml:space="preserve">
+        <value>框架管理</value>
+    </data>
+	<data name="ManageLevels" xml:space="preserve">
+        <value>级别管理</value>
+    </data>
+	<data name="SettingsLanguage" xml:space="preserve">
+        <value>语言设置</value>
+    </data>
+	<data name="Logout" xml:space="preserve">
+        <value>登出</value>
+    </data>
+</root>
+
