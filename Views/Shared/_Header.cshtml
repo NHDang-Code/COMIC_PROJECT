@@ -1,4 +1,16 @@
-﻿@using System.Security.Claims
+﻿@using K21CNT2_NguyenHaiDang_2110900067_DATN.Service
+@inject IUserFrameService UserFrameService
+@using System.Security.Claims
+
+
+@{
+    string userImage = User.FindFirst("UserImage")?.Value;
+    int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+    int? currentFrameId = int.TryParse(User.FindFirst("CurrentFrameId")?.Value, out var fid) ? fid : (int?)null;
+
+    string frameImage = await UserFrameService.GetFrameImageByUserIdAsync(userId, currentFrameId);
+}
+
 
 <div class="header-top">
     <div class="top">
@@ -11,9 +23,9 @@
         </div>
 
         <div class="theme-toggler">
-            <span class="material-icons-sharp active">light_mode</span>
-            <span class="material-icons-sharp">dark_mode</span>
-        </div>        
+            <span class="material-icons-sharp">lightbulb</span>
+        </div>
+
 
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Tìm Kiếm..." autocomplete="off">
@@ -29,7 +41,13 @@
         @if (User.Identity.IsAuthenticated)
         {
             <div class="user-avatar-container">
-                <img src="@Url.Content($"/{User.FindFirst("UserImage")?.Value}")" alt="avatar">
+                <div class="avatar-wrapper">
+                    @if (!string.IsNullOrEmpty(frameImage))
+                    {
+                        <img src="@Url.Content(frameImage)" alt="frame" class="frame-img" />
+                    }
+                    <img src="@Url.Content($"/{User.FindFirst("UserImage")?.Value}")" alt="avatar" class="avatar-img" />
+                </div>
                 <span class="material-icons-sharp" onclick="toggleLogoutMenu()">arrow_drop_down</span>
             </div>
 
@@ -62,7 +80,7 @@
     </div>   
 </div>
 
-<script>
+@* <script>
 
     function toggleLogoutMenu() {
         const menu = document.querySelector('.user-menu');
@@ -75,9 +93,11 @@
         const avatarContainer = document.querySelector('.user-avatar-container');
 
     
-        if (!avatarContainer.contains(event.target) && !menu.contains(event.target)) {
-            menu.classList.remove('active');
+        if (menu && avatarContainer) {
+            if (!avatarContainer.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.remove('active');
+            }
         }
     });
 
-</script>
+</script> *@

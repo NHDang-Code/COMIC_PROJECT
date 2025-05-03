@@ -17,10 +17,21 @@
             <h1 class="comic-name">@Model.ComicName</h1>
             <div class="txt">
                 <ul class="list-info">
+                    @if (Model.TranslationTeam != null)
+                    {
+                        <li class="translation row">
+                            <p class="name col-xs-3">
+                                <span class="material-icons-sharp">
+                                    group
+                                </span>
+                                Nhóm Dịch: @Model.TranslationTeam.TeamName
+                            </p>
+                        </li>
+                    }
                     <li class="author row">
                         <p class="name col-xs-3">
                             <span class="material-icons-sharp">
-                                person
+                                face
                             </span>
                             Tác Giả: @Model.ComicAuthor
                         </p>
@@ -38,7 +49,7 @@
                             <span class="material-icons-sharp">
                                 thumb_up
                             </span>
-                            Lượt Thích:
+                            Lượt Thích: @ViewBag.TotalLikes?.ToString("0,#")
                         </p>
                     </li>
                     <li class="row">
@@ -46,7 +57,7 @@
                             <span class="material-icons-sharp">
                                 favorite
                             </span>
-                            Theo Dõi: 
+                            Theo Dõi: @ViewBag.TotalFollows?.ToString("0,#")
                         </p>
                     </li>
                     <li class="row">
@@ -58,44 +69,48 @@
                         </p>
                     </li>
                 </ul>
+                
             </div>
+
             <ul class="genre-list">
                 <li class="genre-info">
                     @foreach (var storyGenre in Model.ComicGenres)
                     {
-                        <a href="@Url.Action("Details", "Genre", new { id = storyGenre.Genre.GenreId })" class="genre-badge">
+                        <a href="@Url.Action("Index", "Genre", new {slug = storyGenre.Genre.Slug, id = storyGenre.Genre.GenreId })" class="genre-badge">
                             @storyGenre.Genre.GenreName
                         </a>
                     }
                 </li>
             </ul>
             <div class="comic-details-menu">
-                <button class="btn btn-success">                      
+                <button class="btn btn-success" onclick="location.href='@Url.Action("ReadFromStart", "Home", new { comicId = Model.ComicId })'">
                     Đọc Từ Đầu
                     <span class="material-icons-sharp">history_edu</span>
                 </button>
-                <button id="follow-btn" class="btn btn-danger">
-                    Theo Dõi
-                    <span class="material-icons-sharp">
-                        favorite
-                    </span>
+                <button id="follow-btn" class="btn @(ViewBag.IsFollowed ? "btn-outline-danger followed" : "btn-danger")" onclick="toggleFollow(@Model.ComicId)">
+                    @(ViewBag.IsFollowed ? "Đã Theo Dõi" : "Theo Dõi")
+                    <span class="material-icons-sharp">favorite</span>
                 </button>
-                <button id="like-btn" class="btn btn-like">
-                    Thích
+
+                <button id="like-btn" class="btn @(ViewBag.IsLiked ? "btn-outline-purple liked" : "btn-purple")" onclick="toggleLike(@Model.ComicId)">
+                    @(ViewBag.IsLiked ? "Đã Thích" : "Yêu Thích")
                     <span class="material-icons-sharp">
                         thumb_up
                     </span>
                 </button>
-                <button class="btn btn-primary">
-                    Đọc Tiếp
-                    <span class="material-icons-sharp">
-                        double_arrow
-                    </span>
-                </button>
-                
+                @if (ViewBag.HasStartedReading)
+                {
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("ContinueReading", "Home", new { comicId = Model.ComicId })'">
+                        Đọc Tiếp
+                        <span class="material-icons-sharp">
+                            double_arrow
+                        </span>
+                    </button>
+                }
             </div>
         </div>
     </div>
+    
     
     <div class="comic-description">
         <h2>
@@ -117,14 +132,189 @@
            Danh sách chương:
         </h2>
         <div class="chapter-list">
-            @foreach(var chapter in Model.Chapters)
+            @foreach (var chapter in Model.Chapters)
             {
-                <a href="@Url.Action("Index", "Chapter", new { id = chapter.ChapterId })" class="list-group-item">
+                <a href="@Url.Action("Index", "Chapter", new {  id = chapter.ChapterId })" class="list-group-item">
                     <span class="chapter-number">Chương: @chapter.ChapterNumber</span>
+                    <div class="chapter-meta">
+                        <span class="chapter-time">@chapter.TimeAgo</span>
 
-                    <span class="chapter-time">@chapter.TimeAgo</span>
+                        
+                        @if (!ViewBag.ChapterFreeStatus[chapter.ChapterId])
+                        {
+                            if (ViewBag.ChapterPurchaseStatus[chapter.ChapterId] == true)
+                            {
+                                <span class="material-icons-sharp">lock_open</span>
+                            }
+                            else
+                            {
+                                <span class="material-icons-sharp">lock</span>
+                            }
+                        }
+                        else
+                        {
+                            
+                            <span class="material-icons-sharp invisible">lock</span>
+                        }
+                    </div>
                 </a>
             }
         </div>
+
+
+
     </div>
+
+    <div class="comment-info-list">
+        <h2>
+            <span class="material-icons-sharp">comment</span>
+            Bình luận (@Model.Comments.Count)
+        </h2>
+        <textarea id="comment-content" class="form-control" data-comic-id="@ViewBag.ComicId" rows="3" placeholder="Bình luận văn minh và lịch sự các bạn nhé ❤️..."></textarea>
+        <button id="submit-comment" class="btn btn-primary mt-2">Gửi</button>
+
+        <div class="comment-list">
+            @foreach (var comment in Model.Comments.Where(c => c.ParentCommentId == null))
+            {
+                <div class="comment parent-comment " id="comment-@comment.CommentId" data-level="1" data-parent-id="">
+                    <div class="comment-header">
+                        <div class="comment-user-image">
+                            @if (comment.User?.CurrentFrame != null)
+                            {
+                                <div class="comment-frame-image">
+                                    <img src="@Url.Content(comment.User.CurrentFrame.FrameImage)" alt="frame image" class="comment-frame-avatar">
+                                </div>
+                            }
+
+                            <img src="/@comment.User?.UserImage" alt="avatar" class="comment-user-avatar" />
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <div class="comment-username">
+                            @if (comment.User !=null)
+                            {
+                                var displayName = ViewBag.UserDisplayNames != null && ViewBag.UserDisplayNames.ContainsKey(comment.User.UserId)
+                                ? ViewBag.UserDisplayNames[comment.User.UserId]
+                                : " ";
+
+                                <p class="user-name-comment">@comment.User.UserName</p>
+                                <p class="display_name" data-points="@comment.User.Points">(@displayName)</p>
+                            }
+                            else
+                            {
+                                @:Người dùng không xác định
+                            }
+                        </div>
+
+                        <div class="comment-info-content">
+                            <p class="comment-content">@comment.Content</p>
+                           
+                        </div>
+
+                        <div class="comment-actions">
+                            <button class="reply-btn" data-comment-id="@comment.CommentId">Trả Lời</button>
+                            @if (comment.Replies != null && comment.Replies.Any())
+                            {
+                                <button class="toggle-replies-btn" data-comment-id="@comment.CommentId">Hiện bình luận</button>
+                            }
+                            <small class="comment-time">@comment.TimeAgo</small>
+                        </div>
+                        <div class="reply-form d-none" id="reply-form-@comment.CommentId">
+                            <textarea class="form-control reply-content" rows="2"></textarea>
+                            <button class="btn btn-primary submit-reply"
+                                    data-parent-id="@comment.CommentId"
+                                    data-replied-user-id="@comment.UserId">
+                                Trả lời
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="replies" id="replies-@comment.CommentId">
+                    @if (comment.Replies != null && comment.Replies.Any())
+                    {
+                        @foreach (var reply in comment.Replies)
+                        {
+                            <div class="comment child-comment" id="comment-@reply.CommentId" data-level="2" data-parent-id="@reply.ParentCommentId">
+                                <div class="comment-header">
+                                    <div class="reply-user-image">
+                                        @if (reply.User?.CurrentFrame != null)
+                                        {
+                                            <div class="reply-frame-image">
+                                                <img src="@Url.Content(reply.User.CurrentFrame.FrameImage)" alt="frame image" class="reply-frame-avatar">
+                                            </div>
+                                        }
+
+                                        <img src="/@reply.User?.UserImage" alt="avatar" class="reply-user-avatar" />
+                                    </div>
+                                </div>
+                                <div class="comment-body">
+                                    <div class="comment-username">
+                                        @if (reply.User != null)
+                                        {
+                                            var displayName = ViewBag.UserDisplayNames != null && ViewBag.UserDisplayNames.ContainsKey(reply.User.UserId)
+                                            ? ViewBag.UserDisplayNames[reply.User.UserId]
+                                            : " ";
+
+                                            <p class="user-name-comment">@reply.User.UserName</p>
+                                            <p class="display_name" data-points="@reply.User.Points">(@displayName)</p>
+                                        }
+                                        else
+                                        {
+                                            @:Người dùng không xác định
+                                        }
+                                    </div>
+                                    <div class="comment-info-content">
+                                        <p class="comment-content">
+                                            @if (reply.RepliedToUserId.HasValue && reply.RepliedToUserId != reply.UserId)
+                                            {
+                                                var repliedUserName = reply.RepliedToUser?.UserName ?? "Người dùng ẩn danh";
+                                                <span class="text-primary">@("@" + repliedUserName)</span>
+                                            }
+                                            @Html.Raw(reply.Content)
+                                        </p>                                        
+                                    </div>
+                                    <div class="comment-actions">
+                                        <button class="reply-btn" data-comment-id="@reply.CommentId">Trả lời</button>
+                                        <small class="comment-time">@reply.TimeAgo</small>
+                                    </div>
+                                    <div class="reply-form d-none" id="reply-form-@reply.CommentId">
+                                        <textarea class="form-control reply-content" rows="2"></textarea>
+                                        <button class="btn btn-primary submit-reply"
+                                                data-parent-id="@reply.CommentId"
+                                                data-replied-user-id="@reply.UserId">
+                                            Trả lời
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+
+            <div class="pagination">
+                @* @if (ViewBag.CurrentPage > 1)
+                {
+                    <a href="@Url.Action("Details", "Home", new { id = ViewBag.ComicId, page = ViewBag.CurrentPage - 1 })" class="prev-page">«</a>
+                } *@
+
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <a href="@Url.Action("Details", "Home", new { id = ViewBag.ComicId, page = i })" class="page-number @((i == ViewBag.CurrentPage) ? "active" : "")">@i</a>
+                }
+
+
+                @* @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                {
+                    <a href="@Url.Action("Details", "Home", new { id = ViewBag.ComicId, page = ViewBag.CurrentPage + 1 })" class="next-page">»</a>
+                } *@
+
+            </div>
+        </div>
+        
+    </div>
+    
 </div>
+

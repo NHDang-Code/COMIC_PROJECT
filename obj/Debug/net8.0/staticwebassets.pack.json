@@ -25,8 +25,24 @@
       "PackagePath": "staticwebassets\\js\\admi_js\\admin.js"
     },
     {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\default_js\\chapter_details.js",
+      "PackagePath": "staticwebassets\\js\\default_js\\chapter_details.js"
+    },
+    {
       "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\default_js\\default.js",
       "PackagePath": "staticwebassets\\js\\default_js\\default.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\default_js\\follow_details.js",
+      "PackagePath": "staticwebassets\\js\\default_js\\follow_details.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\default_js\\header.js",
+      "PackagePath": "staticwebassets\\js\\default_js\\header.js"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\default_js\\like_details.js",
+      "PackagePath": "staticwebassets\\js\\default_js\\like_details.js"
     },
     {
       "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\js\\site.js",
@@ -259,6 +275,10 @@
     {
       "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\3.jpg",
+      "PackagePath": "staticwebassets\\media\\comic_image\\3.jpg"
     },
     {
       "Id": "D:\\ASP\\K21CNT2_NguyenHaiDang_2110900067_DATN\\wwwroot\\media\\comic_image\\ban-chat-cua-chuyen-sinh_1660188109.jpg",

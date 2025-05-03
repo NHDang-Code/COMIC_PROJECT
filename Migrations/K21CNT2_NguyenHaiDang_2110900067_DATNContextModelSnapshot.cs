@@ -150,6 +150,77 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.ToTable("Comics");
                 });
 
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.CommentModel", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
+
+                    b.Property<int>("ComicId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ParentCommentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RepliedToUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("ComicId");
+
+                    b.HasIndex("ParentCommentId");
+
+                    b.HasIndex("RepliedToUserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FavoriteModel", b =>
+                {
+                    b.Property<int>("FavoriteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FavoriteId"));
+
+                    b.Property<DateTime?>("AddedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ComicId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FavoriteId");
+
+                    b.HasIndex("ComicId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FrameModel", b =>
                 {
                     b.Property<int>("FrameId")
@@ -204,6 +275,37 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.ToTable("Genres");
                 });
 
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.HistoryModel", b =>
+                {
+                    b.Property<int>("HistoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HistoryId"));
+
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ComicId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("LastReadAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HistoryId");
+
+                    b.HasIndex("ChapterId");
+
+                    b.HasIndex("ComicId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Histories");
+                });
+
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LevelMappingModel", b =>
                 {
                     b.Property<int>("LevelId")
@@ -248,6 +350,32 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.ToTable("LevelTypes");
                 });
 
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LikeModel", b =>
+                {
+                    b.Property<int>("LikeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LikeId"));
+
+                    b.Property<int>("ComicId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("LikeAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LikeId");
+
+                    b.HasIndex("ComicId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Likes");
+                });
+
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.NationModel", b =>
                 {
                     b.Property<int>("NationId")
@@ -264,6 +392,59 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.HasKey("NationId");
 
                     b.ToTable("Nations");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.PaymentHistoryModel", b =>
+                {
+                    b.Property<int>("PaymentHistoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentHistoryId"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int?>("FrameId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("TeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PaymentHistoryId");
+
+                    b.HasIndex("ChapterId");
+
+                    b.HasIndex("FrameId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PaymentHistories");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.RoleModel", b =>
@@ -482,11 +663,88 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.Navigation("TranslationTeam");
                 });
 
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.CommentModel", b =>
+                {
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel", "Comic")
+                        .WithMany("Comments")
+                        .HasForeignKey("ComicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.CommentModel", "ParentComment")
+                        .WithMany("Replies")
+                        .HasForeignKey("ParentCommentId");
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel", "RepliedToUser")
+                        .WithMany()
+                        .HasForeignKey("RepliedToUserId");
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Comic");
+
+                    b.Navigation("ParentComment");
+
+                    b.Navigation("RepliedToUser");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FavoriteModel", b =>
+                {
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel", "Comic")
+                        .WithMany("Favorites")
+                        .HasForeignKey("ComicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel", "User")
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Comic");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.GenreModel", b =>
                 {
                     b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel", null)
                         .WithMany("AvailableGenres")
                         .HasForeignKey("ComicModelComicId");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.HistoryModel", b =>
+                {
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel", "Chapter")
+                        .WithMany()
+                        .HasForeignKey("ChapterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel", "Comic")
+                        .WithMany("Histories")
+                        .HasForeignKey("ComicId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel", "User")
+                        .WithMany("Histories")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chapter");
+
+                    b.Navigation("Comic");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LevelMappingModel", b =>
@@ -497,6 +755,57 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("LevelType");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.LikeModel", b =>
+                {
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel", "Comic")
+                        .WithMany("Likes")
+                        .HasForeignKey("ComicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel", "User")
+                        .WithMany("Likes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Comic");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.PaymentHistoryModel", b =>
+                {
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel", "Chapter")
+                        .WithMany("PaymentHistories")
+                        .HasForeignKey("ChapterId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FrameModel", "Frame")
+                        .WithMany("PaymentHistories")
+                        .HasForeignKey("FrameId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TranslationTeamModel", "TranslationTeam")
+                        .WithMany("PaymentHistories")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel", "User")
+                        .WithMany("PaymentHistories")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chapter");
+
+                    b.Navigation("Frame");
+
+                    b.Navigation("TranslationTeam");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.TeamMemberModel", b =>
@@ -564,6 +873,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel", b =>
                 {
                     b.Navigation("ChapterImages");
+
+                    b.Navigation("PaymentHistories");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ComicModel", b =>
@@ -573,10 +884,25 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.Navigation("Chapters");
 
                     b.Navigation("ComicGenres");
+
+                    b.Navigation("Comments");
+
+                    b.Navigation("Favorites");
+
+                    b.Navigation("Histories");
+
+                    b.Navigation("Likes");
+                });
+
+            modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.CommentModel", b =>
+                {
+                    b.Navigation("Replies");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.FrameModel", b =>
                 {
+                    b.Navigation("PaymentHistories");
+
                     b.Navigation("UserFrames");
                 });
 
@@ -607,11 +933,23 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Migrations
                     b.Navigation("Comics");
 
                     b.Navigation("Members");
+
+                    b.Navigation("PaymentHistories");
                 });
 
             modelBuilder.Entity("K21CNT2_NguyenHaiDang_2110900067_DATN.Models.UserModel", b =>
                 {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Favorites");
+
+                    b.Navigation("Histories");
+
+                    b.Navigation("Likes");
+
                     b.Navigation("Members");
+
+                    b.Navigation("PaymentHistories");
 
                     b.Navigation("UserFrames");
                 });

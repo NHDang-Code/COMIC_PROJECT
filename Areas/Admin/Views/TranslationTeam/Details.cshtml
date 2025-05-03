@@ -35,6 +35,7 @@
                 <th>Họ Tên</th>
                 <th>Vai Trò</th>
                 <th>Ngày Tham Gia</th>
+                <th>Hàng Động</th>
             </tr>
         </thead>
         <tbody>
@@ -47,9 +48,14 @@
                                  ? "<span class=\"badge bg-success\">Trưởng nhóm👑</span>"
                                  : "<span class=\"badge bg-primary\"> Thành viên👤")
                     </td>
-
-
                     <td>@item.JoinedAt.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <form asp-action="RemoveMember" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa thành viên này?');">
+                            <input type="hidden" name="teamId" value="@Model.TeamId" />
+                            <input type="hidden" name="userId" value="@item.UserId" />
+                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

@@ -21,7 +21,7 @@
                     @foreach (var genre in Model)
                     {
                         <li class="nav-wapper-mobie">
-                            <a href="@Url.Action("Details", "Genre", new { id = genre.GenreId })">
+                            <a href="@Url.Action("Index", "Genre", new {slug = genre.Slug, id = genre.GenreId })">
                                 @genre.GenreName
                             </a>
                         </li>
@@ -43,7 +43,7 @@
             @foreach (var genre in Model)
             {
                 <li class="nav-wapper">
-                    <a href="@Url.Action("Details", "Genre", new { id = genre.GenreId })">
+                    <a href="@Url.Action("Index", "Genre", new {slug = genre.Slug, id = genre.GenreId })">
                         @genre.GenreName
                     </a>
                 </li>

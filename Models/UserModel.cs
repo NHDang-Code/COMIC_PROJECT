@@ -46,5 +46,15 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
         public virtual ICollection<TeamMemberModel> Members { get; set; } = new List<TeamMemberModel>();
 
+        public virtual ICollection<CommentModel> Comments { get; set; } = new List<CommentModel>();
+
+        public virtual ICollection<FavoriteModel> Favorites { get; set; } = new List<FavoriteModel>();
+
+        public virtual ICollection<HistoryModel> Histories { get; set; } = new List<HistoryModel>();
+
+        public virtual ICollection<LikeModel> Likes { get; set; } = new List<LikeModel>();
+
+        public virtual ICollection<PaymentHistoryModel> PaymentHistories { get; set; } = new List<PaymentHistoryModel>();
+
     }
 }

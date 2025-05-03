@@ -27,6 +27,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
         public virtual ICollection<ChapterImageModel> ChapterImages { get; set; } = new List<ChapterImageModel>();
 
+        public virtual ICollection<PaymentHistoryModel> PaymentHistories { get; set; } = new List<PaymentHistoryModel>();
+
         [NotMapped]
         public string TimeAgo
         {

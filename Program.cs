@@ -1,4 +1,5 @@
 using K21CNT2_NguyenHaiDang_2110900067_DATN.Data;
+using K21CNT2_NguyenHaiDang_2110900067_DATN.Service;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -28,6 +29,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN
             {
                 options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectedDb"]);
             });
+
+            builder.Services.AddScoped<IUserFrameService, UserFrameService>();
 
             builder.Services.AddAuthentication(options =>{
                 options.DefaultScheme = "UserScheme";
@@ -119,9 +122,28 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN
 
             app.MapControllerRoute(
                 name: "comic_details",
-                pattern: "trang-chu/{slug}/{id}",
+                pattern: "truyen-tranh/{slug}-{id}",
                 defaults: new { controller = "Home", action = "Details" }
             );
+
+            app.MapControllerRoute(
+                name: "chapter_index",
+                pattern: "truyen-tranh/{id}",
+                defaults: new { controller = "Chapter", action = "Index" }
+            );
+
+            app.MapControllerRoute(
+                name: "genre_index",
+                pattern: "the-loai/{slug}-{id}",
+                defaults: new { controller = "Genre", action = "Index" }
+            );
+
+            app.MapControllerRoute(
+                name: "search_index",
+                pattern: "tim-kiem/{query?}",
+                defaults: new { controller = "Search", action = "Index" }
+            );
+
 
             app.MapControllerRoute(
                 name: "custom_account_login",

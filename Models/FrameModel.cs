@@ -19,5 +19,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
         // Những người dùng sở hữu khung này
         public virtual ICollection<UserFrameModel> UserFrames { get; set; } = new List<UserFrameModel>();
+
+        public virtual ICollection<PaymentHistoryModel> PaymentHistories { get; set; } = new List<PaymentHistoryModel>();
     }
 }

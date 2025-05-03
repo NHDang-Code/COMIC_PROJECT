@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\default_js\comment_details.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\default_js\comment_details.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,6 +32,17 @@
     <Folder Include="wwwroot\media\comic_image\" />
     <Folder Include="wwwroot\media\frame_image\" />
     <Folder Include="wwwroot\media\chapter_image\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\default_js\comment_details.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\_Notification.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

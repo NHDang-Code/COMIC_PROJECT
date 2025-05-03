@@ -34,6 +34,16 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Data
 
         public DbSet<NationModel> Nations { get; set; }
 
+        public DbSet<CommentModel> Comments { get; set; }
+
+        public DbSet<FavoriteModel> Favorites { get; set; }
+
+        public DbSet<HistoryModel> Histories { get; set; }
+
+        public DbSet<LikeModel> Likes { get; set; }
+
+        public DbSet<PaymentHistoryModel> PaymentHistories { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Quan hệ giữa User và Role
@@ -128,6 +138,97 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Data
                 .HasOne(ci => ci.Chapter)
                 .WithMany(c => c.ChapterImages)
                 .HasForeignKey(ci => ci.ChapterId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa User và Comment
+            modelBuilder.Entity<CommentModel>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Comments)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa Comic và Comment
+            modelBuilder.Entity<CommentModel>()
+                .HasOne(c => c.Comic)
+                .WithMany(cm => cm.Comments)
+                .HasForeignKey(c => c.ComicId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa Comment cha và Comment con
+            modelBuilder.Entity<CommentModel>()
+                .HasOne(c => c.ParentComment)
+                .WithMany(c => c.Replies)
+                .HasForeignKey(c => c.ParentCommentId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+            // Quan hệ giữa User và Favorite
+            modelBuilder.Entity<FavoriteModel>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Favorites)
+                .HasForeignKey(f => f.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa Comic và Favorite
+            modelBuilder.Entity<FavoriteModel>()
+                .HasOne(f => f.Comic)
+                .WithMany(c => c.Favorites)
+                .HasForeignKey(f => f.ComicId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa User và History
+            modelBuilder.Entity<HistoryModel>()
+                .HasOne(h => h.User)
+                .WithMany(u => u.Histories)
+                .HasForeignKey(h => h.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<HistoryModel>()
+                .HasOne(h => h.Comic)
+                .WithMany(c => c.Histories)
+                .HasForeignKey(h => h.ComicId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Quan hệ giữa PaymentHistory và User
+            modelBuilder.Entity<PaymentHistoryModel>()
+                .HasOne(p => p.User)
+                .WithMany(u => u.PaymentHistories)
+                .HasForeignKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa PaymentHistory và Chapter
+            modelBuilder.Entity<PaymentHistoryModel>()
+                .HasOne(p => p.Chapter)
+                .WithMany(c => c.PaymentHistories)
+                .HasForeignKey(p => p.ChapterId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Quan hệ giữa PaymentHistory và Frame
+            modelBuilder.Entity<PaymentHistoryModel>()
+                .HasOne(p => p.Frame)
+                .WithMany(f => f.PaymentHistories)
+                .HasForeignKey(p => p.FrameId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //Quan hệ giữa PaymentHistory và TranslationTeam
+            modelBuilder.Entity<PaymentHistoryModel>()
+                .HasOne(p => p.TranslationTeam)
+                .WithMany(f => f.PaymentHistories)
+                .HasForeignKey(p => p.TeamId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Quan hệ giữa User và Likes
+            modelBuilder.Entity<LikeModel>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Likes)
+                .HasForeignKey(f => f.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa Comic và Likes
+            modelBuilder.Entity<LikeModel>()
+                .HasOne(f => f.Comic)
+                .WithMany(c => c.Likes)
+                .HasForeignKey(f => f.ComicId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

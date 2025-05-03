@@ -1,0 +1,54 @@
+﻿@model IEnumerable<K21CNT2_NguyenHaiDang_2110900067_DATN.ViewModels.ComicChapterViewModel>
+
+@{
+
+    ViewData["Title"] = "Kết Quả Tìm Kiếm" ;
+}
+
+<div class="home-tag mt-2">
+    <h1>
+        <div class="text_list_update">
+            <a href="">
+                <span class="material-icons-sharp icons-box">tour</span>
+                <span>Kết Quả Tìm Kiếm</span>
+            </a>
+        </div>
+
+    </h1>
+    <div class="sort">
+        <span class="material-icons-sharp">
+            verified
+        </span>
+    </div>
+</div>
+<div class="list_comic_update">
+    @foreach (var item in Model)
+    {
+        <div class="comic-card">
+            <div class="card">
+                <a href="@Url.Action("Details", "Home", new {slug = item.Comic.Slug, id = item.Comic.ComicId })">
+                    <div class="image-container">
+                        <img src="@Url.Content("~/" + item.Comic.ComicImage)" alt="@item.Comic.ComicName">
+                        <div class="overlay">@item.Comic.TimeAgo</div>
+                    </div>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Comic.ComicName</h5>
+                    <div class="chapter-info">
+                        @if (item.LatestChapter != null)
+                        {
+                            <a href="@Url.Action("Index", "Chapter", new { id = item.LatestChapter.ChapterId })" style="text-decoration: none; font-style: italic;color:#fff">
+                                <span>Chương: @item.LatestChapter.ChapterNumber</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <span>Không có chương</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

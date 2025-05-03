@@ -1,0 +1,165 @@
+﻿@model K21CNT2_NguyenHaiDang_2110900067_DATN.Models.ChapterModel
+
+@{
+    ViewData["Title"] = Model.Comic.ComicName;
+}
+
+
+<div class="chapter-container" data-chapter-id="@Model.ChapterId">
+    <div class="chapter-top">
+        <div class="chapter-header-top">
+            <div class="chapter-breadcrumb">
+                <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+                <a href="@Url.Action("Details", "Home", new { id = Model.Comic.ComicId })">@Model.Comic.ComicName</a>
+                <span class="chapter-info-number">Chương @Model.ChapterNumber</span>
+            </div>
+            <div class="chapter-header">
+                <h2 class="chapter-comic-name">
+                    <a href="@Url.Action("Details", "Home", new { id = Model.Comic.ComicId })">
+                        @Model.Comic.ComicName
+                    </a>
+                </h2>
+                <h2 class="chapter-comic-name">Chương: @Model.ChapterNumber</h2>
+                <small class="chapter-timeago">(Cập Nhật: @Model.TimeAgo)</small>
+            </div>
+            <div class="chapter-instruct-box">
+                <p class="instruct-box">
+                    <span class="material-icons-sharp">
+                        info
+                    </span>
+                    Sử dụng mũi tên trái (←) hoặc phải (→) để chuyển chương
+                </p>
+            </div>
+
+            <div class="chapter-navigations">
+                @if (ViewBag.PreviousChapter != null)
+                {
+                    <a class="btn btn-success" href="@Url.Action("Index", "Chapter", new { id = ViewBag.PreviousChapter.ChapterId })">
+                        « Chap trước
+                    </a>
+                }
+
+                @if (ViewBag.NextChapter != null)
+                {
+                    <a class="btn btn-success" href="@Url.Action("Index", "Chapter", new { id = ViewBag.NextChapter.ChapterId })">
+                        Chap sau »
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="chapter-body">
+
+        @if (ViewBag.RequirePayment != null && ViewBag.RequirePayment == true)
+        {
+            <div class="purchase-container">
+                <h2 class="purchase-vip">🔥 Chương VIP 🔥</h2>
+                <p class="purchase-title">Đây là chương VIP, bạn cần <strong>@Model.Coin?.ToString("0,#") Xu</strong> để mở khóa.</p>
+                <form method="post" action="@Url.Action("PurchaseChapter", "Chapter")">
+                    <input type="hidden" name="id" value="@Model.ChapterId" />
+                    <button type="submit" class="btn btn-danger">Mua Chương Ngay</button>
+                </form>
+            </div>
+        }
+
+
+        else
+        {
+            <div class="chapter-content">
+                @if (ViewBag.ImageUrls != null && ViewBag.ImageUrls.Count > 0)
+                {
+                    <div class="chapter-images">
+                        @foreach (var imageUrl in ViewBag.ImageUrls)
+                        {
+                            <div class="chapter-image-container">
+                                <img src="@Url.Content(imageUrl)" alt="Chapter Image" class="chapter-image" />
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="no-images">Không có hình ảnh nào cho chương này.</p>
+                }
+            </div>
+        }    
+        
+
+        <div class="chapter-menu">
+            <a class="btn-nav-home" href="@Url.Action("Index", "Home", new { id = Model.Comic.ComicId })">
+                <span class="material-icons-sharp">
+                    home
+                </span>
+            </a>
+
+            @if (ViewBag.PreviousChapter != null)
+            {
+                <a class="btn-nav" href="@Url.Action("Index", "Chapter", new { id = ViewBag.PreviousChapter.ChapterId })">
+                    <span class="material-icons-sharp">
+                        chevron_left
+                    </span>
+                </a>
+            }
+
+            <div class="chapter-dropdown">
+                <button class="btn-chapter-list" onclick="toggleChapterList()">Chương: @Model.ChapterNumber <span class="material-icons-sharp">arrow_drop_down</span> </button>
+                <div id="chapter-list" class="chapter-list-wapper">
+                    <input type="text" id="searchChapter" placeholder="Tìm chương..." onkeyup="filterChapters()">
+                    <ul id="chapterUl">
+                        @if (ViewBag.Chapters != null && ViewBag.Chapters.Count > 0)
+                        {
+                            @foreach (var chapter in ViewBag.Chapters)
+                            {
+                                <li style="border-bottom: 1px solid #ddd;padding: 5px">
+                                    <a href="@Url.Action("Index", "Chapter", new { id = chapter.ChapterId })" style="text-decoration: none; color: black;">
+                                        Chương @chapter.ChapterNumber
+                                    </a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="no-chapter">Không có chương nào.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+
+            @if (ViewBag.NextChapter != null)
+            {
+                <a class="btn-nav" href="@Url.Action("Index", "Chapter", new { id = ViewBag.NextChapter.ChapterId })">
+                    <span class="material-icons-sharp">
+                        chevron_right
+                    </span>
+                </a>
+            }
+        </div>
+    </div>
+    <div class="settings-menu">
+        <button class="btn settings-btn" onclick="toggleSettingsMenu()">
+            <span class="material-icons-sharp">
+                settings
+            </span>
+        </button>
+        <div id="settings-dropdown" type="button" class="settings-dropdown">
+            <a href="#" class="settings-item backtop-btn" id="backToTop">
+                <span class="material-icons-sharp">
+                    keyboard_arrow_up
+                </span>
+            </a>
+            <a href="#" class="settings-item error-btn">
+                <span class="material-icons-sharp">
+                    report_problem
+                </span>
+            </a>
+            <a href="@Url.Action("Details", "Home", new { id = Model.Comic.ComicId })" class="settings-item home-btn">
+                <span class="material-icons-sharp">
+                    style
+                </span>
+            </a>
+        </div>
+
+    </div>
+</div>
+

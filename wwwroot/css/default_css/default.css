@@ -145,13 +145,29 @@ b {
     color: var(--color-secondary);
 }
 
-.btn-like {
+.btn-purple {
     color: #fff;
-    background: var(--color-secondary);
+    background-color: #6f42c1;
 }
-    .btn-like:hover {
+
+    .btn-purple:hover {
+        background-color: #5936a2;
         color: #fff;
     }
+
+
+.btn-outline-purple {
+    color: #6f42c1;
+    background-color: transparent;
+    border: 1px solid #6f42c1;
+}
+
+    .btn-outline-purple:hover {
+        background-color: #6f42c1;
+        color: #fff;
+    }
+
+
 
 html {
     font-size: 14px;
@@ -295,28 +311,33 @@ body {
 .theme-toggler {
     background: var(--color-light);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 1.5rem;
-    width: 4.2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     cursor: pointer;
-    border-radius: var(--border-radius-2);
+    border-radius: 50%;
+    transition: background 0.2s;
+
 }
 
     .theme-toggler span {
-        font-size: 1rem;
-        width: 50%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        font-size: 1.3rem;
+        color: var(--color-dark);
+        transition: color 0.3s ease;
     }
 
-        .theme-toggler span.active {
-            background: var(--color-primary);
-            color: white;
-            border-radius: var(--border-radius-2);
-        }
+
+body.dark-theme-variables .theme-toggler {
+    background: var(--color-dark);
+    
+}
+
+    body.dark-theme-variables .theme-toggler span {
+        color: var(--color-white);
+
+    }
+
 
 
 
@@ -324,7 +345,7 @@ body {
 .user-profle a{
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
 
 }
     .user-profle a:hover {
@@ -347,16 +368,38 @@ body {
     cursor: pointer;
 }
 
-    .user-avatar-container img {
-        width: 35px;
-        height: 35px;
+.avatar-wrapper {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+    .avatar-wrapper .avatar-img {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        margin-right: 0.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
     }
+
+    .avatar-wrapper .frame-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        pointer-events: none;
+    }
+
     .user-avatar-container .material-icons-sharp {
         font-size: 1.5rem;
         color: var(--color-dark);
-        transition: transform 1s ease;
+        transition: transform 0.5s ease;
     }
 
 .user-avatar-container:hover .material-icons-sharp {
@@ -573,6 +616,7 @@ body {
 }
 /*============================= Trang chủ(Hiển thị truyện) ===============================*/
 #main {
+    min-height: 50vh;
     width: 100%;
     background: var(--color-white);
 }
@@ -957,7 +1001,7 @@ body {
     max-width: 1200px;
     margin: 1.2rem auto;
     padding: 1rem;
-    border-radius: var(--border-radius-2);
+    border-radius: var(--border-radius-1);
     background: var(--color-background);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -965,6 +1009,9 @@ body {
 .breadcrumb {
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
+    display:flex;
+    align-items: center;
+    gap: 0.8rem;
     color: var(--color-dark);
 }
 
@@ -972,7 +1019,7 @@ body {
         color: var(--color-dark);
         text-decoration: none;
         margin-right: 5px;
-        font-weight: 600;
+        font-weight: 500;;
 
     }
 
@@ -988,6 +1035,7 @@ body {
 .comic-info {
     display: flex;
     gap: 3rem;
+    margin-top: 1.5rem;
 }
 
 .comic-avatar img {
@@ -1003,8 +1051,8 @@ body {
 }
 
 .comic-name {
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -1043,11 +1091,13 @@ body {
     color: #fff;
     margin-bottom: 0.5rem;
     text-decoration: none;
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.genre-badge:hover {
-    color: #fff;
-}
+    .genre-badge:hover {
+        color: #fff;
+        filter: brightness(0.8);
+    }
 
 .comic-details-menu {
     display: flex;
@@ -1066,25 +1116,34 @@ body {
         font-size: 1rem;
     }
 
+
+
+
+
 .comic-description {
     margin-top: 2.2rem;
 }
 
     .comic-description h2 {
-        font-size: 20px;
+        font-size: 1.3rem;
         display:flex;
         gap: 0.4rem;
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: 1rem;;
     }
 
-.comic-content p{
-    font-size: 1rem;
-    color: var(--color-dark);
-}
+    .comic-description h2 span {
+        font-size: 1.3rem;
+    }
+
+    .comic-content p {
+        font-size: 0.9rem;
+        color: var(--color-dark);
+        margin: 1rem;
+    }
 
 .chapter-info-list {
-    margin-top: 2.2rem;
+    margin-top: 1.5rem;
 }
 
     .chapter-info-list h2 {
@@ -1122,27 +1181,635 @@ body {
         
     }
 
-    
+.chapter-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.material-icons-sharp.invisible {
+    visibility: hidden;
+}
 
 .chapter-number {
     font-size: 1rem;
     color: var(--color-dark);
     font-weight: 500;
+    font-style: italic;
 }
 
 .chapter-time {
     font-size: 1rem;
     color: var(--color-dark);
+    font-style: italic;
+}
+
+
+.comment-info-list {
+    margin-top: 1.5rem;
+    
+    
+}
+
+    .comment-info-list h2 {
+        display:flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .comment-info-list h2 span {
+        font-size: 1.3rem;
+    }
+
+.comment-list {
+    margin-top: 1.5rem;
+}
+
+.comment {
+    padding: 1rem;
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+
+}
+
+
+.comment-user-image {
+    position: relative;
+    display: inline-block;
+}
+
+.comment-frame-image {
+    position: absolute;
+    z-index: 2;
+    width: 3.5rem;
+    height: 3.5rem;
+    top: -0.6rem;
+    left: -0.5rem;
+}
+
+.comment-user-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.comment-body {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    background: var(--color-white);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.comment-username {
+    border-bottom: 1px solid #ff6a00;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 1rem;
+    
+}
+
+.user-name-comment {
+    font-size: 1rem;
+    color: var(--color-dark);
+    line-height: 1;
+    margin: 0;
+}
+
+.display_name {
+    background-size: auto;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    opacity: 0.9;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 600;
 }
 
 
 
-/*======================== Account ================================*/
+.comment-content {
+    font-size: 1rem;
+    padding: 0.3rem 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+   
+}
 
+.comment-time {
+    font-size: 0.7rem;
+    font-style: italic;
+    margin-left: 0.5rem;
+}
+
+.comment-actions {
+    margin-top: 0.5rem;
+    margin-left: 0.8rem;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.reply-form {
+    margin: 0 0.5rem;
+}
+
+.reply-btn {
+    color: var(--color-primary);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.toggle-replies-btn {
+    color: var(--color-primary);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.submit-reply {
+    margin-top: 0.5rem;
+}
+
+.reply-content {
+    margin-top: 0.5rem;
+}
+
+
+.replies {
+    padding-left: 3.5rem;
+    
+}
+
+
+
+.reply-user-image {
+    position: relative;
+    display: inline-block;
+}
+
+.reply-frame-image {
+    position: absolute;
+    z-index: 2;
+    width: 3.5rem;
+    height: 3.5rem;
+    top: -0.6rem;
+    left: -0.5rem;
+}
+
+.reply-user-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+/*========================= Chapter_Index ==========================*/
+
+.chapter-container {
+    background: var(--color-white);
+    width: 100%;
+    height: 100%;
+}
+
+.chapter-top {
+    max-width: 1200px;
+    margin: 1.2rem auto;
+    background: var(--color-background);
+    border-radius: var(--border-radius-1);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding: 1rem;
+}
+
+.chapter-breadcrumb {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+    .chapter-breadcrumb a {
+
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--color-dark);
+    }
+        .chapter-breadcrumb a:hover {
+            color: var(--color-dark);
+        }
+
+        .chapter-breadcrumb a::after {
+            content: "/";
+            margin-left: 5px;
+        }
+
+        .chapter-breadcrumb a:last-child::after {
+            content: "";
+        }
+
+.chapter-info-number {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.chapter-header {
+    color: var(--color-dark);
+    display: flex;
+    gap: 0.3rem;
+}
+    .chapter-header a {
+        text-decoration: none;
+        font-weight: 600;
+        color: var(--color-dark);
+    }
+        .chapter-header a:hover {
+            color: var(--color-dark);
+        }
+
+.chapter-comic-name {
+    font-size: 1.3rem;
+}
+
+.chapter-header .chapter-comic-name:first-of-type::after {
+    content: "-";
+}
+
+.chapter-header .chapter-comic-name:not(:first-of-type)::after {
+    content: "";
+}
+
+.chapter-timeago {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.chapter-instruct-box {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    background-color: rgba(0, 123, 255, 0.2);
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 1.5rem;
+}
+
+.instruct-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1;
+    font-size: 1rem;
+    margin: 0;
+}
+    .instruct-box span {
+        font-size: 1.5rem;
+    }
+
+.chapter-navigations {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.chapter-body {
+    max-width: 800px;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.chapter-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.chapter-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.chapter-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.no-images {
+    text-align: center;
+    color: var(--color-dark);
+    font-style: italic;
+}
+
+.purchase-container {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8d7da;
+    
+}
+.purchase-vip {
+    color: #721c24;
+}
+
+.purchase-title {
+    color: black;
+}
+
+.chapter-menu {
+    background: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    padding: 1rem;
+}
+
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #495057;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+    .btn-nav span {
+        color: #fff;
+        font-size: 22px;
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .btn-nav:hover {
+        background-color: #495057;
+        transform: scale(1.1);
+    }
+
+
+      
+        .btn-nav:hover span {
+            transform: translateX(-3px);
+        }
+
+    
+    .btn-nav:last-child:hover span {
+        color: !important;
+        transform: translateX(3px);
+    }
+
+.btn-nav-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #495057;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+    .btn-nav-home:hover {
+        background-color: #495057;
+        transform: scale(1.1);
+    }
+    .btn-nav-home span {
+        color: #fff;
+    }
+
+
+.chapter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.chapter-list-wapper {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    transform: translateY(-5px);
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-height: 250px;
+    overflow-y: auto;
+    width: 200px;
+    z-index: 3;
+}
+
+    .chapter-list-wapper.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+
+    .chapter-list-wapper::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .chapter-list-wapper::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 4px;
+    }
+
+        .chapter-list-wapper::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+#searchChapter {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-chapter-list {
+    color: black;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 200px;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+    .btn-chapter-list span {
+        font-size: 1.2rem;
+        color: black;
+    }
+
+
+.settings-menu {
+    position: fixed;
+    bottom: 6rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    z-index: 3;
+}
+
+.settings-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #212529;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+    .settings-btn:hover {
+        transform: scale(1.1);
+        background-color: #218838;
+    }
+
+.settings-dropdown {
+    position: relative;
+    width: 100px;
+    height: 50px;
+}
+
+.settings-menu span {
+    color: #fff;
+}
+
+.settings-btn {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+    .settings-btn:hover {
+        transform: scale(1.1);
+        background-color: #b1a9a9;
+    }
+
+.settings-dropdown {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+    
+    .settings-dropdown.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+
+.settings-item {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+
+.backtop-btn {
+    top: 20px;
+    left: -110px;
+}
+
+.error-btn {
+    top: -30px;
+    left: -85px;
+}
+
+.home-btn {
+    top: -45px;
+    left: -30px;
+}
+
+
+
+
+/* Hiệu ứng khi menu mở */
+.settings-dropdown.active .settings-item {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Hiệu ứng khi menu đóng */
+.settings-dropdown:not(.active) .settings-item {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+}
+/*======================== Account ================================*/
 .account-container {
     background: var(--color-background);
     padding: 20px;
-    border-radius: var(--border-radius-2);
+    border-radius: var(--border-radius-1);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     max-width: 550px;
     margin: auto;
@@ -1198,6 +1865,49 @@ body {
     .btn-submit:hover {
         background-color: #0056b3;
     }
+
+/*============== phân trang cho bình luận tại details ==============*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+
+}
+
+    .pagination a {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        color: black;
+        background-color: #ddd;
+        transition: none;
+        cursor: pointer;
+        
+    }
+
+
+    .pagination .active {
+        background-color: #666;
+        color: black;
+        cursor: default;
+
+    }
+
+    
+    /*.pagination .prev-page,
+    .pagination .next-page {
+        background-color: #e9ecef;
+        color: black;
+    }*/
+
+       
 
 
 /*=========================== MEDIA =============================*/
@@ -1266,12 +1976,12 @@ body {
     }
 
     .theme-toggler {
-        height: 1.5rem;
-        width: 3.8rem;
+        height: 2rem;
+        width: 2rem;
     }
 
         .theme-toggler span {
-            font: 0.6rem;
+            font-size: 1rem;
         }
 
     .user-profle a {
@@ -1336,6 +2046,7 @@ body {
         
         .genre-list-nav-mobie.is-open {
             display: block;
+
         }
 
     
@@ -1423,11 +2134,17 @@ body {
     .details-comic {
         padding: 0.8rem;
         margin: 0.5rem;
+        box-sizing: border-box;
     }
 
     .breadcrumb {
         font-size: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
     }
+
 
     .comic-info {
         flex-direction: column;
@@ -1460,35 +2177,48 @@ body {
     }
 
     .comic-details-menu {
+        display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        gap: 0.8rem;
+        
     }
 
         .comic-details-menu button {
-            flex: 1 1 calc(50% - 0.8rem);
+            flex: 1 1 calc(50% - 0.4rem);
             font-size: 0.95rem;
             padding: 0.8rem 0.2rem;
-            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.3rem;
         }
 
+            .comic-details-menu button:nth-child(3) {
+                flex: 0 0 calc(50% - 0.4rem);
+                max-width: 50%;
+                margin: 0 auto;
+            }
+
             .comic-details-menu button span {
                 font-size: 1.1rem;
             }
 
+    
+
     .comic-description {
         margin-top: 1.5rem;
-        overflow:hidden;
+        overflow: hidden;
     }
 
         .comic-description h2,
         .chapter-info-list h2 {
             font-size: 1.2rem;
         }
-    
+
+    .comic-content p {
+        margin: 0.5rem;
+    }
+
     .chapter-list {
         border: none;
         border: 1px solid var(--color-dark);
@@ -1505,10 +2235,66 @@ body {
         font-size: 12px;
     }
 
+    /*=================== Chaper_Index ==============*/
+    .chapter-top {
+        margin: 0.5rem 0;
+        padding: 0.8rem;
+        border-radius: 0;
+    }
+    .chapter-header-top {
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+    }
 
-    /*=========== Acciunt ==========*/
+
+
+    .chapter-breadcrumb {
+        display: inline;
+        gap: 0.4rem;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .chapter-info-number {
+        font-size: 0.9rem;
+    }
+
+    .chapter-header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+        padding: 0 1rem;
+    }
+
+    .chapter-comic-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0.2rem 0;
+        line-height: 1.4;
+    }
+
+    .chapter-timeago {
+        font-size: 0.9rem;
+    }
+
+    .instruct-box {
+        font-size: 0.8rem;
+    }
+
+    .chapter-content {
+        max-width: 100%;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    
+    
+    
+    /*=========== Account ==========*/
     .account-container {
-       margin: 0.8rem;
+        margin: 0.8rem;
     }
 
 

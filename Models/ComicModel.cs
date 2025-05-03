@@ -18,7 +18,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
         [StringLength(255, ErrorMessage = "Tên tác giả không được vượt quá 255 ký tự.")]
         public string ComicAuthor { get; set; }
 
-        public string? ComicImage { get; set; } = "media/item_image/default_comic.png"; // URL ảnh truyện hoặc file ảnh
+        public string? ComicImage { get; set; } = "media/item_image/default_comic.png";
 
         [Required(ErrorMessage = "Hãy nhập mô tả truyện.")]
         [StringLength(5000, ErrorMessage = "Mô tả không được vượt quá 5000 ký tự.")]
@@ -26,7 +26,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
 
         [Range(0, int.MaxValue, ErrorMessage = "Lượt xem không thể âm.")]
-        public int Views { get; set; } = 0; // Bắt đầu bằng 0
+        public int Views { get; set; } = 0;
 
 
         [DataType(DataType.Date)]
@@ -37,7 +37,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
         [StringLength(50)]
         public string Status { get; set; } = "Đang tiến hành";
 
-        public int? TeamId { get; set; } // Nhóm dịch sở hữu
+        public int? TeamId { get; set; }
         public virtual TranslationTeamModel? TranslationTeam { get; set; }
 
         public int? NationId {  get; set; }
@@ -53,8 +53,19 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
         public virtual ICollection<ChapterModel> Chapters { get; set; } = new List<ChapterModel>();
 
+        public virtual ICollection<CommentModel> Comments { get; set; } = new List<CommentModel>();
+
+        public virtual ICollection<FavoriteModel> Favorites { get; set; } = new List<FavoriteModel>();
+
+        public virtual ICollection<HistoryModel> Histories { get; set; } = new List<HistoryModel>();
+
+        public virtual ICollection<LikeModel> Likes { get; set; } = new List<LikeModel>();
+
         [NotMapped]
         public int ChapterCount => Chapters?.Count ?? 0;
+
+        [NotMapped]
+        public int CommentCount => Comments?.Count ?? 0;
 
         [NotMapped]
         public string TimeAgo

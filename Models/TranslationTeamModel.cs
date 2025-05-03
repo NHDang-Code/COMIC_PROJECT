@@ -25,6 +25,8 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Models
 
         public virtual ICollection<ComicModel> Comics { get; set; } = new List<ComicModel>();
 
+        public virtual ICollection<PaymentHistoryModel> PaymentHistories { get; set; } = new List<PaymentHistoryModel>();
+
         [NotMapped]
         public int MemberCount => Members?.Count ?? 0;
     }

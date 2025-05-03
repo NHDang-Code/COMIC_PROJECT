@@ -34,7 +34,7 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             }
 
 
-            int totalItems = await query.CountAsync(); // Đếm tổng sau khi lọc
+            int totalItems = await query.CountAsync();
 
             // Tính toán phân trang
             var paginate = new Paginate(totalItems, page, pageSize);
@@ -320,7 +320,25 @@ namespace K21CNT2_NguyenHaiDang_2110900067_DATN.Areas.Admin.Controllers
             return View(model);
         }
 
-        
+        [HttpPost]
+        public async Task<IActionResult> RemoveMember(int teamId, int userId)
+        {
+            var member = await _context.TeamMembers
+                .FirstOrDefaultAsync(m => m.TeamId == teamId && m.UserId == userId);
+
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            _context.TeamMembers.Remove(member);
+            await _context.SaveChangesAsync();
+
+            TempData["success"] = "Đã xóa thành viên khỏi nhóm dịch!";
+            return RedirectToAction("Details", new { id = teamId });
+        }
+
+
 
 
 
